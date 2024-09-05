@@ -42,7 +42,7 @@ function CourseList() {
     <div className='p-5 bg-white rounded-[4px] mt-3'>
       {/* Show filter and title */}
       <div className='flex items-center justify-between'>
-        <h2 className='text-[24px] font-bold text-primary'>All courses</h2>
+        <h2 className='text-[24px] font-bold text-primary'>Tous les cours</h2>
         <Select>
           <SelectTrigger className="w-[180px] rounded-[4px]">
             <SelectValue placeholder="Filter" />
@@ -56,7 +56,7 @@ function CourseList() {
       </div>
 
       {/* Display courses */}
-      <div className='grid grid-cols-2 lg:grid-cols-3 gap-4'>
+      <div className='grid grid-cols-2 lg:grid-cols-3 gap-6 mt-5'>
         {error && <p className="text-red-500">{error}</p>}
         {courseList.length > 0 ? (
           courseList.map((item, index) => (

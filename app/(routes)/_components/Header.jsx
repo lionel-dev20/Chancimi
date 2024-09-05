@@ -23,7 +23,7 @@ const Header = () => {
             isLoaded&&user ?<UserButton afterSignOutUrl='/courses' /> :
          
           <Link href={'/sign-in'}>
-          <Button className="rounded-[4px]">Get started</Button>
+          <Button className="rounded-[4px]">Acceder aux cours</Button>
           </Link> }
 
         </div>

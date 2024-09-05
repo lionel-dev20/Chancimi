@@ -21,38 +21,38 @@ const SideNav = () => {
 
     {
       id:1,
-      name: 'All Courses',
+      name: 'Les cours',
       icon: BookOpen,
       path : '/courses',
       auth: true
     },
     {
       id:2,
-      name: 'Membership',
+      name: 'Membres',
       icon: BadgeIcon,
       path: '/menbership',
       auth: true
     },
     {
       id:3,
-      name: 'Be Instructor',
+      name: 'Devenir Instructeur',
       icon: GraduationCap,
       path: "/beinstructor",
       auth: true
     },
-    {
-      id:4,
-      name: 'Newsletter',
-      icon: Mail,
-      path: '/newsletter'
-    },
-    {
-      id:5,
-      name: 'Store',
-      icon: LayoutGrid,
-      path: '/store',
-      auth: true
-    }
+    // {
+    //   id:4,
+    //   name: 'Newsletter',
+    //   icon: Mail,
+    //   path: '/newsletter'
+    // },
+    // {
+    //   id:5,
+    //   name: 'Store',
+    //   icon: LayoutGrid,
+    //   path: '/store',
+    //   auth: true
+    // }
   ]
 
   const path = usePathname();

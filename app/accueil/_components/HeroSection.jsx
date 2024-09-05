@@ -4,7 +4,7 @@ import React from 'react';
 
 function HeroSection() {
   return (
-    <section className="relative bg-[url('https://www.freepik.com/free-photo/close-up-woman-posing-out-window_10298689.htm#fromView=search&page=1&position=0&uuid=ba53e830-3b02-4d44-8574-5e23de28ffb3')] bg-cover bg-center bg-no-repeat">
+    <section className="relative bg-[url(https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)] bg-cover bg-center bg-no-repeat">
       {/* Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-75"></div>
 
@@ -28,7 +28,7 @@ function HeroSection() {
               className="flex items-center gap-2 rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
             >
               <Book />
-              Commencer mon permis
+              Consultez les cours
             </Link>
 
             <Link
