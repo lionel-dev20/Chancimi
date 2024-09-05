@@ -27,7 +27,7 @@ function FormRegister() {
 
       // Attendre 2 à 3 secondes avant la redirection
       setTimeout(() => {
-        router.push('https://me.lygosapp.com/HTtu5TNx'); // Redirige vers le lien désiré
+        router.push('https://me.lygosapp.com/bvRx6FHV'); // Redirige vers le lien désiré
       }, 2000); // 3000 millisecondes = 3 secondes
 
     } else {
