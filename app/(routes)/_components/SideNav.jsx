@@ -28,9 +28,9 @@ const SideNav = () => {
     },
     {
       id:2,
-      name: 'Membres',
+      name: 'Séances pratique',
       icon: BadgeIcon,
-      path: '/menbership',
+      path: '/booking-car',
       auth: true
     },
     {
