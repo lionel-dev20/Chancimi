@@ -2,18 +2,19 @@
 
 import { Button } from '@/components/ui/button'
 import { UserButton, useUser } from '@clerk/nextjs'
-import { BellDot, Search } from 'lucide-react'
+import { BellDot, Menu, Search } from 'lucide-react'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 
 const Header = () => {
   const {user,isLoaded} = useUser();
   return (
     <div className='p-4 bg-white flex justify-between'>
       {/* Search bar */}
-        <div className='flex gap-2 border p-2 rounded-[4px]'>
+      <Menu className='mt-2 text-gray-500 sm:hidden'/>
+        <div className='gap-2 border p-2 rounded-[4px] max-w-44 sm:flex hidden'>
             <Search  className=' text-gray-500'/>
-            <input type="text" placeholder="Search your courses..." className='outline-none' />
+            <input type="text" placeholder="Quelque cours recherchez-vous ?" className='outline-none' />
         </div>
 
         {/* Get start button  */}

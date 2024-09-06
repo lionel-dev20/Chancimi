@@ -10,10 +10,10 @@ function layout({children}) {
         </div>
 
         {/* header section */}
-        <div className='ml-64'>
+        <div className='sm:ml-64'>
           <Header/>
         </div>
-        <div className='ml-64'>
+        <div className='sm:ml-64'>
         {children}
         </div>
     </div>

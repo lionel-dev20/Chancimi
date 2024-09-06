@@ -55,11 +55,12 @@ const SideNav = () => {
     // }
   ]
 
+
   const path = usePathname();
   useEffect(()=>{
   },[]);
   return (
-    <div className="bg-white p-5 h-screen shadow-sm border">
+    <div className="bg-white p-5 h-screen shadow-sm border hidden sm:block">
       <Link href={'/'}>
       <Image src="/Chancimi.svg" width={80} height={80} alt="Chancimi" property="true" />
       </Link>
