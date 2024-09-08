@@ -21,7 +21,7 @@ function SideBanners() {
     <div>
       {sideBannerList.length > 0 ? ( // Vérifie si la liste n'est pas vide
         sideBannerList.map((item, index) => (
-          <div key={index} className='rounded-[8px] mb-4 cursor-pointer p-5 bg-white'>
+          <div key={index} className='rounded-[8px] mb-4 cursor-pointer p-3 bg-white'>
             <Image src={item.banner.url} width={500} height={300} alt='Banner' className='rounded-[8px] cursor-pointer'  onClick={()=>window.open(item?.url)}/>
           </div>
         ))

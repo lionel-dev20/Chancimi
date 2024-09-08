@@ -12,7 +12,7 @@ const Header = () => {
     <div className='p-4 bg-white flex justify-between'>
       {/* Search bar */}
       <Menu className='mt-2 text-gray-500 sm:hidden'/>
-        <div className='gap-2 border p-2 rounded-[4px] max-w-44 sm:flex hidden'>
+        <div className='gap-2 border p-2 rounded-[4px] w-[350px]  sm:flex hidden'>
             <Search  className=' text-gray-500'/>
             <input type="text" placeholder="Quelque cours recherchez-vous ?" className='outline-none' />
         </div>

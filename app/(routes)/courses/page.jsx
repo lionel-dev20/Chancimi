@@ -8,7 +8,7 @@ const Course = () => {
         <div className="grid grid-cols-1 md:grid-cols-5 p-5 gap-5">
           
           {/* Left container */}
-            <div className="col-span-4">
+            <div className="sm:col-span-4">
                 {/* banner */}
             <WelcomeBanner />
 
