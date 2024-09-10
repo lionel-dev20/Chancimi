@@ -2,6 +2,9 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { Checkbox } from "@/components/ui/checkbox"
+import Image from 'next/image';
+
 
 function FormRegister() {
   const [result, setResult] = useState();
@@ -44,7 +47,7 @@ function FormRegister() {
             <div className="lg:col-span-2 lg:py-12">
               <p className="max-w-xl text-[16px] font-light">
                 Nous vous invitons a remplir correctement le Formulaire ci contre avec des informations exacte, car
-                celles-ci seront utiliser pour le depot de votre dossier d&apos;examen à pret du minstére. Une fois bien remplir 
+                celles-ci seront utiliser pour le depot de votre dossier d&apos;examen au pret du minstére. Une fois bien remplir 
                 cliquer sur valider l&apos;inscription vous serrez rediriger vers la fiche de paiement. 
               </p>
               <p className='mt-3 bg-red-200 px-4 py-2 rounded-[4px]'><span className='font-bold'>NB : </span> votre inscription ne sera valider qu&apos;après vérification des informations dans un delais de moins de 24h</p>
@@ -62,7 +65,7 @@ function FormRegister() {
                 <div>
                   <label className="sr-only" htmlFor="name">Name</label>
                   <input
-                    className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                    className="w-full rounded-lg border-gray-200 p-3 border border-b-2 text-sm"
                     placeholder="Entrer votre nom et prenom complet"
                     type="text"
                     id="name"
@@ -74,7 +77,7 @@ function FormRegister() {
                   <div>
                     <label className="sr-only" htmlFor="email">Email</label>
                     <input
-                      className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                      className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
                       placeholder="Entrer votre adresse email"
                       type="email"
                       id="email"
@@ -85,7 +88,7 @@ function FormRegister() {
                   <div>
                     <label className="sr-only" htmlFor="phone">Phone</label>
                     <input
-                      className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                      className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
                       placeholder="Phone Number"
                       type="tel"
                       id="phone"
@@ -98,7 +101,7 @@ function FormRegister() {
                   <div>
                     <label className="sr-only" htmlFor="email">Email</label>
                     <input
-                      className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                      className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
                       placeholder="Entrer votre date de naissance"
                       type="date"
                       id="date"
@@ -109,7 +112,7 @@ function FormRegister() {
                   <div>
                     <label className="sr-only" htmlFor="text">Phone</label>
                     <input
-                      className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                      className="w-full rounded-lg border-gray-200 p-3 border border-b-2 text-sm"
                       placeholder="Entrer votre lieu de naissance"
                       type="text"
                       id="text"
@@ -121,7 +124,7 @@ function FormRegister() {
                 <div>
                   <label className="sr-only" htmlFor="name">Name</label>
                   <input
-                    className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                    className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
                     placeholder="Entrer votre profesion"
                     type="text"
                     id="name"
@@ -134,7 +137,7 @@ function FormRegister() {
                   <div>
                     <label className="sr-only" htmlFor="email">Email</label>
                     <input
-                      className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                      className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
                       placeholder="Entrer le nom complet de votre pére"
                       type="text"
                       id="text"
@@ -144,7 +147,7 @@ function FormRegister() {
                   <div>
                     <label className="sr-only" htmlFor="phone">Phone</label>
                     <input
-                      className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                      className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
                       placeholder="Entrer le nom complet de votre mére"
                       type="text"
                       id="text"
@@ -152,8 +155,68 @@ function FormRegister() {
                     />
                   </div>
                 </div>
+
+          
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <div>
+                    <label className="sr-only" htmlFor="email">Ville</label>
+                    <input
+                      className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
+                      placeholder="Entrer votre ville"
+                      type="text"
+                      id="text"
+                      name="Ville de résidence" // Ajout du name pour correspondre avec le backend
+                    />
+                  </div>
+                  <div>
+                    <label className="sr-only" htmlFor="phone">Quartier</label>
+                    <input
+                      className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
+                      placeholder="Entrer votre quartier"
+                      type="text"
+                      id="text"
+                      name="Quartier de résidence" // Ajout du name pour correspondre avec le backend
+                    />
+                  </div>
+                </div>
+
+
+
+
+
+                <div>
+                <p className='text-gray-700 mb-6'>En quelle langue souhaitez vous suivre le cours ? </p>
+
+                <div className='flex gap-6 items-center'>
+                <div className="items-top flex space-x-2">
+                 <Checkbox id="terms1" />
+                <div className="grid gap-1.5 leading-none">
+                    <label htmlFor="Cours en Français" className="text-sm flex gap-2 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                   <Image  src='/france.webp' width={24} height={24} alt='francais' />
+                    Français
+                  </label>
+                  </div>
+                 </div>
+
+
+                <div className="items-top flex space-x-2">
+                 <Checkbox id="terms1" />
+                <div className="grid gap-1.5 leading-none">
+                    <label htmlFor="Cours en Anglais" className="text-sm flex gap-2 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                   <Image  src='/usa.webp' width={24} height={24} alt='francais' />
+                    Anglais
+                  </label>
+                  </div>
+                 </div>
+                </div>
+
+                </div>
+
+
+
+
                  
-                 <p className='text-gray-400'>Quel permis souhaitez-vous passer ? </p>
+                 <p className='text-gray-700'>Quel permis souhaitez-vous passer ? </p>
                 <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-3">
                   <div>
                     <label
@@ -193,6 +256,79 @@ function FormRegister() {
                     </label>
                     <span className='text-[12px]'>Pour le faire avoir plus de 20 ans</span>
                   </div>
+
+                  <div>
+                    <label
+                      htmlFor="Option3"
+                      className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
+                      tabIndex="0"
+                    >
+                      <input className="sr-only" id="Option3" type="radio" tabIndex="-1" name="Permi catégorie D" />
+
+                      <span className="text-[15px]"> Permi catégorie D </span>
+                    </label>
+                    <span className='text-[12px]'>Pour le faire avoir plus de 20 ans</span>
+                  </div>
+
+
+                  <div>
+                    <label
+                      htmlFor="Option3"
+                      className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
+                      tabIndex="0"
+                    >
+                      <input className="sr-only" id="Option3" type="radio" tabIndex="-1" name="Permi catégorie E" />
+
+                      <span className="text-[15px]"> Permi catégorie E </span>
+                    </label>
+                    <span className='text-[12px]'>Pour le faire avoir plus de 20 ans</span>
+                  </div>
+
+
+
+                  <div>
+                    <label
+                      htmlFor="Option3"
+                      className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
+                      tabIndex="0"
+                    >
+                      <input className="sr-only" id="Option3" type="radio" tabIndex="-1" name="Permi catégorie F" />
+
+                      <span className="text-[15px]"> Permi catégorie F </span>
+                    </label>
+                    <span className='text-[12px]'>Pour le faire avoir plus de 20 ans</span>
+                  </div>
+
+
+                  <div>
+                    <label
+                      htmlFor="Option3"
+                      className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
+                      tabIndex="0"
+                    >
+                      <input className="sr-only" id="Option3" type="radio" tabIndex="-1" name="Permi catégorie G" />
+
+                      <span className="text-[15px]"> Permi catégorie G </span>
+                    </label>
+                    <span className='text-[12px]'>Pour le faire avoir plus de 20 ans</span>
+                  </div>
+
+
+
+                  <div>
+                    <label
+                      htmlFor="Option3"
+                      className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
+                      tabIndex="0"
+                    >
+                      <input className="sr-only" id="Option3" type="radio" tabIndex="-1" name="Permi catégorie T" />
+
+                      <span className="text-[15px]"> Permi catégorie T </span>
+                    </label>
+                    <span className='text-[12px]'>Pour le faire avoir plus de 20 ans</span>
+                  </div>
+
+
                 </div>
 
                 <div> 
