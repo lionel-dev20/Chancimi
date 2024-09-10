@@ -37,7 +37,7 @@ const SideNav = () => {
     },
     {
       id: 3,
-      name: 'Devenir Instructeur',
+      name: 'Devenir Ambassadeur',
       icon: GraduationCap,
       path: '/beinstructor',
       auth: true,

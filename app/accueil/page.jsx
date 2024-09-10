@@ -1,16 +1,31 @@
 import React from 'react'
-import HeroSection from './_components/HeroSection'
 import HomeHearder from './_components/HomeHearder'
-import Avantages from './_components/Avantages'
+import CardCourseHome from './_components/CardCourseHome'
+import SliderCaroussel from './_components/SliderCaroussel'
+import { MacbookScroll } from '@/components/ui/Macbook-scroll'
+import { Testimonial } from './_components/Testimonial'
+import PriceCourse from './_components/PriceCourse'
+import DashbordCourse from './_components/DashbordCourse'
+import CtaFooter from './_components/CtaFooter'
+import Newsletter from './_components/Newsletter'
+import Footer from './_components/Footer'
 
 function page() {
   return (
-    <div className='bg-[#f0f0f0]'>
+    <div className='bg-[#fff]'>
       <HomeHearder />
-        <HeroSection/>
-        <div className='max-w-7xl p-4 mx-auto my-24'>
-         {/* <Avantages/> */}
+        {/* <HeroSection/> */}
+        <SliderCaroussel />
+        <div className='max-w-7xl p-4 mx-auto my-16'>
+         <CardCourseHome />
+         <DashbordCourse />
+         {/* <MacbookScroll /> */}
+         <Testimonial />
+         <PriceCourse />
+         <CtaFooter />
+         <Newsletter />
         </div>
+        <Footer />
     </div>
   )
 }
