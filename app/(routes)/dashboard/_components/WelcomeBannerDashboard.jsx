@@ -7,8 +7,8 @@ function WelcomeBannerDashboard({user}) {
             <Image src="/car.gif" alt='Chancimi draving school' width={150} height={150} property/>
             <div>
               <h2 className='font-bold text-xl sm:text-[32px] text-primary'>Bon retour 
-                <span className='text-gray-700'> {user?.fullName}</span></h2>
-              <h2 className='text-sm mt-4 sm:text-[16px] text-slate-500'>Continuons là, où vous vous êtes arrêté dernièrement,<br />
+                <span className='text-gray-900'> {user?.fullName}</span></h2>
+              <h2 className='text-sm mt-4 sm:text-[16px] text-gray-700'>Continuons là, où vous vous êtes arrêté dernièrement,<br />
               Continuez à améliorer vos progrès
               </h2>
             </div>

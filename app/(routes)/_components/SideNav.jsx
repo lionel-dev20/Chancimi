@@ -73,7 +73,7 @@ const SideNav = () => {
             item.auth && (
               <Link href={item.path} key={index}>
                 <div
-                  className={`group flex gap-3 mt-2 p-3 text-gray-500 items-center hover:bg-primary cursor-pointer hover:text-white rounded-[4px] transition-all ease-in-out duration-200 ${
+                  className={`group flex gap-3 mt-2 p-3 text-gray-700 items-center hover:bg-primary cursor-pointer hover:text-white rounded-[4px] transition-all ease-in-out duration-200 ${
                     path.includes(item.path) && 'bg-primary text-white'
                   }`}
                 >

@@ -51,7 +51,7 @@ function WatchCourse({ params }) {
     GlobalApi.markChapterCompleted(params.enrollId, chapterId).then(resp=>{
       console.log(resp);
       if(resp){
-         toast('Chapter Marked as completed!');
+         toast('Ce chapitre a été marqué complet, Bravoo !!!');
          getUserEnrolledCourseDetail();
       }
     })
