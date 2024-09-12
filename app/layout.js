@@ -12,7 +12,7 @@ export const metadata = {
   description: "Passer le permi de conduire en 2 3 mois et plus en tout tranquilité grace à notre école de formation",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children,  pageProps:{...pageProps}}) {
   return (
     <ClerkProvider {...pageProps} publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
     <html lang="en">
