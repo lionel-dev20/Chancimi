@@ -6,11 +6,11 @@ function Newsletter() {
 
 <section className="">
   <div className="p-8 md:p-12 lg:px-16 lg:py-24">
-    <div className="mx-auto max-w-lg text-center">
+    <div className="mx-auto max-w-2xl text-center">
       <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">
 Ne manquez nos derniéres informations et promotions      </h2>
 
-      <p className="hidden text-gray-500 sm:mt-4 sm:block">
+      <p className="hidden mt-6 text-base leading-7 text-gray-600 sm:mt-4 sm:block">
         Inscrivez-vous à notre lettre d&apos;information afin de recevoir toutes les derniéres actualités de centre de formation.
         Nos promotions et les annonces importante concernant la plateforme.
       </p>

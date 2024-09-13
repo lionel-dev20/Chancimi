@@ -9,6 +9,8 @@ import DashbordCourse from './_components/DashbordCourse'
 import CtaFooter from './_components/CtaFooter'
 import Newsletter from './_components/Newsletter'
 import Footer from './_components/Footer'
+import { BentoPermis } from './_components/BentoPermis'
+import { ScrollDashboard } from './_components/ScrollDashboard'
 
 function page() {
   return (
@@ -18,9 +20,10 @@ function page() {
         <SliderCaroussel />
         <div className='max-w-7xl p-4 mx-auto my-16'>
          <CardCourseHome />
-         <DashbordCourse />
-         {/* <MacbookScroll /> */}
-         <Testimonial />
+         <BentoPermis />
+         {/* <DashbordCourse /> */}
+         <ScrollDashboard/>
+         <Testimonial /> 
          <PriceCourse />
          <CtaFooter />
          <Newsletter />

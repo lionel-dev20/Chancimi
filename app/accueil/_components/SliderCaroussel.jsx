@@ -60,19 +60,19 @@ function SliderCaroussel() {
                   }}
                 ></div>
                 {/* Overlay with increased opacity for better text visibility */}
-                <div className="h-full w-full absolute left-0 top-0 bg-black opacity-60"></div>
-                <div className="relative z-10 h-full flex items-center justify-center py-56">
+                <div className="h-full w-full absolute left-0 top-0 bg-black opacity-70"></div>
+                <div className="relative z-10 h-full flex items-end justify-center pt-96 pb-12">
                   <div className="text-center px-4"> {/* Added padding for text responsiveness */}
                     {tagline && (
-                      <p className="text-md sm:text-xl lg:text-3xl font-semibold text-white">
+                      <p className="text-md sm:text-xl lg:text-xl font-semibold text-white mb-3">
                         {tagline}
                       </p>
                     )}
-                    <p className="text-3xl sm:text-6xl lg:text-8xl font-bold text-white">
+                    <p className="text-3xl sm:text-6xl lg:text-5xl font-bold text-white">
                       {title}
                     </p>
                     {buttons.length > 0 ? (
-                      <a href={buttons[0].link} className="bg-primary rounded-[4px] inline-block px-9 py-4  text-white mt-10 lg:mt-20">
+                      <a href={buttons[0].link} className="bg-primary rounded-[4px] inline-block px-9 py-4  text-white mt-4 lg:mt-8">
                         {buttons[0].text}
                       </a>
                     ) : null}

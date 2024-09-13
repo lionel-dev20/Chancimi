@@ -10,8 +10,8 @@ function CardCourseHome() {
   return (
     <div>
         <div className="flex flex-col items-center justify-center mb-8">
-        <h2 className="text-3xl font-bold flex items-center mb-6"> <span className="text-primary mr-1"> Chancimi </span> réinvente l&apos;auto école pour vous</h2>
-        <p className="max-w-[600px] leading-6 text-gray-700 text-center text-[17px]">Conduisez votre formation à votre rythme ou vous voulez et quand vous voulez grace notre plateforme disponible 24h/24 7j/7</p>
+        <h2 className="text-3xl font-bold flex items-center"> <span className="text-primary mr-1"> Chancimi </span> réinvente l&apos;auto école pour vous</h2>
+        <p className="max-w-[600px] mt-6 text-lg leading-8 text-gray-600">Conduisez votre formation à votre rythme, ou vous voulez et quand vous voulez, et à l&apo;heure que vous voulez, grace notre plateforme Chancimi</p>
         </div>
     <div className="flex sm:flex sm:gap-6 mx-auto justify-between items-center">
         <Card className="bg-blue-300">

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-function PriceCourse() {
+function PriceCourse() { 
   return (
     <div>
         <div className="bg-white py-24 sm:py-32">
@@ -10,7 +10,7 @@ function PriceCourse() {
       <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Une tarification simple et sans <span className='ml-2 text-primary'>frais cachés</span></h2>
       <p className="mt-6 text-lg leading-8 text-gray-600">Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas in. Explicabo id ut laborum.</p>
     </div>
-    <div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
+    <div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-12 lg:mx-0 lg:flex lg:max-w-none">
       <div className="p-8 sm:p-10 lg:flex-auto">
         <h3 className="text-2xl font-bold tracking-tight text-gray-900">Accès à vie au cours</h3>
         <p className="mt-6 text-base leading-7 text-gray-600">Bénéficies d&apos;un accés à vie au cours au quel tu souscris et reste à jours avec les derniéres mises à jours sur ces cours.</p>
