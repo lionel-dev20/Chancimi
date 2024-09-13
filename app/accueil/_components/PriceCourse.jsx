@@ -50,7 +50,7 @@ function PriceCourse() {
           <div className="mx-auto max-w-xs px-8">
             <p className="text-base font-semibold text-gray-600">Payer une fois, être propriétaire pour toujours</p>
             <p className="mt-6 flex items-baseline justify-center gap-x-2">
-              <span className="text-5xl font-bold tracking-tight text-gray-900">149,900</span>
+              <span className="text-5xl font-bold tracking-tight text-gray-900">49,900</span>
               <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">FCFA</span>
             </p>
             <Link href="/register" className="mt-10 block w-full rounded-[4px] bg-primary px-3 py-4 text-center text-sm font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
