@@ -20,7 +20,7 @@ function page() {
         <SliderCaroussel />
         <div className='max-w-7xl p-4 mx-auto my-16'>
          <CardCourseHome />
-         <BentoPermis />
+         {/* <BentoPermis /> */}
          {/* <DashbordCourse /> */}
          <ScrollDashboard/>
          <Testimonial /> 
