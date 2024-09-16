@@ -64,9 +64,9 @@ export default function Quiz() {
           <h2 className='p-4  text-2xl font-bold bg-primary w-auto block rounded-[4px] text-white'>Il vous reste : {timeLeft}</h2>
           <h3 className='border-b-2 border-gray-100 text-xl font-bold text-gray-700 my-6'>Question {currentQuestion + 1} sur {dataquizchap1.length}</h3>
           <p className='text-[20px] font-semibold text-gray-700 py-4' >{dataquizchap1[currentQuestion].question}</p>
-          <div className='flex flex-col-1 gap-4 border border-gray-50 py-4 px-10 rounded-[4px]'>
+          <div>
             {dataquizchap1[currentQuestion].options.map((option, index) => (
-              <button key={index} onClick={() => handleAnswer(option)}>
+              <button key={index} onClick={() => handleAnswer(option)} className='flex flex-col-1 gap-4 border border-gray-50 py-4 px-10 rounded-[4px]'>
                 {option}
               </button>
             ))}
