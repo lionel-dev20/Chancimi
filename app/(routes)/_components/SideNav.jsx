@@ -63,7 +63,7 @@ const SideNav = () => {
         } sm:block sm:relative sm:top-auto sm:left-auto sm:h-auto sm:bg-transparent sm:shadow-none sm:border-none`}
       >
         <Link href={'/'}>
-          <Image src="/Chancimi.svg" width={80} height={80} alt="Chancimi" />
+          <Image src="/Chancimi.png" width={80} height={80} alt="Chancimi" />
         </Link>
 
         <hr className="mt-5" />

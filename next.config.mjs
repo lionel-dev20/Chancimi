@@ -4,7 +4,8 @@ const nextConfig = {
     images:{
         domains:['ca-central-1.graphassets.com'],
         domains:['pbs.twimg.com', 'tailwindui.comm'],
-        domains :['images.unsplash.com', 'pbs.twimg.com']
+        domains :['images.unsplash.com', 'pbs.twimg.com'],
+        domains : ['ca-central-1.graphassets.com']
     },
 };
 

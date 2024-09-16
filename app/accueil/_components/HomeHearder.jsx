@@ -7,12 +7,12 @@ function HomeHearder() {
   return (
     <div>
  <header className=" bg-white relative z-20">
-  <div className="fixed top-0 left-0 right-0 backdrop-blur-sm bg-white/20">
+  <div className="fixed top-0 left-0 right-0 backdrop-blur-sm bg-white/60">
     <div className="flex mx-auto max-w-7xl items-center justify-between px-1">
 
       <div className="flex gap-6 items-center justify-around">
         <Link href='/'>
-          <Image src='./Chancimi.svg' width={86} height={80} alt='logo' className='my-2' />
+          <Image src='/Chancimi.png' width={86} height={80} alt='logo' className='my-2' />
         </Link>
         <MenuNav />
       </div>
