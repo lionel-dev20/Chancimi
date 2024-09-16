@@ -1,4 +1,7 @@
-"use client";
+"use client"
+
+
+
 import { cn } from "@/lib/utils";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import {
@@ -21,11 +24,8 @@ export function BentoPermis() {
         </h2>
 
         <p className="max-w-[890px] mb-12 mt-6 text-lg leading-8 text-gray-600">
-          Chancimi t&apos;accompagne tout au long de ta formation, suit tes
-          progrès, et t&apos;apporte un calendrier regulier de cours pratique.
-          Notre plateforme de cours vous propose des enseignements de conduite
-          dispensés par des instructeurs diplomés et des experts de la pédagogie
-          en ligne de le cadre de la conduite.
+          Nous proposons les préparations d&apos; à tous les types de permis au Cameroun. Du type A, B, C, D ainsi que des cours de recyclage.
+          Tous ceci est possible depuis notre site web mais dans notre centre de formation Chancimi.
         </p>
       </div>
 

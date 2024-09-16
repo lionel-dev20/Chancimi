@@ -14,7 +14,7 @@ import Faq from './_components/Faq'
 function page() {
   return (
     <div className='bg-[#fff]'>
-      <HomeHearder />
+      {/* <HomeHearder /> */}
         {/* <HeroSection/> */}
         <SliderCaroussel />
         <div className='max-w-7xl p-4 mx-auto my-16'>
@@ -28,7 +28,7 @@ function page() {
          <CtaFooter />
          <Newsletter />
         </div>
-        <Footer />
+        {/* <Footer /> */}
     </div>
   )
 }

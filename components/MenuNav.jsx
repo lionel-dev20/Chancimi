@@ -100,15 +100,15 @@ export default function MenuNav() {
             </PopoverPanel>
           </Popover>
 
-          <Link  href="#" className="font-normal text-md leading-8 text-white">
+          <Link  href="/accueil/pricing" className="font-normal text-md leading-8 text-white">
            Tarifs
           </Link>
           <a href="#" className="font-normal text-md leading-8 text-white">
           A props
           </a>
-          <a href="#" className="font-normal text-md leading-8 text-white">
+          <Link href="/booking-car" className="font-normal text-md leading-8 text-white">
             Reservez une session
-          </a>
+          </Link>
         </PopoverGroup>
       </nav>
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
