@@ -47,7 +47,7 @@ const SideNav = () => {
   const toggleSidebar = () => setOpenMenu(!openMenu);
 
   return (
-    <div className="bg-white h-screen z-20 border border-t-0 border-r-[1px] border-opacity-25 shadow-sm">
+    <div className="bg-white h-screen z-40 border border-t-0 border-r-[1px] border-opacity-25 shadow-sm">
       {/* Bouton pour ouvrir le menu sur mobile */}
       <button
         onClick={toggleSidebar}
