@@ -58,7 +58,7 @@ export default function Quiz() {
   };
 
   return (
-    <div className='grid grid-cols-1 p-10 gap-5 bg-white m-10 rounded-[8px]'>
+    <div className='grid grid-cols-1 p-3 sm:p-10 gap-5 bg-white m-10 rounded-[8px]'>
       {timeLeft > 0 && !quizFinished && (
         <div className='w-full'>
           <h2 className='p-4  text-2xl font-bold bg-primary max-w-[18rem] block rounded-[4px] text-white'>Il vous reste : {timeLeft}s</h2>
