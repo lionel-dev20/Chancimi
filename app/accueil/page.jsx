@@ -10,6 +10,7 @@ import Footer from './_components/Footer'
 import { BentoPermis } from './_components/BentoPermis'
 import { ScrollDashboard } from './_components/ScrollDashboard'
 import Faq from './_components/Faq'
+import TcfCanada from './_components/TcfCanada'
 
 function page() {
   return (
@@ -23,6 +24,7 @@ function page() {
          {/* <DashbordCourse /> */}
          <ScrollDashboard/>
          <Testimonial /> 
+         <TcfCanada />
          <PriceCourse />
          <Faq/>
          <CtaFooter />
