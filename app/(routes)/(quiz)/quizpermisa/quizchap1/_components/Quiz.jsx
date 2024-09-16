@@ -61,9 +61,9 @@ export default function Quiz() {
     <div className='grid grid-cols-1 p-3 sm:p-10 gap-5 bg-white m-[0.5rem] sm:m-10 rounded-[8px]'>
       {timeLeft > 0 && !quizFinished && (
         <div className='w-full'>
-          <h2 className='p-4  text-2xl font-bold bg-primary max-w-[18rem] block rounded-[4px] text-white'>Il vous reste : {timeLeft}s</h2>
+          <h2 className='p-4 text-md  sm:text-2xl font-bold bg-primary max-w-[18rem] block rounded-[4px] text-white'>Il vous reste : {timeLeft}s</h2>
           <h3 className='border-b-2 border-gray-100 text-xl font-bold text-gray-700 my-6'>Question {currentQuestion + 1} sur {dataquizchap1.length}</h3>
-          <p className='text-[20px] font-semibold text-gray-700 py-4' >{dataquizchap1[currentQuestion].question}</p>
+          <p className='sm:text-[20px]  text-md font-semibold text-gray-700 py-4' >{dataquizchap1[currentQuestion].question}</p>
           <div className='w-full'> 
             {dataquizchap1[currentQuestion].options.map((option, index) => (
               <button key={index} onClick={() => handleAnswer(option)} className='flex flex-col-1 pb-2 gap-4 border border-gray-100 py-4 px-10 rounded-[4px]'>
