@@ -66,7 +66,7 @@ export default function Quiz() {
           <p className='sm:text-[20px]  text-md font-semibold text-gray-700 py-4' >{dataquizchap1[currentQuestion].question}</p>
           <div className='w-full'> 
             {dataquizchap1[currentQuestion].options.map((option, index) => (
-              <button key={index} onClick={() => handleAnswer(option)} className='flex flex-col-1 pb-2 gap-4 border border-gray-100 py-4 px-10 rounded-[4px]'>
+              <button key={index} onClick={() => handleAnswer(option)} className='flex flex-col-1 pb-2 gap-4 border border-gray-100 py-4 px-3 mb-2 sm:px-10 rounded-[4px]'>
                 {option}
               </button>
             ))}
