@@ -26,7 +26,7 @@ export function ScrollDashboard() {
           className="mx-auto rounded-2xl object-cover h-full object-left-top mt-4"
           draggable={false} />
       </ContainerScroll>
-      <p className="max-w-[890px] -mt-32 text-lg leading-8 text-gray-600 flex items-center mx-auto mb-20 text-center text-[17px]">Chancimi t&apos;accompagne tout au long de ta formation, suit tes progrès, et t&apos;apporte un calendrier regulier de cours pratique.
+      <p className="sm:max-w-[890px] -mt-32 text-lg leading-8 text-gray-600 flex items-center mx-auto mb-20 text-center text-[17px]">Chancimi t&apos;accompagne tout au long de ta formation, suit tes progrès, et t&apos;apporte un calendrier regulier de cours pratique.
         Notre plateforme de cours vous propose des enseignements de conduite dispensés par des instructeurs diplomés et des experts de la pédagogie en ligne de le cadre de la conduite.
       </p>
       <div className="flex items-center justify-center mx-auto -mb-[2rem]">

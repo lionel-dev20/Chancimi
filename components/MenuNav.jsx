@@ -42,7 +42,7 @@ export default function MenuNav() {
 
   return (
     <header className="bg-transparent">
-      <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-4">
+      <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-2 sm:p-6 lg:px-4">
         <div className="flex lg:flex-1">
         </div>
         <div className="flex lg:hidden">
@@ -57,14 +57,14 @@ export default function MenuNav() {
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-8">
           <Popover className="relative">
-            <PopoverButton className="flex items-center gap-x-1 font-normal text-md leading-8 text-white">
+            <PopoverButton className="flex items-center gap-x-1 font-normal text-md leading-8 text-gray-700 sm:text-white">
               Nos formations
               <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none text-gray-400" />
             </PopoverButton>
 
             <PopoverPanel
               transition
-              className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+              className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl text-gray-700 sm:text-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
             >
               <div className="p-4">
                 {products.map((item) => (
