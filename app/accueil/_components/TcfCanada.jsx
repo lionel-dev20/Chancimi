@@ -14,7 +14,7 @@ function TcfCanada() {
           </h2>
 
           <p className="hidden text-white/90 sm:mt-4 sm:block">
-          Inscrivez-vous à notre cours de préparation TCF Canada chez Chancimi. Profitez d'une formation complète, de professeurs qualifiés, et d'un suivi personnalisé pour maximiser vos chances de réussite. Améliorez vos compétences linguistiques avec des cours interactifs et des ressources exclusives, tout en bénéficiant d&apos;une ambiance d'apprentissage motivante.
+          Inscrivez-vous à notre cours de préparation TCF Canada chez Chancimi. Profitez d&apos;une formation complète, de professeurs qualifiés, et d&apos;un suivi personnalisé pour maximiser vos chances de réussite. Améliorez vos compétences linguistiques avec des cours interactifs et des ressources exclusives, tout en bénéficiant d&apos;une ambiance d&apos;apprentissage motivante.
           </p>
 
           <div className="mt-4 md:mt-8">

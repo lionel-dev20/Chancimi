@@ -73,7 +73,7 @@ function page() {
                 </ul>
 
                 <Link href='https://me.lygosapp.com/AVVncBKT'>
-                  <button type="button" className="w-full mt-8 px-5 py-2.5 text-sm text-white bg-gray-700 hover:bg-gray-800 rounded-full">Souscrire maintenant</button>
+                  <button type="button" className="w-full mt-8 px-5 py-2.5 text-sm text-white bg-gray-700 hover:bg-gray-800 rounded-full">S&lsquo;inscrire maintenant</button>
                 </Link>
               </div>
             </div>
