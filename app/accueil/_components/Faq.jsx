@@ -5,7 +5,7 @@ import {Accordion, AccordionItem} from "@nextui-org/accordion";
 
 
 export default function Faq() {
-  const [selectedKeys, setSelectedKeys] = React.useState(new Set(["0"]));
+  const [selectedKeys, setSelectedKeys] = React.useState(new Set(["1"]));
   const defaultContent =
     "Oui, nous proposons uniquement des formations théoriques en ligne.";
     "Ouioui, nous ne gérons le dépôt des dossiers et toute la procédure qui va avec.";
@@ -21,19 +21,19 @@ export default function Faq() {
       selectedKeys={selectedKeys}
       onSelectionChange={setSelectedKeys}
     >
-      <AccordionItem key="1" aria-label="Accordion 1" title="Offrez-vous des cours pratiques de conduite ?">
+      <AccordionItem className="text-center" key="1" aria-label="Accordion 1" title="Offrez-vous des cours pratiques de conduite ?">
         {defaultContent}
       </AccordionItem>
-      <AccordionItem key="2" aria-label="Accordion 2" title="Pouvez-vous déposer les dossiers des apprenants ?">
+      <AccordionItem className="text-center" key="2" aria-label="Accordion 2" title="Pouvez-vous déposer les dossiers des apprenants ?">
         {defaultContent}
       </AccordionItem>
-      <AccordionItem key="3" aria-label="Accordion 3" title="Comment se déroule le paiement ?">
+      <AccordionItem className="text-center" key="3" aria-label="Accordion 3" title="Comment se déroule le paiement ?">
         {defaultContent}
       </AccordionItem>
-      <AccordionItem key="4" aria-label="Accordion 4" title="Proposez-vous des formations en ligne ?">
+      <AccordionItem className="text-center" key="4" aria-label="Accordion 4" title="Proposez-vous des formations en ligne ?">
         {defaultContent}
       </AccordionItem>
-      <AccordionItem key="5" aria-label="Accordion 5" title="Comment se déroule le paiement ?">
+      <AccordionItem className="text-center" key="5" aria-label="Accordion 5" title="Comment se déroule le paiement ?">
         {defaultContent}
       </AccordionItem>
     </Accordion>

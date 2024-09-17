@@ -10,32 +10,32 @@ import "swiper/css/pagination";
 const data = [
   {
     id: 1,
-    title: "COURS DE CONDUITE",
-    tagline: "FORMATION EN LIGNE",
-    image: "/slider1.webp",
+    title: "",
+    tagline: "",
+    image: "Visuels-de-Chancimi1.jpg",
     buttons: [
       {
         id: 1,
         text: "Démarrer la formation",
-        link: "https://www.pexels.com/@rpnickson/",
+        link: "/dashboard",
         type: "btn-dark btn-circle"
       }
     ]
   },
-  {
-    id: 2,
-    title: "VOTRE PERMIS EN LIGNE",
-    tagline: "PREMIERE AUTO ECOLE EN LIGNE AU CAMEROUN",
-    image: "/slider2.webp",
-    buttons: [
-      {
-        id: 1,
-        text: "Julia M Cameron",
-        link: "https://www.pexels.com/@julia-m-cameron/",
-        type: "btn-dark btn-circle"
-      }
-    ]
-  }
+  // {
+  //   id: 2,
+  //   title: "VOTRE PERMIS EN LIGNE",
+  //   tagline: "PREMIERE AUTO ECOLE EN LIGNE AU CAMEROUN",
+  //   image: "/slider2.webp",
+  //   buttons: [
+  //     {
+  //       id: 1,
+  //       text: "Julia M Cameron",
+  //       link: "https://www.pexels.com/@julia-m-cameron/",
+  //       type: "btn-dark btn-circle"
+  //     }
+  //   ]
+  // }
 ];
 
 function SliderCaroussel() {
@@ -54,14 +54,14 @@ function SliderCaroussel() {
               <SwiperSlide key={id}>
                 {/* Image background */}
                 <div
-                  className="h-full w-full absolute left-0 top-0"
+                  className="h-full w-full absolute mt-24"
                   style={{
                     background: `url(${image}) center center / cover scroll no-repeat`,
                   }}
                 ></div>
                 {/* Overlay with increased opacity for better text visibility */}
-                <div className="h-full w-full absolute left-0 top-0 bg-black opacity-70"></div>
-                <div className="relative z-10 h-full flex items-end justify-center pt-96 pb-12">
+                <div className="h-full w-full"></div>
+                <div className="relative z-10 h-[50rem] flex items-end justify-center pb-16">
                   <div className="text-center px-4"> {/* Added padding for text responsiveness */}
                     {tagline && (
                       <p className="text-md sm:text-xl lg:text-xl font-semibold text-white mb-3">

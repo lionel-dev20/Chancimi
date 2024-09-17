@@ -1,25 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { Dialog,
-  DialogPanel,
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-  Popover,
-  PopoverButton,
-  PopoverGroup,
-  PopoverPanel,
-} from '@headlessui/react';
-import {
-  ArrowPathIcon,
-  Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline'
+import { Dialog, DialogPanel, Disclosure, DisclosureButton, DisclosurePanel, Popover, PopoverButton, PopoverGroup, PopoverPanel } from '@headlessui/react';
+import { ArrowPathIcon, Bars3Icon, ChartPieIcon, CursorArrowRaysIcon, FingerPrintIcon, SquaresPlusIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import Image from 'next/image'
 import Link from 'next/link';
@@ -30,7 +13,7 @@ const products = [
   { name: 'Permis C', description: 'Ce cours est en préparation trés bientot', href: '#', icon: FingerPrintIcon },
   { name: 'Permis D', description: 'Ce cours est en préparation trés bientot', href: '#', icon: SquaresPlusIcon },
   { name: 'Permis T', description: 'Ce cours est en préparation trés bientot', href: '#', icon: ArrowPathIcon },
-  { name: 'Permis Recyclage', description: 'Destinée à tout le monde et catégorisé pour', href: '#', icon: ArrowPathIcon },
+  { name: 'Recyclage', description: 'Destinée à tout le monde et catégorisé pour', href: '#', icon: ArrowPathIcon },
 ]
 const callsToAction = [
   { name: 'Voir la video', href: '#', icon: PlayCircleIcon },
@@ -39,6 +22,9 @@ const callsToAction = [
 
 export default function MenuNav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  // Gestionnaire pour fermer le menu mobile
+  const closeMenu = () => setMobileMenuOpen(false);
 
   return (
     <header className="bg-transparent">
@@ -57,14 +43,14 @@ export default function MenuNav() {
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-8">
           <Popover className="relative">
-            <PopoverButton className="flex items-center gap-x-1 font-normal text-md leading-8 text-gray-700 sm:text-white">
+            <PopoverButton className="flex items-center gap-x-1 font-normal text-md leading-8 text-gray-700">
               Nos formations
               <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none text-gray-400" />
             </PopoverButton>
 
             <PopoverPanel
               transition
-              className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl text-gray-700 sm:text-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+              className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl text-gray-700 shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
             >
               <div className="p-4">
                 {products.map((item) => (
@@ -100,18 +86,18 @@ export default function MenuNav() {
             </PopoverPanel>
           </Popover>
 
-          <Link  href="/accueil/pricing" className="font-normal text-md leading-8 text-white">
-           Tarifs
+          <Link href="/accueil/pricing" className="font-normal text-md leading-8 ">
+            Tarifs
           </Link>
-          <a href="#" className="font-normal text-md leading-8 text-white">
-          A props
-          </a>
-          <Link href="/booking-car" className="font-normal text-md leading-8 text-white">
+          <Link href="/a-propos" className="font-normal text-md leading-8 ">
+            A propos
+          </Link>
+          <Link href="/booking-car" className="font-normal text-md leading-8 ">
             Reservez une session
           </Link>
         </PopoverGroup>
       </nav>
-      <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
+      <Dialog open={mobileMenuOpen} onClose={closeMenu} className="lg:hidden">
         <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
@@ -119,7 +105,7 @@ export default function MenuNav() {
               <span className="sr-only">Your Company</span>
               <Image
                 alt=""
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                src=""
                 className="h-8 w-auto"
                 width={100}
                 height={100}
@@ -127,14 +113,14 @@ export default function MenuNav() {
             </a>
             <button
               type="button"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={closeMenu}
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon aria-hidden="true" className="h-6 w-6" />
             </button>
           </div>
-          <div className="mt-6 flow-root">
+          <div className="mt-12 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
                 <Disclosure as="div" className="-mx-3">
@@ -148,6 +134,7 @@ export default function MenuNav() {
                         key={item.name}
                         as="a"
                         href={item.href}
+                        onClick={closeMenu} // Fermer le menu au clic
                         className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                       >
                         {item.name}
@@ -157,18 +144,21 @@ export default function MenuNav() {
                 </Disclosure>
                 <Link
                   href="/accueil/pricing"
+                  onClick={closeMenu} // Fermer le menu au clic
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Tarifs
                 </Link>
                 <Link
-                  href=""
+                  href="/a-propos"
+                  onClick={closeMenu} // Fermer le menu au clic
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   A propos
                 </Link>
                 <Link
                   href="/booking-car"
+                  onClick={closeMenu} // Fermer le menu au clic
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Reservez une session
@@ -176,7 +166,8 @@ export default function MenuNav() {
               </div>
               <div className="py-6">
                 <Link
-                  href="//sign-in"
+                  href="/sign-in"
+                  onClick={closeMenu} // Fermer le menu au clic
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Se connecter

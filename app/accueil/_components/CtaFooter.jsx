@@ -22,7 +22,7 @@ function CtaFooter() {
       
 
       <div className="mt-4 md:mt-8">
-      <Link href="/register" className="mt-10 block w-full rounded-[4px] bg-primary px-3 py-4 text-center text-sm font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+      <Link href="/dashboard" className="mt-10 block w-full rounded-[4px] bg-primary px-3 py-4 text-center text-sm font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                 Consultez les formation maintenant
             </Link>
       </div>

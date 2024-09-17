@@ -9,9 +9,9 @@ import Image from "next/image"
 function CardCourseHome() {
   return (
     <div>
-        <div className="flex-col sm:flex-col items-center mb-8">
+        <div className="flex-col mx-auto my-1 sm:flex items-center justify-center mb-8">
         <h2 className="text-3xl font-bold sm:flex items-center text-center"> <span className="text-primary mr-1"> Chancimi </span> réinvente l&apos;auto école pour vous</h2>
-        <p className="max-w-[600px] mt-6 text-lg leading-8 text-gray-600">Conduisez votre formation à votre rythme, ou vous voulez et quand vous voulez, et à l&apo;heure que vous voulez, grace notre plateforme Chancimi</p>
+        <p className="max-w-[600px] mt-6 text-lg leading-8 text-gray-600">Conduisez votre formation à votre rythme,quand vous voulez où vous voulez et , et à l&apos;heure que vous voulez, grace notre plateforme Chancimi</p>
         </div>
    
 
