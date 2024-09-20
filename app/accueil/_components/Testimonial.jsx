@@ -1,43 +1,45 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/magicui/marquee";
 import Image from "next/image";
 
 const reviews = [
   {
-    name: "Jack",
+    name: "Julie Esso",
     username: "@jack",
-    body: "I've never seen anything like this before. It's amazing. I love it.",
-    img: "https://avatar.vercel.sh/jack",
+    body: "Trés bon de centre de formation je recommande vivement.",
+    img: "/profil1.webp",
   },
   {
-    name: "Jill",
+    name: "Marie Thérèse",
     username: "@jill",
-    body: "I don't know what to say. I'm speechless. This is amazing.",
-    img: "https://avatar.vercel.sh/jill",
+    body: "Les cours pratique sont trés cool merci encore Chancimi",
+    img: "/profil2.webp",
   },
   {
-    name: "John",
+    name: "John Alain",
     username: "@john",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/john",
+    body: "Bon suivit des apprenant merci Chancimi",
+    img: "/profil4.webp",
   },
   {
-    name: "Jane",
+    name: "Vanessa Annie",
     username: "@jane",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/jane",
+    body: "Bonne plateforme pour reviser son examen de permis",
+    img: "/profil3.webp",
   },
   {
-    name: "Jenny",
+    name: "Francis Paul",
     username: "@jenny",
     body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/jenny",
+    img: "/profil5.webp",
   },
   {
-    name: "James",
+    name: "Jean-jacque",
     username: "@james",
     body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/james",
+    img: "/profil6.webp",
   },
 ];
 
@@ -71,7 +73,9 @@ const ReviewCard = ({ img, name, username, body }) => {
 
 export function Testimonial() {
   return (
-    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden  bg-background">
+        <h2 className="text-3xl font-bold flex items-center mb-6">Ils nous ont fait confiance pour leur <span className="text-primary ml-2"> formation</span></h2>
+        <p className="max-w-[44rem] mb-10 mt-6 text-lg leading-8 text-gray-600">Toi aussi tu peux le faire, comme tous nos autres édutiants l&apos;ont fait, laisse toi guider et accompagner tout au long de ton apprentissage de conduire avec notre école Chancimi .</p>
       <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review) => (
           <ReviewCard key={review.username} {...review} />
