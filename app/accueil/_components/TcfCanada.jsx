@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 function TcfCanada() {
@@ -18,12 +19,12 @@ function TcfCanada() {
           </p>
 
           <div className="mt-4 md:mt-8">
-            <a
-              href="#"
+            <Link
+              href="/tcfregister"
               className="inline-block rounded border border-white bg-white px-12 py-3 text-sm font-medium text-blue-500 transition hover:bg-transparent hover:text-white focus:outline-none focus:ring focus:ring-yellow-400"
             >
               S&apos;inscrire maintenant
-            </a>
+            </Link>
           </div>
           <Image src='/canada.webp' width={120} height={120} alt='Canada' className='flex items-center mx-auto my-4 justify-center'/>
         </div>

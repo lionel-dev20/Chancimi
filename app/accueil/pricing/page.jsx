@@ -7,13 +7,13 @@ function page() {
     return (
        
         <div className="bg-gradient-to-b h-screen from-pink-100 to-purple-200">
-            <div className="container m-auto px-6 py-20 md:px-12 lg:px-20">
-                <div className="m-auto text-center mt-20 lg:w-8/12 xl:w-7/12">
+            <div className="container m-auto px-6  md:px-12 lg:px-20">
+                <div className="m-auto text-center mt-44 lg:w-8/12 xl:w-7/12">
                     <h2 className="text-2xl text-gray-700 font-bold md:text-4xl mb-10">C&apos;est le choc des prix chez <span className='text-primary'>Chancimi</span> jusqu&apos;au 26 Septembre.</h2>
                     <p>Nos tarrif sont claire et sans frais cachés. Profitez de notre méga promotion sur les frais de formations dans un cadre VIP avec des moniteur dédiés à votre apprentissage.</p>
                 </div>
-                <div className="mt-12 m-auto -space-y-4 items-center justify-center md:flex md:space-y-0 md:-space-x-4 xl:w-10/12">
-                    <div className="relative z-10 -mx-4 group md:w-6/12 md:mx-0 lg:w-5/12">
+                <div className=" mt-10 mb-44 m-auto -space-y-4 items-center justify-center md:flex md:space-y-0 md:-space-x-4 xl:w-10/12">
+                    <div className="relative z-10 -mx-4 group md:w-6/12 md:mx-0 lg:w-6/12">
                         <div aria-hidden="true" className="absolute top-0 w-full h-full rounded-2xl bg-white shadow-xl transition duration-500 group-hover:scale-105 lg:group-hover:scale-110"></div>
                         <div className="relative p-6 space-y-6 lg:p-8">
                             <h3 className="text-3xl text-gray-700 font-semibold text-center">Economise jusqu&apos;</h3>

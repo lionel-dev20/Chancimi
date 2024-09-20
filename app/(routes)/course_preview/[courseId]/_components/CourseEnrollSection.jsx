@@ -68,7 +68,7 @@ function CourseEnrollSection({ courseInfo, isUserAlreadyEnrolled }) {
       ) : 
         !isUserAlreadyEnrolled&& <div className='flex flex-col gap-3 mt-3'>
           <p className='text-[16px] text-white font-light'>ILes inscriptions sont vérifié et valider pour l&apos;activation de ce cours</p>
-          <p>Frais d&apoq;inscription + Frais complet du dossier : <span>154,000 FCFA</span></p>
+          {/* <p>Frais d&apoq;inscription + Frais complet du dossier : <span>154,000 FCFA</span></p> */}
           <Link href='/register'>
           <Button className="bg-white text-[18px] py-3 text-primary hover:bg-white hover:text-primary rounded-[4px]">
             S&apos;inscrire maintenant

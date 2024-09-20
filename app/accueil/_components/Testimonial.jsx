@@ -1,52 +1,59 @@
-"use client";
-
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/magicui/marquee";
-import Image from "next/image";
 
 const reviews = [
   {
-    name: "Julie Esso",
+    name: "Jack",
     username: "@jack",
-    body: "Trés bon de centre de formation je recommande vivement.",
-    img: "/profil1.webp",
+    body: "I've never seen anything like this before. It's amazing. I love it.",
+    img: "https://avatar.vercel.sh/jack",
   },
   {
-    name: "Marie Thérèse",
+    name: "Jill",
     username: "@jill",
-    body: "Les cours pratique sont trés cool merci encore Chancimi",
-    img: "/profil2.webp",
+    body: "I don't know what to say. I'm speechless. This is amazing.",
+    img: "https://avatar.vercel.sh/jill",
   },
   {
-    name: "John Alain",
+    name: "John",
     username: "@john",
-    body: "Bon suivit des apprenant merci Chancimi",
-    img: "/profil4.webp",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/john",
   },
   {
-    name: "Vanessa Annie",
+    name: "Jane",
     username: "@jane",
-    body: "Bonne plateforme pour reviser son examen de permis",
-    img: "/profil3.webp",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/jane",
   },
   {
-    name: "Francis Paul",
+    name: "Jenny",
     username: "@jenny",
     body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "/profil5.webp",
+    img: "https://avatar.vercel.sh/jenny",
   },
   {
-    name: "Jean-jacque",
+    name: "James",
     username: "@james",
     body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "/profil6.webp",
+    img: "https://avatar.vercel.sh/james",
   },
 ];
 
 const firstRow = reviews.slice(0, reviews.length / 2);
 const secondRow = reviews.slice(reviews.length / 2);
 
-const ReviewCard = ({ img, name, username, body }) => {
+const ReviewCard = ({
+  img,
+  name,
+  username,
+  body,
+}: {
+  img: string;
+  name: string;
+  username: string;
+  body: string;
+}) => {
   return (
     <figure
       className={cn(
@@ -54,11 +61,11 @@ const ReviewCard = ({ img, name, username, body }) => {
         // light styles
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         // dark styles
-        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
+        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
       )}
     >
       <div className="flex flex-row items-center gap-2">
-        <Image className="rounded-full" width="32" height="32" alt="" src={img} />
+        <img className="rounded-full" width="32" height="32" alt="" src={img} />
         <div className="flex flex-col">
           <figcaption className="text-sm font-medium dark:text-white">
             {name}
@@ -73,9 +80,7 @@ const ReviewCard = ({ img, name, username, body }) => {
 
 export function Testimonial() {
   return (
-    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden  bg-background">
-        <h2 className="text-3xl font-bold flex items-center mb-6">Ils nous ont fait confiance pour leur <span className="text-primary ml-2"> formation</span></h2>
-        <p className="max-w-[44rem] mb-10 mt-6 text-lg leading-8 text-gray-600">Toi aussi tu peux le faire, comme tous nos autres édutiants l&apos;ont fait, laisse toi guider et accompagner tout au long de ton apprentissage de conduire avec notre école Chancimi .</p>
+    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
       <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review) => (
           <ReviewCard key={review.username} {...review} />

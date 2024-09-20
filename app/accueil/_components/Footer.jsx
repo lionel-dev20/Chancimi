@@ -3,7 +3,8 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div><footer className="bg-gray-50 -mt-16">
+    <div className='relative z-10'>
+      <footer className="bg-gray-50 bottom-0 ">
     <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center sm:justify-between">
         <div className="flex justify-center text-teal-600 sm:justify-start">
