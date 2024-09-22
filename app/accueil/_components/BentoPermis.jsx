@@ -74,7 +74,7 @@ const SkeletonOne = () => {
 
   return (
     <motion.div
-      initial="initial"
+      initial="initial" 
       whileHover="animate"
       className="flex flex-1 w-full h-96  bg-dot-black/[0.2] flex-col space-y-6"
     > 
