@@ -22,20 +22,62 @@ const data = [
       }
     ]
   },
-  // {
-  //   id: 2,
-  //   title: "VOTRE PERMIS EN LIGNE",
-  //   tagline: "PREMIERE AUTO ECOLE EN LIGNE AU CAMEROUN",
-  //   image: "/slider2.webp",
-  //   buttons: [
-  //     {
-  //       id: 1,
-  //       text: "Julia M Cameron",
-  //       link: "https://www.pexels.com/@julia-m-cameron/",
-  //       type: "btn-dark btn-circle"
-  //     }
-  //   ]
-  // }
+  {
+    id: 2,
+    title: "",
+    tagline: "",
+    image: "/Chancimi-Auto-Ecole1.jpg",
+    buttons: [
+      {
+        id: 1,
+        text: "Voir les tarifs",
+        link: "/accueil/pricing",
+        type: "btn-dark btn-circle"
+      }
+    ]
+  },
+  {
+    id: 3,
+    title: "",
+    tagline: "",
+    image: "/Chancimi-Auto-Ecole2.jpg",
+    buttons: [
+      {
+        id: 1,
+        text: "Voir les cours",
+        link: "/dashboard",
+        type: "btn-dark btn-circle"
+      }
+    ]
+  },
+  {
+    id: 4,
+    title: "",
+    tagline: "",
+    image: "/Chancimi-Auto-Ecole3.jpg",
+    buttons: [
+      {
+        id: 1,
+        text: "S'inscrire maintenant",
+        link: "/sign-in",
+        type: "btn-dark btn-circle"
+      }
+    ]
+  },
+  {
+    id: 5,
+    title: "",
+    tagline: "",
+    image: "/Chancimi-Auto-Ecole4.jpg",
+    buttons: [
+      {
+        id: 1,
+        text: "S'inscrire maintenant",
+        link: "/sign-in",
+        type: "btn-dark btn-circle"
+      }
+    ]
+  }
 ];
 
 function SliderCaroussel() {
