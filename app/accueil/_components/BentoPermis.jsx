@@ -19,13 +19,14 @@ export function BentoPermis() {
     <div className="mt-32">
       <div className="flex flex-col justify-between items-center">
         <h2 className="dark:text-white sm:w-[46rem] items-center justify-center mx-auto text-neutral-800 text-3xl font-bold mb-2 text-center">
-          Type de permis à préparer avec note auto école Chancimi en toute{" "}
+          Type de permis à préparer avec note auto école Chancimi en toute 
           <span className="text-primary">sécurité et assurance</span>
         </h2>
 
         <p className="max-w-[890px] mb-12 mt-6 text-lg leading-8 text-gray-600">
-          Nous proposons les préparations d&apos; à tous les types de permis au Cameroun. Du type A, B, C, D ainsi que des cours de recyclage.
-          Tous ceci est possible depuis notre site web mais dans notre centre de formation Chancimi.
+        Au Cameroun, chaque catégorie de permis de conduire a des exigences spécifiques, 
+        en fonction du type de véhicule que vous souhaitez conduire. Voici un récapitulatif 
+        détaillé des conditions pour chaque catégorie de permis
         </p>
       </div>
 
@@ -75,29 +76,10 @@ const SkeletonOne = () => {
     <motion.div
       initial="initial"
       whileHover="animate"
-      className="flex flex-1 w-full h-full min-h-[6rem]  bg-dot-black/[0.2] flex-col space-y-2"
-    >
-      <motion.div
-        variants={variants}
-        className="flex flex-row rounded-full border border-blue-gray-100  p-2  items-center space-x-2 bg-white"
-      >
-        <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
-        <div className="w-full bg-gray-100 h-4 rounded-full dark:bg-neutral-900" />
-      </motion.div>
-      <motion.div
-        variants={variantsSecond}
-        className="flex flex-row rounded-full border border-neutral-100  p-2 items-center space-x-2 w-3/4 ml-auto bg-white"
-      >
-        <div className="w-full bg-gray-100 h-4 rounded-full dark:bg-neutral-900" />
-        <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
-      </motion.div>
-      <motion.div
-        variants={variants}
-        className="flex flex-row rounded-full border border-neutral-100  p-2 items-center space-x-2 bg-white"
-      >
-        <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
-        <div className="w-full bg-gray-100 h-4 rounded-full dark:bg-neutral-900" />
-      </motion.div>
+      className="flex flex-1 w-full h-96  bg-dot-black/[0.2] flex-col space-y-6"
+    > 
+      <Image src="/Slide-des-Catégories-512X300-Permis-A.jpg" alt="image" width={390} height={290} loading="lazy" className="rounded-t-lg"/>
+  
     </motion.div>
   );
 };
@@ -122,22 +104,13 @@ const SkeletonTwo = () => {
   const arr = new Array(6).fill(0);
   return (
     <motion.div
-      initial="initial"
-      animate="animate"
-      whileHover="hover"
-      className="flex flex-1 w-full h-full min-h-[6rem]  bg-dot-black/[0.2] flex-col space-y-2"
-    >
-      {arr.map((_, i) => (
-        <motion.div
-          key={"skelenton-two" + i}
-          variants={variants}
-          style={{
-            maxWidth: Math.random() * (100 - 40) + 40 + "%",
-          }}
-          className="flex flex-row rounded-full border border-neutral-100  p-2  items-center space-x-2 bg-neutral-100 w-full h-4"
-        ></motion.div>
-      ))}
-    </motion.div>
+    initial="initial"
+    whileHover="animate"
+    className="flex flex-1 w-full h-full max-h-96 pb-4  bg-dot-black/[0.2] flex-col space-y-6"
+  > 
+    <Image src="/Slide-des-Catégories-512X300-Permis-B.jpg" alt="image" width={390} height={390} loading="lazy" className="rounded-t-lg"/>
+
+  </motion.div>
   );
 };
 const SkeletonThree = () => {
@@ -151,23 +124,13 @@ const SkeletonThree = () => {
   };
   return (
     <motion.div
-      initial="initial"
-      animate="animate"
-      variants={variants}
-      transition={{
-        duration: 5,
-        repeat: Infinity,
-        repeatType: "reverse",
-      }}
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2"
-      style={{
-        background:
-          "linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)",
-        backgroundSize: "400% 400%",
-      }}
-    >
-      <motion.div className="h-full w-full rounded-lg"></motion.div>
-    </motion.div>
+    initial="initial"
+    whileHover="animate"
+    className="flex flex-1 w-full pb-4  bg-dot-black/[0.2] flex-col space-y-6"
+  > 
+    <Image src="/Slide-des-Catégories-512X300-Permis-C.jpg" alt="image" width={390} height={390} loading="lazy" className="rounded-t-lg"/>
+
+  </motion.div>
   );
 };
 const SkeletonFour = () => {
@@ -210,10 +173,9 @@ const SkeletonFour = () => {
           className="rounded-full h-10 w-10"
         />
         <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-          Just code in Vanilla Javascript
-        </p>
+Permis D        </p>
         <p className="border border-red-500 bg-red-100 dark:bg-red-900/20 text-red-600 text-xs rounded-full px-2 py-0.5 mt-4">
-          Delusional
+        Bientot disponible  
         </p>
       </motion.div>
       <motion.div className="h-full relative z-20 w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center">
@@ -225,11 +187,9 @@ const SkeletonFour = () => {
           className="rounded-full h-10 w-10"
         />
         <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-          Tailwind CSS is cool, you know
-        </p>
+        Permis E        </p>
         <p className="border border-green-500 bg-green-100 dark:bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">
-          Sensible
-        </p>
+        Bientot disponible      </p>
       </motion.div>
       <motion.div
         variants={second}
@@ -243,11 +203,9 @@ const SkeletonFour = () => {
           className="rounded-full h-10 w-10"
         />
         <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-          I love angular, RSC, and Redux.
-        </p>
+        Permis T        </p>
         <p className="border border-orange-500 bg-orange-100 dark:bg-orange-900/20 text-orange-600 text-xs rounded-full px-2 py-0.5 mt-4">
-          Helpless
-        </p>
+Bientot disponible        </p>
       </motion.div>
     </motion.div>
   );
@@ -280,34 +238,13 @@ const SkeletonFive = () => {
 
   return (
     <motion.div
-      initial="initial"
-      whileHover="animate"
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
-    >
-      <motion.div
-        variants={variants}
-        className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2  items-start space-x-2 bg-white dark:bg-black"
-      >
-        <Image
-          src=""
-          alt="avatar"
-          height="100"
-          width="100"
-          className="rounded-full h-10 w-10"
-        />
-        <p className="text-xs text-neutral-500">
-          There are a lot of cool framerworks out there like React, Angular,
-          Vue, Svelte that can make your life ....
-        </p>
-      </motion.div>
-      <motion.div
-        variants={variantsSecond}
-        className="flex flex-row rounded-full border-1 p-2 items-center justify-end space-x-2 w-3/4 ml-auto bg-white dark:bg-black"
-      >
-        <p className="text-xs text-neutral-500">Use PHP.</p>
-        <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
-      </motion.div>
-    </motion.div>
+    initial="initial"
+    whileHover="animate"
+    className="flex flex-1 w-full h-full min-h-[6rem]  bg-dot-black/[0.2] flex-col space-y-6"
+  > 
+    <Image src="/Slide-des-Catégories-512X300-Recyclage.jpg" alt="image" width={390} height={390} loading="lazy" className="rounded-t-lg"/>
+
+  </motion.div>
   );
 };
 const items = [
@@ -315,8 +252,9 @@ const items = [
     title: "Permis A",
     description: (
       <span className="text-sm">
-        Ce permis est ouvert à tous etre agé 16 ans.
-      </span>
+Permis pour les motocyclettes <br/>
+
+</span>
     ),
     header: <SkeletonOne />,
     className: "md:col-span-1",
@@ -326,8 +264,9 @@ const items = [
     title: "Permis B",
     description: (
       <span className="text-sm">
-        Ce permis est ouvert à tous etre agé 18ans.
-        </span>
+ Permis pour véhicules légers <br/>
+
+ </span>
     ),
     header: <SkeletonTwo />,
     className: "md:col-span-1",
@@ -337,8 +276,9 @@ const items = [
     title: "Permis C",
     description: (
       <span className="text-sm">
-        Ce permis est ouvert à tous etre agé 21ans.
-        </span>
+Permis pour camions <br/>
+
+</span>
     ),
     header: <SkeletonThree />,
     className: "md:col-span-1",
