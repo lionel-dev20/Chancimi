@@ -12,7 +12,7 @@ const data = [
     id: 1,
     title: "",
     tagline: "",
-    image: "Visuels-de-Chancimi1.jpg",
+    image: "/sliderchancimi.jpg",
     buttons: [
       {
         id: 1,
@@ -22,62 +22,62 @@ const data = [
       }
     ]
   },
-  {
-    id: 2,
-    title: "",
-    tagline: "",
-    image: "/Chancimi-Auto-Ecole1.jpg",
-    buttons: [
-      {
-        id: 1,
-        text: "Voir les tarifs",
-        link: "/accueil/pricing",
-        type: "btn-dark btn-circle"
-      }
-    ]
-  },
-  {
-    id: 3,
-    title: "",
-    tagline: "",
-    image: "/Chancimi-Auto-Ecole2.jpg",
-    buttons: [
-      {
-        id: 1,
-        text: "Voir les cours",
-        link: "/dashboard",
-        type: "btn-dark btn-circle"
-      }
-    ]
-  },
-  {
-    id: 4,
-    title: "",
-    tagline: "",
-    image: "/Chancimi-Auto-Ecole3.jpg",
-    buttons: [
-      {
-        id: 1,
-        text: "S'inscrire maintenant",
-        link: "/sign-in",
-        type: "btn-dark btn-circle"
-      }
-    ]
-  },
-  {
-    id: 5,
-    title: "",
-    tagline: "",
-    image: "/Chancimi-Auto-Ecole4.jpg",
-    buttons: [
-      {
-        id: 1,
-        text: "S'inscrire maintenant",
-        link: "/sign-in",
-        type: "btn-dark btn-circle"
-      }
-    ]
-  }
+  // {
+  //   id: 2,
+  //   title: "",
+  //   tagline: "",
+  //   image: "/Chancimi-Auto-Ecole1.jpg",
+  //   buttons: [
+  //     {
+  //       id: 1,
+  //       text: "Voir les tarifs",
+  //       link: "/accueil/pricing",
+  //       type: "btn-dark btn-circle"
+  //     }
+  //   ]
+  // },
+  // {
+  //   id: 3,
+  //   title: "",
+  //   tagline: "",
+  //   image: "/Chancimi-Auto-Ecole2.jpg",
+  //   buttons: [
+  //     {
+  //       id: 1,
+  //       text: "Voir les cours",
+  //       link: "/dashboard",
+  //       type: "btn-dark btn-circle"
+  //     }
+  //   ]
+  // },
+  // {
+  //   id: 4,
+  //   title: "",
+  //   tagline: "",
+  //   image: "/Chancimi-Auto-Ecole3.jpg",
+  //   buttons: [
+  //     {
+  //       id: 1,
+  //       text: "S'inscrire maintenant",
+  //       link: "/sign-in",
+  //       type: "btn-dark btn-circle"
+  //     }
+  //   ]
+  // },
+  // {
+  //   id: 5,
+  //   title: "",
+  //   tagline: "",
+  //   image: "/Chancimi-Auto-Ecole4.jpg",
+  //   buttons: [
+  //     {
+  //       id: 1,
+  //       text: "S'inscrire maintenant",
+  //       link: "/sign-in",
+  //       type: "btn-dark btn-circle"
+  //     }
+  //   ]
+  // }
 ];
 
 function SliderCaroussel() {
@@ -98,7 +98,7 @@ function SliderCaroussel() {
                 <div
                   className="h-full w-full absolute mt-24"
                   style={{
-                    background: `url(${image}) center center / cover scroll no-repeat`,
+                    background: `url(${image}) center center / contain scroll no-repeat`,
                   }}
                 ></div>
                 {/* Overlay with increased opacity for better text visibility */}
