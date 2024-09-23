@@ -12,7 +12,7 @@ const data = [
     id: 1,
     title: "",
     tagline: "",
-    image: "/sliderchancimi.jpg",
+    image: "/autoecolechancimi.jpg",
     buttons: [
       {
         id: 1,
