@@ -332,17 +332,27 @@ function FormRegister() {
                 </div>
 
                 <div> 
-                   <input className="w-full rounded-lg border-gray-200 p-3 text-sm" 
-                   placeholder="Téléverser la photocopie de vote CNI, Récépicé valide, ou Passport"
-                    type="file" id="fileInput" class="hidden-input" required />
+                <input
+                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  placeholder="Téléverser une photo 4 x 4"
+                  type="file"
+                  id="fileInput"
+                  name="file" // Ajoutez le nom ici pour le backend
+                  required
+                />
                      <label for="fileInput" class="custom-file-label text-gray-500">Photocopie, ou Passport</label>
                 </div>
 
                 <div> 
-                   <input className="w-full rounded-lg border-gray-200 p-3 text-sm" 
-                   placeholder="Téléverser une photo 4 x 4"
-                    type="file" id="fileInput" class="hidden-input" required />
-                     <label for="fileInput" class="custom-file-label text-gray-500">Téléverser une photo 4 x 4</label>
+                <input
+                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  placeholder="Téléverser une photo 4 x 4"
+                  type="file"
+                  id="fileInput"
+                  name="file" // Ajoutez le nom ici pour le backend
+                  required
+                />
+                   <label for="fileInput" class="custom-file-label text-gray-500">Téléverser une photo 4 x 4</label>
                 </div>
 
                 <div className="mt-4">
