@@ -15,7 +15,7 @@ function FormRegister() {
     setResult("En cours d'envoi ....");
     const formData = new FormData(event.target);
 
-    formData.append("access_key", "bd6bad39-e31e-43b9-8050-3c833765bc86");
+    formData.append("access_key", "e35a9112-a665-4aa5-ae21-4187ab0dd6b3");
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",

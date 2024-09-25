@@ -300,7 +300,7 @@ Permis pour camions <br/>
     title: "Recyclage",
     description: (
       <span className="text-sm">
-        Summarize your lengthy documents with AI technology.
+        Réviser les bons reflex du code de la route
       </span>
     ),
     header: <SkeletonFive />,
