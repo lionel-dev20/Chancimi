@@ -29,7 +29,7 @@ function page() {
               </div>
 
               <div className="h-40 w-40 mx-auto -mt-12 shadow-xl rounded-full bg-gray-700 text-white border-[3px] flex flex-col items-center justify-center border-white">
-                <h3 className="text-2xl">48,000 FCFA</h3>
+                <h3 className="text-2xl">50,400 FCFA</h3>
               </div>
 
               <div className="px-6 py-4 mt-4">
@@ -72,7 +72,7 @@ function page() {
                   </li>
                 </ul>
 
-                <Link href='https://me.lygosapp.com/AVVncBKT'>
+                <Link href='https://me.lygosapp.com/WScU2mBg'>
                   <button type="button" className="w-full mt-8 px-5 py-2.5 text-sm text-white bg-gray-700 hover:bg-gray-800 rounded-full">S&lsquo;inscrire maintenant</button>
                 </Link>
               </div>
@@ -87,7 +87,7 @@ function page() {
 
               <div className="h-40 w-40 mx-auto -mt-12 shadow-xl rounded-full bg-blue-600 text-white border-[3px] flex flex-col items-center justify-center border-white">
                 {/* <p className="text-[10px] font-bold">Save 29%</p> */}
-                <h3 className="text-2xl">56,000 FCFA</h3>
+                <h3 className="text-2xl">59,850 FCFA</h3>
               </div>
 
               <div className="px-6 py-4 mt-4">
@@ -96,7 +96,7 @@ function page() {
                     <svg xmlns="http://www.w3.org/2000/svg" width="17" className="mr-3 bg-green-500 fill-white rounded-full p-[3px]" viewBox="0 0 24 24">
                       <path d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z" data-original="#000000" />
                     </svg>
-                    2éme tranche 26,000 FCFA aprés 30 jours
+                    2éme tranche 27,000 FCFA aprés 30 jours
                   </li>
                   <li className="flex items-center text-sm text-gray-500">
                     <svg xmlns="http://www.w3.org/2000/svg" width="17" className="mr-3 bg-green-500 fill-white rounded-full p-[3px]" viewBox="0 0 24 24">
@@ -128,7 +128,7 @@ function page() {
                     Support ( 3 mois )
                   </li>
                 </ul>
-                <Link href='https://me.lygosapp.com/iNbVXTbd'>
+                <Link href='https://me.lygosapp.com/DRFEmxUq'>
                 <button type="button" className="w-full mt-8 px-5 py-2.5 text-sm text-white bg-blue-600 hover:bg-blue-700 rounded-full">Souscrire maintenant</button>
                 </Link>
               </div>
@@ -142,7 +142,7 @@ function page() {
 
               <div className="h-40 w-40 mx-auto -mt-12 shadow-xl rounded-full bg-primary text-white border-[3px] flex flex-col items-center justify-center border-white">
                 {/* <p className="text-[10px] font-bold">Save 33%</p> */}
-                <h3 className="text-2xl">79,900 FCFA</h3>
+                <h3 className="text-2xl">84,000 FCFA</h3>
               </div>
 
               <div className="px-6 py-4 mt-4">
@@ -183,7 +183,7 @@ function page() {
                   </li>
                 </ul>
                 
-                <Link href='https://me.lygosapp.com/gdZHy8ZQ'>
+                <Link href='https://me.lygosapp.com/ZXPSeuqK'>
                 <button type="button" className="w-full mt-8 px-5 py-2.5 text-sm text-white bg-primary hover:bg-red-500 rounded-full">Souscrire maintenant</button>
                 </Link>
               </div>

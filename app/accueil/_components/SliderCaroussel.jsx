@@ -1,11 +1,12 @@
 "use client";
 
-import React from 'react';
+import React from "react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import Link from "next/link";
 
 const data = [
   {
@@ -18,9 +19,9 @@ const data = [
         id: 1,
         text: "Démarrer la formation",
         link: "/dashboard",
-        type: "btn-dark btn-circle"
-      }
-    ]
+        type: "btn-dark btn-circle",
+      },
+    ],
   },
   // {
   //   id: 2,
@@ -96,15 +97,21 @@ function SliderCaroussel() {
               <SwiperSlide key={id}>
                 {/* Image background */}
                 <div
-                  className="h-full w-full absolute mt-24"
+                  className="h-full w-full absolute -mt-4 sm:mt-24"
                   style={{
                     background: `url(${image}) center center / contain scroll no-repeat`,
                   }}
-                ></div>
+                > <Link href={"/"}>
+                  {" "}
+                  </Link>
+                </div>
+
                 {/* Overlay with increased opacity for better text visibility */}
                 <div className="h-full w-full"></div>
-                <div className="relative z-10 h-[50rem] flex items-end justify-center pb-16">
-                  <div className="text-center px-4"> {/* Added padding for text responsiveness */}
+                <div className="relative z-10 h-[25.5rem] sm:h-[50rem] flex items-end justify-center pb-10 sm:pb-16">
+                  <div className="text-center px-4">
+                    {" "}
+                    {/* Added padding for text responsiveness */}
                     {tagline && (
                       <p className="text-md sm:text-xl lg:text-xl font-semibold text-white mb-3">
                         {tagline}
@@ -114,7 +121,10 @@ function SliderCaroussel() {
                       {title}
                     </p>
                     {buttons.length > 0 ? (
-                      <a href={buttons[0].link} className="bg-primary rounded-[4px] inline-block px-9 py-4  text-white mt-4 lg:mt-8">
+                      <a
+                        href={buttons[0].link}
+                        className="bg-primary rounded-[4px] inline-block px-9 py-4  text-white mt-4 lg:mt-8"
+                      >
                         {buttons[0].text}
                       </a>
                     ) : null}
