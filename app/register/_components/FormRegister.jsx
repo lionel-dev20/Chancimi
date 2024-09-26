@@ -6,7 +6,105 @@ import { Checkbox } from "@/components/ui/checkbox"
 import Image from 'next/image';
 
 
+
 function FormRegister() {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [datedeNaissance, setDatedeNaissance] = useState('')
+  const [villeDeNaissance, setVilleDeNaissance] = useState('')
+  const [profession, setProfession] = useState('')
+  const [nomDuPere, setNomDuPere] = useState('')
+  const [nomDeLaMere, setNomDeLaMere] = useState('')
+  const [villeDeresidence, setVilleDeresidence] = useState('')
+  const [quartierderesidence, setQuartierderesidence] = useState('')
+  const [coursDeFrancais, setCoursDeFrancais] = useState('')
+  const [coursDAnglais, setCoursDAnglais] = useState('')
+  const [permisoption, setPermisoption] = useState('')
+  const [filecniPassport, setFilecniPassport] = useState('')
+  const [filephoto4x4, setFilephoto4x4] = useState('')
+
+  const [file, setFile] = useState(null);
+  const [message, setMessage] = useState('');
+
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
+  
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const res = await fetch('/api/googleSheets/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        setMessage(`File uploaded successfully with ID: ${data.fileId}`);
+      } else {
+        setMessage(`File upload failed: ${data.message}`);
+      }
+    } catch (err) {
+      setMessage('Error during upload');
+    }
+    const form = {
+      name,
+      email,
+      phone,
+      datedeNaissance,
+      villeDeNaissance,
+      profession,
+      nomDuPere,
+      nomDeLaMere,
+      villeDeresidence,
+      quartierderesidence,
+      coursDeFrancais,
+      coursDAnglais,
+      permisoption,
+      filecniPassport,
+      filephoto4x4
+    };
+  
+    const response = await fetch('/api/googleSheets', {  // Chemin API interne corrigé
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(form)
+    });
+  
+    const content = await response.json();
+  
+    console.log(content);
+    alert(content.data.tableRange);
+  
+    setName('');
+    setEmail('');
+    setPhone('');
+    setDatedeNaissance('');
+    setVilleDeNaissance('');
+    setProfession('');
+    setNomDuPere('');
+    setNomDeLaMere('');
+    setVilleDeresidence('');
+    setQuartierderesidence('');
+    setCoursDeFrancais('');
+    setCoursDAnglais('');
+    setPermisoption('');
+    setFilecniPassport('');
+    setFilephoto4x4('');
+  
+    console.log(form);
+  };
+  
+  
+
   const [result, setResult] = useState();
   const router = useRouter(); // Utilisation de useRouter pour la redirection
 
@@ -61,10 +159,10 @@ function FormRegister() {
             </div>
 
             <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
-              <form onSubmit={onSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit}  className="space-y-4">
                 <div>
                   <label className="sr-only" htmlFor="name">Name</label>
-                  <input
+                  <input value={name} onChange={e => setName(e.target.value)}
                     className="w-full rounded-lg border-gray-200 p-3 border border-b-2 text-sm"
                     placeholder="Entrer votre nom et prenom complet"
                     type="text"
@@ -76,7 +174,7 @@ function FormRegister() {
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
                     <label className="sr-only" htmlFor="email">Email</label>
-                    <input
+                    <input value={email} onChange={e => setEmail(e.target.value)}
                       className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
                       placeholder="Entrer votre adresse email"
                       type="email"
@@ -87,9 +185,9 @@ function FormRegister() {
 
                   <div>
                     <label className="sr-only" htmlFor="phone">Phone</label>
-                    <input
+                    <input value={phone} onChange={e => setPhone(e.target.value)}
                       className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
-                      placeholder="Phone Number"
+                      placeholder="Numéro de téléphone"
                       type="tel"
                       id="phone"
                       name="phone" // Ajout du name pour correspondre avec le backend
@@ -100,35 +198,35 @@ function FormRegister() {
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
                     <label className="sr-only" htmlFor="email">Email</label>
-                    <input
+                    <input value={datedeNaissance} onChange={e => setDatedeNaissance(e.target.value)}
                       className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
                       placeholder="Entrer votre date de naissance"
                       type="date"
                       id="date"
-                      name="Entrer votredate de naissance" // Ajout du name pour correspondre avec le backend
+                      name="datedeNaissance" // Ajout du name pour correspondre avec le backend
                     />
                   </div>
 
                   <div>
                     <label className="sr-only" htmlFor="text">Phone</label>
-                    <input
+                    <input value={villeDeNaissance} onChange={e => setVilleDeNaissance(e.target.value)}
                       className="w-full rounded-lg border-gray-200 p-3 border border-b-2 text-sm"
                       placeholder="Entrer votre lieu de naissance"
                       type="text"
                       id="text"
-                      name="City born" // Ajout du name pour correspondre avec le backend
+                      name="villeDeNaissance" // Ajout du name pour correspondre avec le backend
                     />
                   </div>
                 </div>
 
                 <div>
                   <label className="sr-only" htmlFor="name">Name</label>
-                  <input
+                  <input  value={profession} onChange={e => setProfession(e.target.value)}
                     className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
                     placeholder="Entrer votre profesion"
                     type="text"
                     id="name"
-                    name="Profession" // Ajout du name pour correspondre avec le backend
+                    name="profession" // Ajout du name pour correspondre avec le backend
                   />
                 </div>
 
@@ -136,22 +234,22 @@ function FormRegister() {
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
                     <label className="sr-only" htmlFor="email">Email</label>
-                    <input
+                    <input value={nomDuPere} onChange={e => setNomDuPere(e.target.value)}
                       className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
                       placeholder="Entrer le nom complet de votre pére"
                       type="text"
                       id="text"
-                      name="Nom du père" // Ajout du name pour correspondre avec le backend
+                      name="nomDuPere" // Ajout du name pour correspondre avec le backend
                     />
                   </div>
                   <div>
                     <label className="sr-only" htmlFor="phone">Phone</label>
-                    <input
+                    <input value={nomDeLaMere} onChange={e => setNomDeLaMere(e.target.value)}
                       className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
                       placeholder="Entrer le nom complet de votre mére"
                       type="text"
                       id="text"
-                      name="Nom de la mére" // Ajout du name pour correspondre avec le backend
+                      name="nomDeLaMere" // Ajout du name pour correspondre avec le backend
                     />
                   </div>
                 </div>
@@ -160,22 +258,22 @@ function FormRegister() {
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
                     <label className="sr-only" htmlFor="email">Ville</label>
-                    <input
+                    <input value={villeDeresidence} onChange={e => setVilleDeresidence(e.target.value)}
                       className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
                       placeholder="Entrer votre ville"
                       type="text"
                       id="text"
-                      name="Ville de résidence" // Ajout du name pour correspondre avec le backend
+                      name="villeDeresidence" // Ajout du name pour correspondre avec le backend
                     />
                   </div>
                   <div>
                     <label className="sr-only" htmlFor="phone">Quartier</label>
-                    <input
+                    <input value={quartierderesidence} onChange={e => setQuartierderesidence(e.target.value)}
                       className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
                       placeholder="Entrer votre quartier"
                       type="text"
                       id="text"
-                      name="Quartier de résidence" // Ajout du name pour correspondre avec le backend
+                      name="quartierderesidence" // Ajout du name pour correspondre avec le backend
                     />
                   </div>
                 </div>
@@ -189,7 +287,7 @@ function FormRegister() {
 
                 <div className='flex gap-6 items-center'>
                 <div className="items-top flex space-x-2">
-                 <Checkbox id="terms1" />
+                 <Checkbox id="terms1" checked={coursDeFrancais} onChange={e => setCoursDeFrancais(e.target.value)} />
                 <div className="grid gap-1.5 leading-none">
                     <label htmlFor="Cours en Français" className="text-sm flex gap-2 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                    <Image  src='/france.webp' width={24} height={24} alt='francais' />
@@ -200,7 +298,7 @@ function FormRegister() {
 
 
                 <div className="items-top flex space-x-2">
-                 <Checkbox id="terms1" />
+                 <Checkbox id="terms2" checked={coursDAnglais} onChange={e => setCoursDAnglais(e.target.value)}/>
                 <div className="grid gap-1.5 leading-none">
                     <label htmlFor="Cours en Anglais" className="text-sm flex gap-2 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                    <Image  src='/usa.webp' width={24} height={24} alt='francais' />
@@ -224,7 +322,7 @@ function FormRegister() {
                       className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
                       tabIndex="0"
                     >
-                      <input className="sr-only" id="Option1" type="radio" tabIndex="-1" name="Permi catégorie A" />
+                      <input value={permisoption} onChange={e => setPermisoption(e.target.value)} className="sr-only" id="Option1" type="radio" tabIndex="-1" name="Permi catégorie A" />
 
                       <span className="text-[15px] text-gray-600"> Permi catégorie A </span>
                     </label>
@@ -237,7 +335,7 @@ function FormRegister() {
                       className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
                       tabIndex="0"
                     >
-                      <input className="sr-only" id="Option2" type="radio" tabIndex="-1" name="Permi catégorie B" />
+                      <input value={permisoption} onChange={e => setPermisoption(e.target.value)} className="sr-only" id="Option2" type="radio" tabIndex="-1" name="Permi catégorie B" />
 
                       <span className="text-[15px]"> Permi catégorie B </span>
                     </label>
@@ -250,7 +348,7 @@ function FormRegister() {
                       className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
                       tabIndex="0"
                     >
-                      <input className="sr-only" id="Option3" type="radio" tabIndex="-1" name="Permi catégorie C" />
+                      <input value={permisoption} onChange={e => setPermisoption(e.target.value)} className="sr-only" id="Option3" type="radio" tabIndex="-1" name="Permi catégorie C" />
 
                       <span className="text-[15px]"> Permi catégorie C </span>
                     </label>
@@ -259,11 +357,11 @@ function FormRegister() {
 
                   <div>
                     <label
-                      htmlFor="Option3"
+                      htmlFor="Option4"
                       className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
                       tabIndex="0"
                     >
-                      <input className="sr-only" id="Option3" type="radio" tabIndex="-1" name="Permi catégorie D" />
+                      <input value={permisoption} onChange={e => setPermisoption(e.target.value)} className="sr-only" id="Option4" type="radio" tabIndex="-1" name="Permi catégorie D" />
 
                       <span className="text-[15px]"> Permi catégorie D </span>
                     </label>
@@ -273,11 +371,11 @@ function FormRegister() {
 
                   <div>
                     <label
-                      htmlFor="Option3"
+                      htmlFor="Option5"
                       className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
                       tabIndex="0"
                     >
-                      <input className="sr-only" id="Option3" type="radio" tabIndex="-1" name="Permi catégorie E" />
+                      <input value={permisoption} onChange={e => setPermisoption(e.target.value)} className="sr-only" id="Option5" type="radio" tabIndex="-1" name="Permi catégorie E" />
 
                       <span className="text-[15px]"> Permi catégorie E </span>
                     </label>
@@ -288,11 +386,11 @@ function FormRegister() {
 
                   <div>
                     <label
-                      htmlFor="Option3"
+                      htmlFor="Option6"
                       className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
                       tabIndex="0"
                     >
-                      <input className="sr-only" id="Option3" type="radio" tabIndex="-1" name="Permi catégorie F" />
+                      <input value={permisoption} onChange={e => setPermisoption(e.target.value)} className="sr-only" id="Option6" type="radio" tabIndex="-1" name="Permi catégorie F" />
 
                       <span className="text-[15px]"> Permi catégorie F </span>
                     </label>
@@ -302,11 +400,11 @@ function FormRegister() {
 
                   <div>
                     <label
-                      htmlFor="Option3"
+                      htmlFor="Option7"
                       className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
                       tabIndex="0"
                     >
-                      <input className="sr-only" id="Option3" type="radio" tabIndex="-1" name="Permi catégorie G" />
+                      <input value={permisoption} onChange={e => setPermisoption(e.target.value)} className="sr-only" id="Option7" type="radio" tabIndex="-1" name="Permi catégorie G" />
 
                       <span className="text-[15px]"> Permi catégorie G </span>
                     </label>
@@ -317,11 +415,11 @@ function FormRegister() {
 
                   <div>
                     <label
-                      htmlFor="Option3"
+                      htmlFor="Option8"
                       className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
                       tabIndex="0"
                     >
-                      <input className="sr-only" id="Option3" type="radio" tabIndex="-1" name="Permi catégorie T" />
+                      <input value={permisoption} onChange={e => setPermisoption(e.target.value)} className="sr-only" id="Option8" type="radio" tabIndex="-1" name="Permi catégorie T" />
 
                       <span className="text-[15px]"> Permi catégorie T </span>
                     </label>
@@ -332,24 +430,24 @@ function FormRegister() {
                 </div>
 
                 <div> 
-                <input
+                <input onChange={handleFileChange}
                   className="w-full rounded-lg border-gray-200 p-3 text-sm"
                   placeholder="Téléverser une photo 4 x 4"
                   type="file"
                   id="fileInput"
-                  name="file" // Ajoutez le nom ici pour le backend
+                  name="filecniPassport" // Ajoutez le nom ici pour le backend
                   required
                 />
                      <label for="fileInput" class="custom-file-label text-gray-500">Photocopie, ou Passport</label>
                 </div>
 
                 <div> 
-                <input
+                <input onChange={handleFileChange}
                   className="w-full rounded-lg border-gray-200 p-3 text-sm"
                   placeholder="Téléverser une photo 4 x 4"
                   type="file"
                   id="fileInput"
-                  name="file" // Ajoutez le nom ici pour le backend
+                  name="filephoto4x4" // Ajoutez le nom ici pour le backend
                   required
                 />
                    <label for="fileInput" class="custom-file-label text-gray-500">Téléverser une photo 4 x 4</label>
