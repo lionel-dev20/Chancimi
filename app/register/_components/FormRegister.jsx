@@ -24,33 +24,43 @@ function FormRegister() {
   const [filecniPassport, setFilecniPassport] = useState('')
   const [filephoto4x4, setFilephoto4x4] = useState('')
 
-  const [file, setFile] = useState(null);
-  const [message, setMessage] = useState('');
+ const [selectedFile, setSelectedFile] = useState(null);
+  const [uploadStatus, setUploadStatus] = useState('');
 
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+  // Fonction de gestion du changement de fichier
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
   };
-  
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // Fonction de gestion de l'envoi du formulaire
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!selectedFile) {
+      setUploadStatus('Veuillez sélectionner un fichier.');
+      return;
+    }
+
+    // Créer un objet FormData pour envoyer le fichier
     const formData = new FormData();
-    formData.append('file', file);
+    formData.append('file', selectedFile);
 
     try {
-      const res = await fetch('/api/googleSheets/upload', {
+      // Faire une requête POST vers l'API d'upload
+      const response = await fetch('/api/googleSheets/upload', {
         method: 'POST',
         body: formData,
       });
 
-      const data = await res.json();
-      if (res.ok) {
-        setMessage(`File uploaded successfully with ID: ${data.fileId}`);
+      const data = await response.json();
+
+      if (response.ok) {
+        setUploadStatus(`Fichier téléversé avec succès. ID: ${data.fileId}`);
       } else {
-        setMessage(`File upload failed: ${data.message}`);
+        setUploadStatus(`Erreur lors du téléversement: ${data.message}`);
       }
-    } catch (err) {
-      setMessage('Error during upload');
+    } catch (error) {
+      setUploadStatus(`Erreur lors du téléversement: ${error.message}`);
     }
     const form = {
       name,
@@ -66,8 +76,8 @@ function FormRegister() {
       coursDeFrancais,
       coursDAnglais,
       permisoption,
-      filecniPassport,
-      filephoto4x4
+    filecniPassport, // Utilisation de l'URL
+    filephoto4x4 // Utilisation de l'URL
     };
   
     const response = await fetch('/api/googleSheets', {  // Chemin API interne corrigé
@@ -80,7 +90,7 @@ function FormRegister() {
     });
   
     const content = await response.json();
-  
+   
     console.log(content);
     alert(content.data.tableRange);
   

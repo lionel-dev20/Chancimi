@@ -8,3 +8,4 @@ export async function POST(request) {
   // Retourner une réponse
   return NextResponse.json({ success: true, fileUrl: 'https://drive.google.com/your-uploaded-file' });
 }
+ 
