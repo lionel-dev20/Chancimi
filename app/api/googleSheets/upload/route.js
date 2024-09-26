@@ -1,71 +1,55 @@
 import { google } from 'googleapis';
-import formidable from 'formidable';
-import fs from 'fs';
 
-// Désactiver le parsing automatique de body dans Next.js
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
+// Remplacer config obsolète par la nouvelle approche
+export const dynamic = 'force-dynamic';  // Force le rendu dynamique si nécessaire
 
-// Configurer l'authentification Google Drive
 const SCOPES = ['https://www.googleapis.com/auth/drive.file'];
-const auth = new google.auth.GoogleAuth({
-  keyFile: 'path-to-your-service-account-key.json', // Remplace par ton propre chemin vers la clé du compte de service
-  scopes: SCOPES,
-});
+const drive = google.drive('v3');
 
-const drive = google.drive({ version: 'v3', auth });
-
-// Fonction pour téléverser un fichier vers Google Drive
-const uploadFileToDrive = async (filePath, fileName) => {
-  const fileMetadata = { name: fileName };
+// Fonction d'upload sur Google Drive
+const uploadFileToDrive = async (auth, filePath, fileName) => {
+  const fileMetadata = {
+    name: fileName,
+  };
   const media = {
-    mimeType: 'application/octet-stream', // Adapté selon le type de fichier
+    mimeType: 'application/octet-stream', // Assurez-vous que le type MIME est correct
     body: fs.createReadStream(filePath),
   };
 
-  const response = await drive.files.create({
-    resource: fileMetadata,
-    media: media,
-    fields: 'id',
-  });
-  return response.data.id;
+  try {
+    const response = await drive.files.create({
+      auth,
+      resource: fileMetadata,
+      media: media,
+      fields: 'id',
+    });
+    return response.data.id;
+  } catch (error) {
+    console.error('Erreur lors de l\'upload vers Google Drive:', error);
+    throw new Error('Échec de l\'upload');
+  }
 };
 
-// Gestionnaire de l'API pour l'upload
-const handler = async (req, res) => {
-  // Vérification de la méthode
-  if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Only POST requests are allowed' });
-  }
+export default async function handler(req, res) {
+  if (req.method === 'POST') {
+    // Récupérez et traitez les fichiers du corps de la requête ici
+    const { fullName, file } = req.body;
 
-  // Parser le formulaire avec formidable
-  const form = new formidable.IncomingForm();
-
-  form.parse(req, async (err, fields, files) => {
-    if (err) {
-      return res.status(500).json({ message: 'Form parsing error', error: err.message });
-    }
-
-    const file = files.file; // Fichier téléversé
-    const filePath = file.filepath;
-    const fileName = file.originalFilename;
+    // Créez une authentification OAuth2 avec la clé du compte de service
+    const auth = new google.auth.GoogleAuth({
+      keyFile: '/path-to-your-googleCalendar.json',  // Chemin vers votre fichier de clé
+      scopes: SCOPES,
+    });
 
     try {
-      // Téléversement du fichier vers Google Drive
-      const fileId = await uploadFileToDrive(filePath, fileName);
-
-      // Supprimer le fichier temporaire après l'upload
-      fs.unlinkSync(filePath);
-
-      // Envoyer une réponse positive
-      res.status(200).json({ message: 'File uploaded successfully', fileId });
+      const authClient = await auth.getClient();
+      const fileId = await uploadFileToDrive(authClient, file.path, file.name);
+      res.status(200).json({ success: true, fileId });
     } catch (error) {
-      res.status(500).json({ message: 'File upload failed', error: error.message });
+      console.error('Erreur avec Google Drive API:', error);
+      res.status(500).json({ success: false, message: 'Erreur lors de l\'upload vers Google Drive', error: error.message });
     }
-  });
-};
-
-export default handler;
+  } else {
+    res.status(405).json({ message: 'Seules les requêtes POST sont autorisées' });
+  }
+}
