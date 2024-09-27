@@ -42,7 +42,7 @@ export default async function handler(req, res) {
 
     try {
       const auth = new google.auth.GoogleAuth({
-        keyFile: 'path-to-your/googleCalendar.json', // Chemin vers la clé de votre compte de service
+        keyFile: 'googleCalendar.json', // Chemin vers la clé de votre compte de service
         scopes: SCOPES,
       });
       const authClient = await auth.getClient();

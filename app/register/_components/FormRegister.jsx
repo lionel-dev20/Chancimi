@@ -1,484 +1,292 @@
-"use client";
-
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Checkbox } from "@/components/ui/checkbox"
-import Image from 'next/image';
 
 
 
-function FormRegister() {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
-  const [datedeNaissance, setDatedeNaissance] = useState('')
-  const [villeDeNaissance, setVilleDeNaissance] = useState('')
-  const [profession, setProfession] = useState('')
-  const [nomDuPere, setNomDuPere] = useState('')
-  const [nomDeLaMere, setNomDeLaMere] = useState('')
-  const [villeDeresidence, setVilleDeresidence] = useState('')
-  const [quartierderesidence, setQuartierderesidence] = useState('')
-  const [coursDeFrancais, setCoursDeFrancais] = useState('')
-  const [coursDAnglais, setCoursDAnglais] = useState('')
-  const [permisoption, setPermisoption] = useState('')
-  const [filecniPassport, setFilecniPassport] = useState('')
-  const [filephoto4x4, setFilephoto4x4] = useState('')
 
- const [selectedFile, setSelectedFile] = useState(null);
-  const [uploadStatus, setUploadStatus] = useState('');
 
-  // Fonction de gestion du changement de fichier
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
 
-  // Fonction de gestion de l'envoi du formulaire
-  const handleSubmit = async (event) => {
-    event.preventDefault();
 
-    if (!selectedFile) {
-      setUploadStatus('Veuillez sélectionner un fichier.');
-      return;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'use client'
+
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Loader2, UserCircle2, Home, Globe, Car, Upload } from 'lucide-react'
+
+export default function SingleStepForm() {
+  const [formData, setFormData] = useState({
+    firstName: '', lastName: '', phoneNumber: '', email: '', fatherName: '', motherName: '',
+    city: '', neighborhood: '',
+    language: '',
+    licenseType: '',
+    nationalIdPhoto: null,
+    passportPhoto: null
+  })
+  const [isLoading, setIsLoading] = useState(false)
+  const [showPopup, setShowPopup] = useState(false)
+  const [countdown, setCountdown] = useState(3)
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleFileChange = (e) => {
+    const { name, files } = e.target
+    setFormData(prev => ({ ...prev, [name]: files[0] }))
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setIsLoading(true)
+    setTimeout(() => {
+      setIsLoading(false)
+      setShowPopup(true)
+    }, 2000)
+    console.log('ici les logs', firstName,lastName,phoneNumber,email,fatherName,motherName,city,neighborhood,nationalIdPhoto,passportPhoto);
+    axios.post('https://sheet.best/api/sheets/ce4087b5-137d-4560-b0c8-b2ff05415f99').then((response) => {
+      console.log(response); 
+    })
+  }
+
+  useEffect(() => {
+    let timer
+    if (showPopup && countdown > 0) {
+      timer = setInterval(() => {
+        setCountdown((prevCountdown) => prevCountdown - 1)
+      }, 5000)
+    } else if (countdown === 0) {
+      clearInterval(timer)
+      // Redirect to payment page
+      window.location.href = '/accueil/paiement' // Replace with your actual payment page URL
     }
+    return () => clearInterval(timer)
+  }, [showPopup, countdown])
 
-    // Créer un objet FormData pour envoyer le fichier
-    const formData = new FormData();
-    formData.append('file', selectedFile);
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen">
+        <Loader2 className="h-8 w-8 animate-spin" />
+        <p className="mt-4">Validating your form...</p>
+      </div>
+    )
+  }
 
-    try {
-      // Faire une requête POST vers l'API d'upload
-      const response = await fetch('/api/googleSheets/upload', {
-        method: 'POST',
-        body: formData,
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setUploadStatus(`Fichier téléversé avec succès. ID: ${data.fileId}`);
-      } else {
-        setUploadStatus(`Erreur lors du téléversement: ${data.message}`);
-      }
-    } catch (error) {
-      setUploadStatus(`Erreur lors du téléversement: ${error.message}`);
-    }
-    const form = {
-      name,
-      email,
-      phone,
-      datedeNaissance,
-      villeDeNaissance,
-      profession,
-      nomDuPere,
-      nomDeLaMere,
-      villeDeresidence,
-      quartierderesidence,
-      coursDeFrancais,
-      coursDAnglais,
-      permisoption,
-    filecniPassport, // Utilisation de l'URL
-    filephoto4x4 // Utilisation de l'URL
-    };
-  
-    const response = await fetch('/api/googleSheets', {  // Chemin API interne corrigé
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(form)
-    });
-  
-    const content = await response.json();
-   
-    console.log(content);
-    alert(content.data.tableRange);
-  
-    setName('');
-    setEmail('');
-    setPhone('');
-    setDatedeNaissance('');
-    setVilleDeNaissance('');
-    setProfession('');
-    setNomDuPere('');
-    setNomDeLaMere('');
-    setVilleDeresidence('');
-    setQuartierderesidence('');
-    setCoursDeFrancais('');
-    setCoursDAnglais('');
-    setPermisoption('');
-    setFilecniPassport('');
-    setFilephoto4x4('');
-  
-    console.log(form);
-  };
-  
-  
-
-  const [result, setResult] = useState();
-  const router = useRouter(); // Utilisation de useRouter pour la redirection
-
-  const onSubmit = async (event) => {
-    event.preventDefault();
-    setResult("En cours d'envoi ....");
-    const formData = new FormData(event.target);
-
-    formData.append("access_key", "e35a9112-a665-4aa5-ae21-4187ab0dd6b3");
-
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData
-    });
-
-    const data = await response.json();
-
-    if (data.success) {
-      setResult("Formulaire soumis avec succes !");
-      event.target.reset();
-
-      // Attendre 2 à 3 secondes avant la redirection
-      setTimeout(() => {
-        router.push('/accueil/paiement'); // Redirige vers le lien désiré
-      }, 2000); // 3000 millisecondes = 3 secondes
-
-    } else {
-      console.log("Error", data);
-      setResult(data.message);
-    }
-  };
+  if (showPopup) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen">
+        <Card className="w-[350px]">
+          <CardHeader>
+            <CardTitle>Redirection vers...</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p>Vous serrez redirigé vers la page de paiement dans: {countdown} secondes.</p>
+          </CardContent>
+        </Card>
+      </div>
+    )
+  }
 
   return (
-    <div>
-      <section className="bg-gray-50 ">
-        <div className="mx-auto max-w-screen-xl h-screen px-4 py-16 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
-            <div className="lg:col-span-2 lg:py-12">
-              <p className="max-w-xl text-[16px] font-light">
-                Nous vous invitons a remplir correctement le Formulaire ci contre avec des informations exacte, car
-                celles-ci seront utiliser pour le depot de votre dossier d&apos;examen au pret du minstére. Une fois bien remplir 
-                cliquer sur valider l&apos;inscription vous serrez rediriger vers la fiche de paiement. 
-              </p>
-              <p className='mt-3 bg-red-200 px-4 py-2 rounded-[4px]'><span className='font-bold'>NB : </span> votre inscription ne sera valider qu&apos;après vérification des informations dans un delais de moins de 24h</p>
-
-
-              <div className="mt-8">
-                <a href="#" className="text-2xl font-bold text-primary">+237 691 608 533 </a>
-
-                <address className="mt-2 not-italic text-[16px] font-light">Notre ligne est ouverte en cas de besoin d&apos;assistance</address>
+    <div className="container mx-auto p-4">
+      <Card className="w-full max-w-4xl mx-auto py-8 px-8">
+        <CardHeader>
+          {/* <CardTitle>Complete Application Form</CardTitle> */}
+        </CardHeader>
+        <CardContent>
+          <form onSubmit={handleSubmit} className="space-y-8">
+            <div className="space-y-4">
+              <div className="flex items-center space-x-2">
+                <UserCircle2 className="h-6 w-6" />
+                <h2 className="text-xl font-bold">Informations personnelles</h2>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <Label htmlFor="firstName">Votre nom</Label>
+                  <Input
+                    id="firstName"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="lastName">Votre prénom</Label>
+                  <Input
+                    id="lastName"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={(handleInputChange) =>setFormData(handleInputChange)}
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="phoneNumber">Votre n° de téléphone</Label>
+                  <Input
+                    id="phoneNumber"
+                    name="phoneNumber"
+                    type="tel"
+                    value={formData.phoneNumber}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="email">Votre adresse e-mail</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="fatherName">Nom de votre pére</Label>
+                  <Input
+                    id="fatherName"
+                    name="fatherName"
+                    value={formData.fatherName}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="motherName">Nom de votre pére</Label>
+                  <Input
+                    id="motherName"
+                    name="motherName"
+                    value={formData.motherName}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
               </div>
             </div>
 
-            <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
-              <form onSubmit={handleSubmit}  className="space-y-4">
+
+            <div className='grid grid-cols-2 sm:gap-x-12 gap-y-8'>
+            <div className="space-y-4">
+              <div className="flex items-center space-x-2">
+                <Home className="h-6 w-6" />
+                <h2 className="text-xl font-bold">Information sur l&apos;adresse</h2>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="sr-only" htmlFor="name">Name</label>
-                  <input value={name} onChange={e => setName(e.target.value)}
-                    className="w-full rounded-lg border-gray-200 p-3 border border-b-2 text-sm"
-                    placeholder="Entrer votre nom et prenom complet"
-                    type="text"
-                    id="name"
-                    name="name" // Ajout du name pour correspondre avec le backend
+                  <Label htmlFor="city">Votre ville</Label>
+                  <Input
+                    id="city"
+                    name="city"
+                    value={formData.city}
+                    onChange={handleInputChange}
+                    required
                   />
                 </div>
-
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <div>
-                    <label className="sr-only" htmlFor="email">Email</label>
-                    <input value={email} onChange={e => setEmail(e.target.value)}
-                      className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
-                      placeholder="Entrer votre adresse email"
-                      type="email"
-                      id="email"
-                      name="email" // Ajout du name pour correspondre avec le backend
-                    />
-                  </div>
-
-                  <div>
-                    <label className="sr-only" htmlFor="phone">Phone</label>
-                    <input value={phone} onChange={e => setPhone(e.target.value)}
-                      className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
-                      placeholder="Numéro de téléphone"
-                      type="tel"
-                      id="phone"
-                      name="phone" // Ajout du name pour correspondre avec le backend
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <div>
-                    <label className="sr-only" htmlFor="email">Email</label>
-                    <input value={datedeNaissance} onChange={e => setDatedeNaissance(e.target.value)}
-                      className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
-                      placeholder="Entrer votre date de naissance"
-                      type="date"
-                      id="date"
-                      name="datedeNaissance" // Ajout du name pour correspondre avec le backend
-                    />
-                  </div>
-
-                  <div>
-                    <label className="sr-only" htmlFor="text">Phone</label>
-                    <input value={villeDeNaissance} onChange={e => setVilleDeNaissance(e.target.value)}
-                      className="w-full rounded-lg border-gray-200 p-3 border border-b-2 text-sm"
-                      placeholder="Entrer votre lieu de naissance"
-                      type="text"
-                      id="text"
-                      name="villeDeNaissance" // Ajout du name pour correspondre avec le backend
-                    />
-                  </div>
-                </div>
-
                 <div>
-                  <label className="sr-only" htmlFor="name">Name</label>
-                  <input  value={profession} onChange={e => setProfession(e.target.value)}
-                    className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
-                    placeholder="Entrer votre profesion"
-                    type="text"
-                    id="name"
-                    name="profession" // Ajout du name pour correspondre avec le backend
+                  <Label htmlFor="neighborhood">Votre quartier</Label>
+                  <Input
+                    id="neighborhood"
+                    name="neighborhood"
+                    value={formData.neighborhood}
+                    onChange={handleInputChange}
+                    required
                   />
                 </div>
-
-
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <div>
-                    <label className="sr-only" htmlFor="email">Email</label>
-                    <input value={nomDuPere} onChange={e => setNomDuPere(e.target.value)}
-                      className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
-                      placeholder="Entrer le nom complet de votre pére"
-                      type="text"
-                      id="text"
-                      name="nomDuPere" // Ajout du name pour correspondre avec le backend
-                    />
-                  </div>
-                  <div>
-                    <label className="sr-only" htmlFor="phone">Phone</label>
-                    <input value={nomDeLaMere} onChange={e => setNomDeLaMere(e.target.value)}
-                      className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
-                      placeholder="Entrer le nom complet de votre mére"
-                      type="text"
-                      id="text"
-                      name="nomDeLaMere" // Ajout du name pour correspondre avec le backend
-                    />
-                  </div>
-                </div>
-
-          
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <div>
-                    <label className="sr-only" htmlFor="email">Ville</label>
-                    <input value={villeDeresidence} onChange={e => setVilleDeresidence(e.target.value)}
-                      className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
-                      placeholder="Entrer votre ville"
-                      type="text"
-                      id="text"
-                      name="villeDeresidence" // Ajout du name pour correspondre avec le backend
-                    />
-                  </div>
-                  <div>
-                    <label className="sr-only" htmlFor="phone">Quartier</label>
-                    <input value={quartierderesidence} onChange={e => setQuartierderesidence(e.target.value)}
-                      className="w-full rounded-lg border-gray-200 border border-b-2 p-3 text-sm"
-                      placeholder="Entrer votre quartier"
-                      type="text"
-                      id="text"
-                      name="quartierderesidence" // Ajout du name pour correspondre avec le backend
-                    />
-                  </div>
-                </div>
-
-
-
-
-
-                <div>
-                <p className='text-gray-700 mb-6'>En quelle langue souhaitez vous suivre le cours ? </p>
-
-                <div className='flex gap-6 items-center'>
-                <div className="items-top flex space-x-2">
-                 <Checkbox id="terms1" checked={coursDeFrancais} onChange={e => setCoursDeFrancais(e.target.value)} />
-                <div className="grid gap-1.5 leading-none">
-                    <label htmlFor="Cours en Français" className="text-sm flex gap-2 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                   <Image  src='/france.webp' width={24} height={24} alt='francais' />
-                    Français
-                  </label>
-                  </div>
-                 </div>
-
-
-                <div className="items-top flex space-x-2">
-                 <Checkbox id="terms2" checked={coursDAnglais} onChange={e => setCoursDAnglais(e.target.value)}/>
-                <div className="grid gap-1.5 leading-none">
-                    <label htmlFor="Cours en Anglais" className="text-sm flex gap-2 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                   <Image  src='/usa.webp' width={24} height={24} alt='francais' />
-                    Anglais
-                  </label>
-                  </div>
-                 </div>
-                </div>
-
-                </div>
-
-
-
-
-                 
-                 <p className='text-gray-700'>Quel permis souhaitez-vous passer ? </p>
-                <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-3">
-                  <div>
-                    <label
-                      htmlFor="Option1"
-                      className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
-                      tabIndex="0"
-                    >
-                      <input value={permisoption} onChange={e => setPermisoption(e.target.value)} className="sr-only" id="Option1" type="radio" tabIndex="-1" name="Permi catégorie A" />
-
-                      <span className="text-[15px] text-gray-600"> Permi catégorie A </span>
-                    </label>
-                    <span className='text-[12px]'>Pour le faire avoir plus de 16 ans</span>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="Option2"
-                      className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
-                      tabIndex="0"
-                    >
-                      <input value={permisoption} onChange={e => setPermisoption(e.target.value)} className="sr-only" id="Option2" type="radio" tabIndex="-1" name="Permi catégorie B" />
-
-                      <span className="text-[15px]"> Permi catégorie B </span>
-                    </label>
-                    <span className='text-[12px]'>Pour le faire avoir plus de 18 ans</span>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="Option3"
-                      className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
-                      tabIndex="0"
-                    >
-                      <input value={permisoption} onChange={e => setPermisoption(e.target.value)} className="sr-only" id="Option3" type="radio" tabIndex="-1" name="Permi catégorie C" />
-
-                      <span className="text-[15px]"> Permi catégorie C </span>
-                    </label>
-                    <span className='text-[12px]'>Pour le faire avoir plus de 20 ans</span>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="Option4"
-                      className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
-                      tabIndex="0"
-                    >
-                      <input value={permisoption} onChange={e => setPermisoption(e.target.value)} className="sr-only" id="Option4" type="radio" tabIndex="-1" name="Permi catégorie D" />
-
-                      <span className="text-[15px]"> Permi catégorie D </span>
-                    </label>
-                    <span className='text-[12px]'>Pour le faire avoir plus de 20 ans</span>
-                  </div>
-
-
-                  <div>
-                    <label
-                      htmlFor="Option5"
-                      className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
-                      tabIndex="0"
-                    >
-                      <input value={permisoption} onChange={e => setPermisoption(e.target.value)} className="sr-only" id="Option5" type="radio" tabIndex="-1" name="Permi catégorie E" />
-
-                      <span className="text-[15px]"> Permi catégorie E </span>
-                    </label>
-                    <span className='text-[12px]'>Pour le faire avoir plus de 20 ans</span>
-                  </div>
-
-
-
-                  <div>
-                    <label
-                      htmlFor="Option6"
-                      className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
-                      tabIndex="0"
-                    >
-                      <input value={permisoption} onChange={e => setPermisoption(e.target.value)} className="sr-only" id="Option6" type="radio" tabIndex="-1" name="Permi catégorie F" />
-
-                      <span className="text-[15px]"> Permi catégorie F </span>
-                    </label>
-                    <span className='text-[12px]'>Pour le faire avoir plus de 20 ans</span>
-                  </div>
-
-
-                  <div>
-                    <label
-                      htmlFor="Option7"
-                      className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
-                      tabIndex="0"
-                    >
-                      <input value={permisoption} onChange={e => setPermisoption(e.target.value)} className="sr-only" id="Option7" type="radio" tabIndex="-1" name="Permi catégorie G" />
-
-                      <span className="text-[15px]"> Permi catégorie G </span>
-                    </label>
-                    <span className='text-[12px]'>Pour le faire avoir plus de 20 ans</span>
-                  </div>
-
-
-
-                  <div>
-                    <label
-                      htmlFor="Option8"
-                      className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
-                      tabIndex="0"
-                    >
-                      <input value={permisoption} onChange={e => setPermisoption(e.target.value)} className="sr-only" id="Option8" type="radio" tabIndex="-1" name="Permi catégorie T" />
-
-                      <span className="text-[15px]"> Permi catégorie T </span>
-                    </label>
-                    <span className='text-[12px]'>Pour le faire avoir plus de 20 ans</span>
-                  </div>
-
-
-                </div>
-
-                <div> 
-                <input onChange={handleFileChange}
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                  placeholder="Téléverser une photo 4 x 4"
-                  type="file"
-                  id="fileInput"
-                  name="filecniPassport" // Ajoutez le nom ici pour le backend
-                  required
-                />
-                     <label for="fileInput" class="custom-file-label text-gray-500">Photocopie, ou Passport</label>
-                </div>
-
-                <div> 
-                <input onChange={handleFileChange}
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                  placeholder="Téléverser une photo 4 x 4"
-                  type="file"
-                  id="fileInput"
-                  name="filephoto4x4" // Ajoutez le nom ici pour le backend
-                  required
-                />
-                   <label for="fileInput" class="custom-file-label text-gray-500">Téléverser une photo 4 x 4</label>
-                </div>
-
-                <div className="mt-4">
-                  <button
-                    type="submit"
-                    className="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto"
-                  >
-                    Valider l&apos;inscription
-                  </button>
-                </div>
-              </form>
-              {result && <p className="mt-4 text-center text-green-600">{result}</p>} {/* Affiche le message de succès */}
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-}
 
-export default FormRegister;
+            <div className="space-y-4">
+              <div className="flex items-center space-x-2">
+                <Globe className="h-6 w-6" />
+                <h2 className="text-xl font-bold">Préférence pour cours en ?</h2>
+              </div>
+              <RadioGroup
+                name="language"
+                value={formData.language}
+                onValueChange={(value) => handleInputChange({ target: { name: 'language', value } })}
+              >
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="French" id="French" />
+                  <Label htmlFor="French">Français</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="English" id="English" />
+                  <Label htmlFor="English">Anglais</Label>
+                </div>
+              </RadioGroup>
+            </div>
+
+            <div className="space-y-4">
+              <div className="flex items-center space-x-2">
+                <Car className="h-6 w-6" />
+                <h2 className="text-xl font-bold">Selectionnez un type de permis</h2>
+              </div>
+              <RadioGroup
+                name="licenseType"
+                value={formData.licenseType}
+                onValueChange={(value) => handleInputChange({ target: { name: 'licenseType', value } })}
+              >
+                {['Je veux faire le permis A', 'Je veux faire le permis B', 'Je veux faire le permis C', 'Je veux faire le permis D', 'Je veux faire le permis E', 'Je veux faire un récyclage auto'].map((license) => (
+                  <div key={license} className="flex items-center space-x-2">
+                    <RadioGroupItem value={license} id={license} />
+                    <Label htmlFor={license}>{license}</Label>
+                  </div>
+                ))}
+              </RadioGroup>
+            </div>
+
+            <div className="space-y-4">
+              <div className="flex items-center space-x-2">
+                <Upload className="h-6 w-6" />
+                <h2 className="text-xl font-bold">Documents important</h2>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <Label htmlFor="nationalIdPhoto">Téléverser une photo de votre CNI ou Passport</Label>
+                  <Input
+                    id="nationalIdPhoto"
+                    name="nationalIdPhoto"
+                    type="file"
+                    onChange={handleFileChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="passportPhoto">Téléverser une photo (4x4)</Label>
+                  <Input
+                    id="passportPhoto"
+                    name="passportPhoto"
+                    type="file"
+                    onChange={handleFileChange}
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            </div>
+            <Button type="submit" className="w-full">Valider les informations maintenant</Button>
+          </form>
+        </CardContent>
+      </Card>
+    </div>
+  )
+}
