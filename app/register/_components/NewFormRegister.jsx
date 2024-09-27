@@ -1,11 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Home, UserCircle, Globe, Upload, ArrowBigRightIcon } from "lucide-react";
+import { Home, UserCircle, Globe, Upload, ArrowBigRightIcon, Loader2 } from "lucide-react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+
 
 // Configuration Cloudinary
 const cloudinaryUpload = async (file) => {
@@ -38,6 +40,8 @@ function NewFormRegister() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
+
 
     // Upload des fichiers sur Cloudinary
     const uploadedPassportPhoto = passportPhoto ? await cloudinaryUpload(passportPhoto) : "";
@@ -80,7 +84,55 @@ function NewFormRegister() {
         setNationalIdPhoto(null);
         setPassportPhoto(null);
       });
+      setIsLoading(false);
+      setShowPopup(true);
   };
+
+
+
+
+  const [isLoading, setIsLoading] = useState(false)
+  const [showPopup, setShowPopup] = useState(false)
+  const [countdown, setCountdown] = useState(3)
+  // Gestion du compte à rebours pour la redirection
+  useEffect(() => {
+    let timer
+    if (showPopup && countdown > 0) {
+      timer = setInterval(() => {
+        setCountdown((prevCountdown) => prevCountdown - 1)
+      }, 1000)
+    } else if (countdown === 0) {
+      clearInterval(timer)
+      window.location.href = '/accueil/paiement' // Redirection
+    }
+    return () => clearInterval(timer)
+  }, [showPopup, countdown])
+
+  // Affichage du loader si en cours de soumission
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen">
+        <Loader2 className="h-8 w-8 animate-spin" />
+        <p className="mt-4">Envoie de votre formulaire en cours veillez patienter quelques instants svp...</p>
+      </div>
+    )
+  }
+
+  // Affichage du popup de redirection
+  if (showPopup) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen">
+        <Card className="w-[510px] p-10">
+          <CardHeader>
+            <CardTitle>Redirection en cours...</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="mt-8">Vous serez redirigé vers la page de paiement dans {countdown} secondes.</p>
+          </CardContent>
+        </Card>
+      </div>
+    )
+  }
 
 
   return (
