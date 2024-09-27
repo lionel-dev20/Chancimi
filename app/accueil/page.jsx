@@ -18,7 +18,7 @@ function page() {
       {/* <HomeHearder /> */}
         {/* <HeroSection/> */}
         <SliderCaroussel />
-        <div className='max-w-7xl p-4 mx-auto my-16'>
+        <div className='max-w-7xl p-4 mx-auto sm:my-16'>
          <CardCourseHome />
          <BentoPermis />
          {/* <DashbordCourse /> */}
