@@ -12,77 +12,99 @@ import { Loader2, UserCircle2, Home, Globe, Car, Upload } from 'lucide-react'
 export default function SingleStepForm() {
   const [formData, setFormData] = useState({
     firstName: '', lastName: '', phoneNumber: '', email: '', fatherName: '', motherName: '',
-    city: '', neighborhood: '',
-    language: '',
-    licenseType: '',
-    nationalIdPhoto: null,
-    passportPhoto: null
+    city: '', neighborhood: '', language: '', licenseType: '', nationalIdPhoto: null, passportPhoto: null
   })
+  
   const [isLoading, setIsLoading] = useState(false)
   const [showPopup, setShowPopup] = useState(false)
   const [countdown, setCountdown] = useState(3)
 
+  // Gestion des champs de texte
   const handleInputChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
+  // Gestion du téléchargement des fichiers
   const handleFileChange = (e) => {
     const { name, files } = e.target
     setFormData(prev => ({ ...prev, [name]: files[0] }))
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    setIsLoading(true)
-    setTimeout(() => {
-      setIsLoading(false)
-      setShowPopup(true)
-    }, 2000)
-    console.log('ici les logs', firstName,lastName,phoneNumber,email,fatherName,motherName,city,neighborhood,nationalIdPhoto,passportPhoto);
-    axios.post('https://sheet.best/api/sheets/ce4087b5-137d-4560-b0c8-b2ff05415f99').then((response) => {
-      console.log(response); 
-    })
-  }
+    e.preventDefault();
+    setIsLoading(true);
+  
+    const formDataToSend = {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      phoneNumber: formData.phoneNumber,
+      email: formData.email,
+      fatherName: formData.fatherName,
+      motherName: formData.motherName,
+      city: formData.city,
+      neighborhood: formData.neighborhood,
+      language: formData.language,
+      licenseType: formData.licenseType,
+    };
+  
+    axios.post('https://sheet.best/api/sheets/ce4087b5-137d-4560-b0c8-b2ff05415f99', formDataToSend)
+      .then((response) => {
+        console.log('Form data submitted', response);
+        setIsLoading(false);
+        setShowPopup(true);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        if (error.response) {
+          console.error('Erreur serveur :', error.response.data);
+        } else if (error.request) {
+          console.error('Pas de réponse du serveur :', error.request);
+        } else {
+          console.error('Erreur Axios :', error.message);
+        }
+      });
+  };
 
+  // Gestion du compte à rebours pour la redirection
   useEffect(() => {
     let timer
     if (showPopup && countdown > 0) {
       timer = setInterval(() => {
         setCountdown((prevCountdown) => prevCountdown - 1)
-      }, 1000)
+      }, 6000)
     } else if (countdown === 0) {
       clearInterval(timer)
-      // Redirect to payment page
-      window.location.href = '/accueil/paiement' // Replace with your actual payment page URL
+      window.location.href = '/accueil/paiement' // Redirection
     }
     return () => clearInterval(timer)
   }, [showPopup, countdown])
 
+  // Affichage du loader si en cours de soumission
   if (isLoading) {
     return (
       <div className="flex flex-col items-center justify-center h-screen">
         <Loader2 className="h-8 w-8 animate-spin" />
-        <p className="mt-4">Validating your form...</p>
+        <p className="mt-4">Validation de votre formulaire...</p>
       </div>
     )
   }
 
+  // Affichage du popup de redirection
   if (showPopup) {
     return (
       <div className="flex flex-col items-center justify-center h-screen">
         <Card className="w-[350px]">
           <CardHeader>
-            <CardTitle>Redirection vers...</CardTitle>
+            <CardTitle>Redirection en cours...</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>Vous serrez redirigé vers la page de paiement dans: {countdown} secondes.</p>
+            <p>Vous serez redirigé vers la page de paiement dans {countdown} secondes.</p>
           </CardContent>
         </Card>
       </div>
     )
   }
-
   return (
     <div className="container mx-auto p-4">
       <Card className="w-full max-w-4xl mx-auto sm:py-8 sm:px-8">
