@@ -13,7 +13,8 @@ const data = [
     id: 1,
     title: "",
     tagline: "",
-    image: "/autoecolechancimi.jpg",
+    image: "/Slidereutoecolechancimi.png", // Image pour desktop
+    mobileImage: "/Slidereutoecolechancimi.png", // Image pour mobile
     buttons: [
       {
         id: 1,
@@ -23,62 +24,7 @@ const data = [
       },
     ],
   },
-  // {
-  //   id: 2,
-  //   title: "",
-  //   tagline: "",
-  //   image: "/Chancimi-Auto-Ecole1.jpg",
-  //   buttons: [
-  //     {
-  //       id: 1,
-  //       text: "Voir les tarifs",
-  //       link: "/accueil/pricing",
-  //       type: "btn-dark btn-circle"
-  //     }
-  //   ]
-  // },
-  // {
-  //   id: 3,
-  //   title: "",
-  //   tagline: "",
-  //   image: "/Chancimi-Auto-Ecole2.jpg",
-  //   buttons: [
-  //     {
-  //       id: 1,
-  //       text: "Voir les cours",
-  //       link: "/dashboard",
-  //       type: "btn-dark btn-circle"
-  //     }
-  //   ]
-  // },
-  // {
-  //   id: 4,
-  //   title: "",
-  //   tagline: "",
-  //   image: "/Chancimi-Auto-Ecole3.jpg",
-  //   buttons: [
-  //     {
-  //       id: 1,
-  //       text: "S'inscrire maintenant",
-  //       link: "/sign-in",
-  //       type: "btn-dark btn-circle"
-  //     }
-  //   ]
-  // },
-  // {
-  //   id: 5,
-  //   title: "",
-  //   tagline: "",
-  //   image: "/Chancimi-Auto-Ecole4.jpg",
-  //   buttons: [
-  //     {
-  //       id: 1,
-  //       text: "S'inscrire maintenant",
-  //       link: "/sign-in",
-  //       type: "btn-dark btn-circle"
-  //     }
-  //   ]
-  // }
+  // Ajoute d'autres slides si nécessaire
 ];
 
 function SliderCaroussel() {
@@ -93,22 +39,27 @@ function SliderCaroussel() {
             loop={true}
             modules={[Autoplay, Navigation, Pagination]}
           >
-            {data.map(({ id, image, tagline, title, buttons }) => (
+            {data.map(({ id, image, mobileImage, tagline, title, buttons }) => (
               <SwiperSlide key={id}>
                 {/* Image background */}
                 <div
-                  className="h-full w-full absolute -mt-4 sm:mt-24"
+                  className="h-full w-full absolute -mt-4 sm:mt-1"
                   style={{
                     background: `url(${image}) center center / contain scroll no-repeat`,
                   }}
-                > <Link href={"/"}>
-                  {" "}
-                  </Link>
-                </div>
+                ></div>
+
+                {/* Image mobile (affichée uniquement sur mobile) */}
+                <div
+                  className="h-full w-full absolute -mt-4 sm:mt-2 block sm:hidden"
+                  style={{
+                    background: `url(${mobileImage}) center center / contain scroll no-repeat`,
+                  }}
+                ></div>
 
                 {/* Overlay with increased opacity for better text visibility */}
                 <div className="h-full w-full"></div>
-                <div className="relative z-10 h-[25.5rem] sm:h-[50rem] flex items-end justify-center pb-10 sm:pb-16">
+                <div className="relative z-10 h-[25.5rem] sm:h-[58rem] flex items-end justify-center pb-10 sm:pb-16">
                   <div className="text-center px-4">
                     {" "}
                     {/* Added padding for text responsiveness */}
@@ -123,7 +74,7 @@ function SliderCaroussel() {
                     {buttons.length > 0 ? (
                       <a
                         href={buttons[0].link}
-                        className="bg-primary rounded-[4px] inline-block px-9 py-4  text-white mt-4 lg:mt-8"
+                        className="bg-primary rounded-[4px] inline-block px-9 py-4 text-white mt-4 lg:mt-8"
                       >
                         {buttons[0].text}
                       </a>
