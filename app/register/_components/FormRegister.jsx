@@ -1,24 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 'use client'
 
 import { useState, useEffect } from 'react'
@@ -71,7 +50,7 @@ export default function SingleStepForm() {
     if (showPopup && countdown > 0) {
       timer = setInterval(() => {
         setCountdown((prevCountdown) => prevCountdown - 1)
-      }, 5000)
+      }, 1000)
     } else if (countdown === 0) {
       clearInterval(timer)
       // Redirect to payment page
@@ -106,7 +85,7 @@ export default function SingleStepForm() {
 
   return (
     <div className="container mx-auto p-4">
-      <Card className="w-full max-w-4xl mx-auto py-8 px-8">
+      <Card className="w-full max-w-4xl mx-auto sm:py-8 sm:px-8">
         <CardHeader>
           {/* <CardTitle>Complete Application Form</CardTitle> */}
         </CardHeader>
@@ -184,7 +163,7 @@ export default function SingleStepForm() {
             </div>
 
 
-            <div className='grid grid-cols-2 sm:gap-x-12 gap-y-8'>
+            <div className='grid sm:grid-cols-2 sm:gap-x-12 gap-y-8'>
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
                 <Home className="h-6 w-6" />
@@ -217,7 +196,7 @@ export default function SingleStepForm() {
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
                 <Globe className="h-6 w-6" />
-                <h2 className="text-xl font-bold">Préférence pour cours en ?</h2>
+                <h2 className="text-xl font-bold">Préférence pour le cours en ?</h2>
               </div>
               <RadioGroup
                 name="language"
