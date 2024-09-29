@@ -32,7 +32,7 @@ const data = [
     tagline: "",
     image: "/coursdelanguechancimi.png", // Image pour desktop
     mobileImage: "/mobilecoursdelanguechancimi.png", // Image pour mobile
-    link: "//tcfregister",
+    link: "/tcfregister",
     buttons: [
       {
         id: 1,
