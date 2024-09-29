@@ -37,7 +37,39 @@ const data = [
       {
         id: 1,
         text: "Démarrer la formation",
-        link: "/accueil/paiementtcf",
+        link: "/tcfregisterf",
+        type: "btn-dark btn-circle",
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "",
+    tagline: "",
+    image: "/promotionchancimi.png", // Image pour desktop
+    mobileImage: "/mobilecoursdelanguechancimi.png", // Image pour mobile
+    link: "/accueil/pricing",
+    buttons: [
+      {
+        id: 1,
+        text: "Démarrer la formation",
+        link: "/tcfregisterf",
+        type: "btn-dark btn-circle",
+      },
+    ],
+  },
+  {
+    id: 4,
+    title: "",
+    tagline: "",
+    image: "/permifacile.png", // Image pour desktop
+    mobileImage: "/mobilecoursdelanguechancimi.png", // Image pour mobile
+    link: "/dashboard",
+    buttons: [
+      {
+        id: 1,
+        text: "Démarrer la formation",
+        link: "/dashboard",
         type: "btn-dark btn-circle",
       },
     ],
