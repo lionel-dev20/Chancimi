@@ -65,7 +65,7 @@ function NewFormRegister() {
     // Envoie les données à la Google Sheet
     axios
       .post(
-        "https://sheet.best/api/sheets/ce4087b5-137d-4560-b0c8-b2ff05415f99",
+        `https://sheet.best/api/sheets/ce4087b5-137d-4560-b0c8-b2ff05415f99/tabs/InscriptionPermis`,
         data
       )
       .then((response) => {

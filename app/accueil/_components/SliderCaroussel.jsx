@@ -26,6 +26,22 @@ const data = [
       },
     ],
   },
+  {
+    id: 2,
+    title: "",
+    tagline: "",
+    image: "/coursdelanguechancimi.png", // Image pour desktop
+    mobileImage: "/mobilecoursdelanguechancimi.png", // Image pour mobile
+    link: "//tcfregister",
+    buttons: [
+      {
+        id: 1,
+        text: "Démarrer la formation",
+        link: "/accueil/paiementtcf",
+        type: "btn-dark btn-circle",
+      },
+    ],
+  },
   // Ajoute d'autres slides si nécessaire
 ];
 
@@ -60,7 +76,7 @@ function SliderCaroussel() {
                 height={600}
                   src={mobileImage}
                   alt={title}
-                  className="block sm:hidden w-full h-full mt-[5.5rem]"
+                  className="block sm:hidden w-full h-full mt-[6.5rem]"
                 />
               </Link>
 
