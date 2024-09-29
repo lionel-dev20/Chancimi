@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Home, UserCircle, Globe, Upload, ArrowBigRightIcon, Loader2 } from "lucide-react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Checkbox } from "@/components/ui/checkbox";
+import Link from "next/link";
 
 
 // Configuration Cloudinary
@@ -335,6 +337,21 @@ function NewFormRegister() {
               </div>
             </div>
         </div>
+
+        <div className="items-top flex space-x-2 my-4">
+      <Checkbox id="terms1" required/>
+      <div className="grid gap-1.5 leading-none">
+        <label
+          htmlFor="terms1"
+          className="text-[12px] font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        >
+          Accepter les termes et conditions <Link href="/REGLEMENT_RULES_CHANCIMI.pdf" target="_blank">ici</Link>
+        </label>
+        <p className="text-[12px] text-muted-foreground">
+        Vous acceptez nos conditions d&apos;utilisation et notre politique de confidentialité.
+        </p>
+      </div>
+    </div>
 
         <div className="mt-8">
         <Button type="submit" className="w-full sm:text-[1rem]">Valider les informations maintenant <ArrowBigRightIcon className="ml-4"/></Button>
