@@ -86,9 +86,9 @@ export default function MenuNav() {
             </PopoverPanel>
           </Popover>
 
-          <Link href="/accueil/pricing" className="font-normal text-md leading-8 ">
+          {/* <Link href="/accueil/pricing" className="font-normal text-md leading-8 ">
             Tarifs
-          </Link>
+          </Link> */}
           <Link href="/a-propos" className="font-normal text-md leading-8 ">
             A propos
           </Link>
@@ -142,13 +142,13 @@ export default function MenuNav() {
                     ))}
                   </DisclosurePanel>
                 </Disclosure>
-                <Link
+                {/* <Link
                   href="/accueil/pricing"
                   onClick={closeMenu} // Fermer le menu au clic
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Tarifs
-                </Link>
+                </Link> */}
                 <Link
                   href="/a-propos"
                   onClick={closeMenu} // Fermer le menu au clic
