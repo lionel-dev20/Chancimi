@@ -52,7 +52,7 @@ function page() {
                                 </a>
                                 <span>ou</span>
                             </p>
-                            <Link href='/register'>
+                            <Link href='/dashboard'>
                             <button type="button" title="Inscription" className="mt-5 block w-full py-3 px-6 text-center rounded-[4px] transition bg-primary hover:bg-red-700 active:bg-primary focus:bg-primary">
                                 <span className="text-white font-semibold">
                                    S&apos;inscrire maintenant 
@@ -68,15 +68,15 @@ function page() {
                             <ul role="list" className="space-y-4 py-6 text-gray-600">
                                 <li className="space-x-2 gap-4 flex mb-3">
                                     <CheckCircle />
-                                    <span>Paiement en une tranche <span className='font-black'>49,900FCFA + 29,900 FCFA</span>  frais de doissier</span>
+                                    <span>Paiement en une tranche <span className='font-black'>84,000 FCFA</span>  frais de doissier inclus</span>
                                 </li>
                                 <li className="space-x-2 gap-4 flex mb-3">
                                     <CheckCircle className='w-10 h-10' />
-                                    <span>Paiement en deux tranches <span className='font-black'>26,000FCFA + 29,900 FCFA</span> frais de doissier + <span className='font-black'>26,000 FCFA</span> 30 jours plutard</span>
+                                    <span>Paiement en deux tranches <span className='font-black'>45,000 FCFA</span> frais de doissier inclus x 2<span className='font-black'></span> délais 30 jours </span>
                                 </li>
                                 <li className="space-x-2 gap-4 flex mb-3">
                                     <CheckCircle className='w-10 h-10' />
-                                    <span>Paiement en trois tranches <span className='font-black'>18,000FCFA + 29,900 FCFA</span> frais de doissier + <span className='font-black'>18,000 FCFA</span> aprés chaque 30 jours</span>
+                                    <span>Paiement en trois tranches <span className='font-black'>33,285 FCFA</span> frais de doissier inclus x 3<span className='font-black'></span> aprés chaque 30 jours</span>
                                 </li>
                                 <li className="space-x-2 gap-4 flex mb-3">
                                     <CheckCircle  className='' />

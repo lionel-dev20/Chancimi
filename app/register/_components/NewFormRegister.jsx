@@ -32,8 +32,8 @@ function NewFormRegister() {
   const [email, setEmail] = useState("");
   const [dateborn, setDateborn] = useState("");
   const [borncity, setBorncity] = useState("");
-  const [diplomeLevel,  setDiplomeLevel] = useState("");
-  const [schoolDiplome, setSchoolDiplome] = useState("");
+  const [fathername, setFathername] = useState("");
+  const [mothername, setMothername] = useState("");
   const [citylive, SetCitylive] = useState("");
   const [quaterlive, setQuaterlive] = useState("");
   const [language, setLanguage] = useState("");
@@ -55,8 +55,8 @@ function NewFormRegister() {
       Email: email,
       Date_de_naissance: dateborn,
       Ville_de_naissance: borncity,
-      Diplome: diplomeLevel,
-      Ecole_optention_du_diplome: schoolDiplome,
+      Nom_du_pere: fathername,
+      Nom_de_la_mere: mothername,
       Ville_de_residence: citylive,
       Quartier_de_residence: quaterlive,
       Language: language,
@@ -66,7 +66,10 @@ function NewFormRegister() {
 
     // Envoie les données à la Google Sheet
     axios
-      .post(`https://sheet.best/api/sheets/ce4087b5-137d-4560-b0c8-b2ff05415f99/tabs/CoursTCF`, data)
+      .post(
+        `https://sheet.best/api/sheets/ce4087b5-137d-4560-b0c8-b2ff05415f99/tabs/InscriptionPermis`,
+        data
+      )
       .then((response) => {
         console.log(response);
         // Réinitialise les champs du formulaire
@@ -75,8 +78,8 @@ function NewFormRegister() {
         setEmail("");
         setDateborn("");
         setBorncity("");
-        setDiplomeLevel("");
-        setSchoolDiplome("");
+        setFathername("");
+        setMothername("");
         SetCitylive("");
         setQuaterlive("");
         setLanguage("");
@@ -228,23 +231,23 @@ function NewFormRegister() {
           </div>
           
           <div>
-            <label>Votre diplome le plus élévè</label>
+            <label>Nom du pére</label>
             <Input
-              onChange={(e) => setDiplomeLevel(e.target.value)}
-              value={diplomeLevel}
+              onChange={(e) => setFathername(e.target.value)}
+              value={fathername}
               type="text"
-              placeholder="Ex: Baccalauréat"
+              placeholder="Ex: Jean-jacques Mba"
               required
               className=""
             />
           </div>
           <div>
-            <label>Dans quel établissement l&apos;avez-vous optenu</label>
+            <label>Nom de la mére</label>
             <Input
-              onChange={(e) => setSchoolDiplome(e.target.value)}
-              value={schoolDiplome}
+              onChange={(e) => setMothername(e.target.value)}
+              value={mothername}
               type="text"
-              placeholder="Ex: Lycée Bilingue de Deido"
+              placeholder="Ex: Thémarie Tsafack"
               required
               className=""
             />
@@ -288,26 +291,18 @@ function NewFormRegister() {
             <div className="flex items-center space-x-2 my-4">
               <Globe className="h-6 w-6" />
               <h2 className="text-xl font-bold">
-                Quel cours de langue voulez-vous ?
+                Préférence pour le cours en ?
               </h2>
             </div>
             <RadioGroup name="language" value={language} // Valeur du groupe de radio
               onValueChange={(value) => setLanguage(value)}>
               <div className="flex items-center space-x-2">
-                <RadioGroupItem value="Cours de préparation TCF CANADA" id="tcfCanada" />
-                <label htmlFor="French">Cours de préparation TCF CANADA</label>
+                <RadioGroupItem value="Français" id="French" />
+                <label htmlFor="French">Français</label>
               </div>
               <div className="flex items-center space-x-2">
-                <RadioGroupItem value="Cours de préparation TCF QUEBEC" id="tcfquebec" />
-                <label>Cours de préparation TEF QUEBEC</label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="Cours de préparation CANADA" id="tefCanada" />
-                <label>Cours de préparation TEF CANADA</label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="Cours de préparation TCF TOUT PUBLIC" id="tcftoutpublic" />
-                <label>Cours de préparation TCF TOUT PUBLIC</label>
+                <RadioGroupItem value="Anglais" id="English" />
+                <label htmlFor="English">Anglais</label>
               </div>
             </RadioGroup>
           </div>
@@ -343,7 +338,7 @@ function NewFormRegister() {
             </div>
         </div>
 
-      <div className="items-top flex space-x-2 my-4">
+        <div className="items-top flex space-x-2 my-4">
       <Checkbox id="terms1" required/>
       <div className="grid gap-1.5 leading-none">
         <label
