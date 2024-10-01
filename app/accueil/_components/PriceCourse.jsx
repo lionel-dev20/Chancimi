@@ -54,7 +54,7 @@ function PriceCourse() {
               <span className="text-5xl font-bold tracking-tight text-gray-900">99,900</span>
               <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">FCFA</span>
             </p>
-            <Link href="/dashboard" className="mt-10 block w-full rounded-[4px] bg-primary px-3 py-4 text-center text-sm font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            <Link href="/tcfregister" className="mt-10 block w-full rounded-[4px] bg-primary px-3 py-4 text-center text-sm font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                 S&apos;inscire maintenant
             </Link>
             <p className="mt-6 text-xs leading-5 text-gray-600">Après inscription notre équipe vérifira vos informations et les documents fournir avant activation de votre cours</p>

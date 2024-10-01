@@ -11,6 +11,22 @@ import Image from "next/image";
 
 const data = [
   {
+    id: 5,
+    title: "",
+    tagline: "",
+    image: "/Slide4.png", // Image pour desktop
+    mobileImage: "/mobilecoursdelanguechancimi.png", // Image pour mobile
+    link: "/dashboard",
+    buttons: [
+      {
+        id: 1,
+        text: "Démarrer la formation",
+        link: "/dashboard",
+        type: "btn-dark btn-circle",
+      },
+    ],
+  },
+  {
     id: 1,
     title: "",
     tagline: "",
