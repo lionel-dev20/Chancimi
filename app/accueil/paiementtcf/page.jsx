@@ -4,9 +4,9 @@ import React from "react";
 
 function page() {
   return (
-    <div className="bg-gradient-to-b h-screen content-center  from-pink-100  to-purple-200">
+    <div className="bg-gradient-to-b h-screen content-center px-4  from-pink-100  to-purple-200">
       <div className="max-w-2xl max-lg:max-w-3xl mx-auto sm:py-10 items-center">
-        <h2 className="text-gray-800 text-2xl sm:text-3xl font-bold mb-3">
+        <h2 className="text-gray-800 text-2xl sm:text-3xl font-bold mb-3 sm:mt-24 mt-24">
           Paiement cours de langue préparation TCF TEF
         </h2>
         <p className="text-sm text-gray-700">
@@ -23,7 +23,7 @@ function page() {
               <p className="text-sm font-bold tracking-wider uppercase mb-4">
                 Offre spéciale
               </p>
-              <p className="text-5xl font-extrabold">104,900</p>
+              <p className="text-5xl font-extrabold">99,900</p>
               <p className="text-5xl font-extrabold line-through">165,000</p>
             </div>
             <div className="flex items-center justify-center w-24 h-24 rounded-full bg-blue-gray-50">
@@ -143,10 +143,10 @@ function page() {
         </div>
         <div>
           <Link
-            href="https://me.lygosapp.com/NAJp4g6Y"
+            href="https://me.lygosapp.com/Uwdgz2bP"
             className="inline-flex items-center justify-center w-full h-12 px-6 mb-4 font-medium tracking-wide text-white transition duration-200 bg-gray-800 rounded shadow-md hover:bg-gray-900 focus:shadow-outline focus:outline-none"
           >
-            Proceder au paiement maintenant{" "}
+            Proceder au paiement 
             <ArrowBigRightIcon className="ml-4" />
           </Link>
           <p className="text-sm text-gray-600">
