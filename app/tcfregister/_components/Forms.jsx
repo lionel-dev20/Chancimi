@@ -102,10 +102,10 @@ function NewFormRegister() {
       }, 1000)
     } else if (countdown === 0) {
       clearInterval(timer)
-      window.location.href = '/accueil/paiement' // Redirection
+      window.location.href = '/accueil/paiementtcf' // Redirection
     }
     return () => clearInterval(timer)
-  }, [showPopup, countdown])
+  }, [showPopup, countdown]) 
 
   // Affichage du loader si en cours de soumission
   if (isLoading) {
