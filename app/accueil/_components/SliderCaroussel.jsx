@@ -11,11 +11,27 @@ import Image from "next/image";
 
 const data = [
   {
+    id: 5,
+    title: "",
+    tagline: "",
+    image: "/Slide4.png", // Image pour desktop
+    mobileImage: "/mobilechancimiinscriptio.png", // Image pour mobile
+    link: "/dashboard",
+    buttons: [
+      {
+        id: 1,
+        text: "Démarrer la formation",
+        link: "/dashboard",
+        type: "btn-dark btn-circle",
+      },
+    ],
+  },
+  {
     id: 1,
     title: "",
     tagline: "",
     image: "/Slidereutoecolechancimi.png", // Image pour desktop
-    mobileImage: "/Mobilevisuelautoecolechancimi.png", // Image pour mobile
+    mobileImage: "/grandepromotion.png", // Image pour mobile
     link: "/dashboard",
     buttons: [
       {
@@ -31,7 +47,7 @@ const data = [
     title: "",
     tagline: "",
     image: "/coursdelanguechancimi.png", // Image pour desktop
-    mobileImage: "/mobilecoursdelanguechancimi.png", // Image pour mobile
+    mobileImage: "/coursdelangue2.png", // Image pour mobile
     link: "/tcfregister",
     buttons: [
       {
@@ -47,7 +63,7 @@ const data = [
     title: "",
     tagline: "",
     image: "/promotionchancimi.png", // Image pour desktop
-    mobileImage: "/mobilecoursdelanguechancimi.png", // Image pour mobile
+    mobileImage: "/promotionautoecole.png", // Image pour mobile
     link: "/accueil/pricing",
     buttons: [
       {
@@ -63,7 +79,23 @@ const data = [
     title: "",
     tagline: "",
     image: "/permifacile.png", // Image pour desktop
-    mobileImage: "/mobilecoursdelanguechancimi.png", // Image pour mobile
+    mobileImage: "/formulaireentreprise.png", // Image pour mobile
+    link: "/dashboard",
+    buttons: [
+      {
+        id: 1,
+        text: "Démarrer la formation",
+        link: "/dashboard",
+        type: "btn-dark btn-circle",
+      },
+    ],
+  },
+  {
+    id: 6,
+    title: "",
+    tagline: "",
+    image: "/Slidelangue.png", // Image pour desktop
+    mobileImage: "/langue.png", // Image pour mobile
     link: "/dashboard",
     buttons: [
       {
