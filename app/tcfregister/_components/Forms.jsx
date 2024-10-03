@@ -145,10 +145,10 @@ function NewFormRegister() {
           <span className="px-3 py-1 rounded-sm bg-red-100 text-gray-800">
             Chancimi
           </span>{" "}
-          votre aut ecole en ligne; Pour valider votre inscription veillez
+          votre centre de formation et préparation au testes de langue Canada TCF, TEF etc.., pour valider votre inscription veillez
           remplir correctement le formulaire suivant. Afin de valider votre
           inscription ces informations seront vérifiées et validées si tout est
-          correcte en mois de 24h.
+          correcte  votre compte et cours seront actif en mois de 24h.
         </p>
       </div>
       {/* form */}
