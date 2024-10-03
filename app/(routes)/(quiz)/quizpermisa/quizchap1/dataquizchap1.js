@@ -3,7 +3,7 @@ const dataquizchap1 = [
     {
       question: "1- La signalisation routière permet de rendre la route muette",
       options: ["a) vrai", "b) Faux"],
-      correctAnswer: "Faux",
+      correctAnswer: "Vrai",
     },
     {
       question: "2-Selectionnez la réponse juste: deux signalisation à l’entrée d’une agglomération",

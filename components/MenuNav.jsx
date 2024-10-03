@@ -92,6 +92,10 @@ export default function MenuNav() {
           <Link href="/a-propos" className="font-normal text-md leading-8 ">
             A propos
           </Link>
+
+          <Link href="/entreprise" className="font-normal text-md leading-8 ">
+           Entreprise
+          </Link>
           <Link href="/booking-car" className="font-normal text-md leading-8 ">
             Reservez une session
           </Link>
@@ -155,6 +159,13 @@ export default function MenuNav() {
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   A propos
+                </Link>
+                <Link
+                  href="/entreprise"
+                  onClick={closeMenu} // Fermer le menu au clic
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  Entreprise
                 </Link>
                 <Link
                   href="/booking-car"
