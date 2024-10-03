@@ -51,9 +51,9 @@ export default function Quiz() {
   // Messages based on score
   const renderScoreMessage = () => {
     if (finalScore >= 80) {
-      return `Bravo! Vous avez terminé le quiz avec un score de ${finalScore.toFixed(2)}.`;
+      return `Bravo! Vous avez terminé le quiz avec un score de ${finalScore.toFixed(0)} / 100`;
     } else {
-      return `Une petite révision peut vous aider. Votre score est de ${finalScore.toFixed(2)}.`;
+      return `Une petite révision peut vous aider. Votre score est de ${finalScore.toFixed(0)} / 100`;
     }
   };
 
@@ -78,7 +78,7 @@ export default function Quiz() {
           {timeLeft === 0 ? (
             <p>Votre temps d&apos;exercice est terminé.</p>
           ) : (
-            <p>{renderScoreMessage()}</p>
+            <p className='text-xl font-bold text-white py-4 bg-primary flex rounded-md px-4 my-3 max-w-2xl text-center items-center justify-center'>{renderScoreMessage()}</p>
           )}
           <h3>Résumé des réponses :</h3>
           <ul>

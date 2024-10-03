@@ -48,9 +48,9 @@ export default function Quiz() {
   // Messages based on score
   const renderScoreMessage = () => {
     if (finalScore >= 80) {
-      return `Bravo! Vous avez terminé le quiz avec un score de ${finalScore.toFixed(2)}.`;
+      return `Bravo! Vous avez terminé le quiz avec un score de ${finalScore.toFixed(0)} /100`;
     } else {
-      return `Une petite révision peut vous aider. Votre score est de ${finalScore.toFixed(2)}.`;
+      return `Une petite révision peut vous aider. Votre score est de ${finalScore.toFixed(0)} /100`;
     }
   };
 
@@ -58,6 +58,7 @@ export default function Quiz() {
     <div className='grid grid-cols-1 p-3 sm:p-10 gap-5 bg-white m-[0.5rem] sm:m-10 rounded-[8px]'>
       {timeLeft > 0 && !quizFinished && (
         <div className='w-full'>
+          <h2 className='text-2xl font-bold pb-6 text-gray-800'>Quiz sur la leçon: Connaissance du véhicule</h2>
           <h2 className='p-4 text-md  sm:text-2xl font-bold bg-primary max-w-[18rem] block rounded-[4px] text-white'>Il vous reste : {timeLeft}s</h2>
           <h3 className='border-b-2 border-gray-100 text-xl font-bold text-gray-700 my-6'>Question {currentQuestion + 1} sur {dataquizchap2.length}</h3>
           <p className='sm:text-[20px]  text-md font-semibold text-gray-700 py-4' >{dataquizchap2[currentQuestion].question}</p>
@@ -75,12 +76,12 @@ export default function Quiz() {
           {timeLeft === 0 ? (
             <p>Votre temps d&apos;exercice est terminé.</p>
           ) : (
-            <p>{renderScoreMessage()}</p>
+            <p className='text-xl font-bold text-white py-4 bg-primary flex rounded-md px-4 my-3 max-w-2xl text-center items-center justify-center'>{renderScoreMessage()}</p>
           )}
           <h3>Résumé des réponses :</h3>
           <ul>
             {userAnswers.map((answer, index) => (
-              <li key={index}>
+              <li key={index} className='py-4 text-md '>
                 {answer.question} - Votre réponse: {answer.selected} - {answer.correct ? "Correct" : "Incorrect"}
               </li>
             ))}
