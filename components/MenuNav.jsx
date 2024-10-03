@@ -96,6 +96,9 @@ export default function MenuNav() {
           <Link href="/entreprise" className="font-normal text-md leading-8 ">
            Entreprise
           </Link>
+          <Link href="/tcfregister" className="font-normal text-md leading-8 ">
+          Cours de langue TCF Canada
+          </Link>
           <Link href="/booking-car" className="font-normal text-md leading-8 ">
             Reservez une session
           </Link>
@@ -166,6 +169,13 @@ export default function MenuNav() {
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Entreprise
+                </Link>
+                <Link
+                  href="/tcfregister"
+                  onClick={closeMenu} // Fermer le menu au clic
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  Cours de langue TCF Canada
                 </Link>
                 <Link
                   href="/booking-car"
