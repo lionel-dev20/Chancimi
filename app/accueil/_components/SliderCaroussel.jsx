@@ -96,12 +96,12 @@ const data = [
     tagline: "",
     image: "/Slidelangue.png", // Image pour desktop
     mobileImage: "/langue.png", // Image pour mobile
-    link: "/dashboard",
+    link: "/entreprise",
     buttons: [
       {
         id: 1,
         text: "Démarrer la formation",
-        link: "/dashboard",
+        link: "/entreprise",
         type: "btn-dark btn-circle",
       },
     ],
