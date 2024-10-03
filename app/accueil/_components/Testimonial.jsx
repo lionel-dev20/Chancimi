@@ -75,7 +75,7 @@ export function Testimonial() {
   return (
     <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden  bg-background">
         <h2 className="text-3xl font-bold flex items-center mb-6">Ils nous ont fait confiance pour leur <span className="text-primary ml-2"> formation</span></h2>
-        <p className="max-w-[44rem] mb-10 mt-6 text-lg leading-8 text-gray-600">Toi aussi tu peux le faire, comme tous nos autres édutiants l&apos;ont fait, laisse toi guider et accompagner tout au long de ton apprentissage de conduire avec notre école Chancimi .</p>
+        <p className="max-w-[44rem] mb-10 mt-6 text-lg leading-8 text-gray-600">Vous aussi vous pouvez le faire, comme tous nos autres édutiants l&apos;ont fait, laisse toi guider et accompagner tout au long de ton apprentissage de conduire avec notre école Chancimi .</p>
       <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review) => (
           <ReviewCard key={review.username} {...review} />
