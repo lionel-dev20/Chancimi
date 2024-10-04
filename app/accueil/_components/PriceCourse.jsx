@@ -12,8 +12,8 @@ function PriceCourse() {
     </div>
     <div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-12 lg:mx-0 lg:flex lg:max-w-none">
       <div className="p-8 sm:p-10 lg:flex-auto">
-        <h3 className="text-2xl font-bold tracking-tight text-gray-900">Accès à vie au cours en ligne</h3>
-        <p className="mt-6 text-base leading-7 text-gray-600">Bénéficiez d&apos;un accès à vie au cours auquel tu souscris et reste à jour avec les dernières mises à jour sur ces cours.</p>
+        <h3 className="text-2xl font-bold tracking-tight text-gray-900">Accés  jusqu&apos;à obtention de votre permis de conduire</h3>
+        <p className="mt-6 text-base leading-7 text-gray-600">Bénéficiez d&apos;un accès  jusqu&aops;à obtention de votre permis de conduire au cours auquel tu souscris et reste à jour avec les dernières mises à jour sur ces cours.</p>
         <div className="mt-10 flex items-center gap-x-4">
           <h4 className="flex-none text-sm font-semibold leading-6 text-blue-500">Qu&apos;inclut cette inscription</h4>
           <div className="h-px flex-auto bg-gray-100"></div>
