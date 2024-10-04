@@ -8,7 +8,7 @@ function PriceCourse() {
   <div className="mx-auto max-w-7xl px-6 lg:px-8">
     <div className="mx-auto max-w-2xl sm:text-center">
       <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Une tarification simple et sans <span className='ml-2 text-primary'>frais cachés</span></h2>
-      <p className="mt-6 text-lg leading-8 text-gray-600">Chez Chancimi, tu as la possibilité de te former en cours pratique et théorique à ce super prix promotionnel, alors n&apos;hésite pas, fonce et inscris-toi maintenant. Avec une possibilité de paiement jusqu&apos;à 3 tranches.</p>
+      <p className="mt-6 text-lg leading-8 text-gray-600">Chez Chancimi, vous avez la possibilité de vous former en cours pratique et théorique à ce super prix promotionnel, alors n&apos;hésitez pas, fonce et inscrivez-vous maintenant. Avec une possibilité de paiement jusqu&apos;à 3 tranches.</p>
     </div>
     <div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-12 lg:mx-0 lg:flex lg:max-w-none">
       <div className="p-8 sm:p-10 lg:flex-auto">

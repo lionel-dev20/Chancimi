@@ -19,7 +19,7 @@ export function BentoPermis() {
     <div className="mt-32">
       <div className="flex flex-col justify-between items-center">
         <h2 className="dark:text-white sm:w-[46rem] items-center justify-center mx-auto text-neutral-800 text-3xl font-bold mb-2 text-center">
-          Type de permis à préparer avec note auto école Chancimi en toute 
+          Type de permis à préparer avec notre auto école Chancimi en toute 
           <span className="text-primary">sécurité et assurance</span>
         </h2>
 
