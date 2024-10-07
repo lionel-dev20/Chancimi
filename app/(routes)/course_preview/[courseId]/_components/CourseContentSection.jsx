@@ -30,7 +30,7 @@ function CourseContentSection({ courseInfo, isUserAlreadyEnrolled, watchMode = f
 
   return (
     <div className="p-3 bg-white rounded-[4px] mt-5">
-      <h2>Contents</h2>
+      <h2>Contenu du cours</h2>
       {chapters.length > 0 ? (
         chapters.map((item, index) => (
           <div key={index}>

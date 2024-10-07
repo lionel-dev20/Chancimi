@@ -66,4 +66,4 @@ const dataquizchap2 = [
 ];
 
 export default dataquizchap2;
- 
+
