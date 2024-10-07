@@ -7,7 +7,7 @@ import dataquizchap5 from '../dataquizchap5';
 export default function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(180); // Timer in seconds
+  const [timeLeft, setTimeLeft] = useState(600); // Timer in seconds
   const [userAnswers, setUserAnswers] = useState([]);
   const [quizFinished, setQuizFinished] = useState(false);
 
@@ -58,7 +58,7 @@ export default function Quiz() {
     <div className='grid grid-cols-1 p-3 sm:p-10 gap-5 bg-white m-[0.5rem] sm:m-10 rounded-[8px]'>
       {timeLeft > 0 && !quizFinished && (
         <div className='w-full'>
-          <h2 className='text-2xl font-bold pb-6 text-gray-800'>Quiz sur la leçon: Connaissance du véhicule</h2>
+          <h2 className='text-2xl font-bold pb-6 text-gray-800'>Quiz sur la leçon: Intersection et priorités</h2>
           <h2 className='p-4 text-md  sm:text-2xl font-bold bg-primary max-w-[18rem] block rounded-[4px] text-white'>Il vous reste : {timeLeft}s</h2>
           <h3 className='border-b-2 border-gray-100 text-xl font-bold text-gray-700 my-6'>Question {currentQuestion + 1} sur {dataquizchap5.length}</h3>
           <p className='sm:text-[20px]  text-md font-semibold text-gray-700 py-4' >{dataquizchap5[currentQuestion].question}</p>
