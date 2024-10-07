@@ -76,9 +76,9 @@ const SkeletonOne = () => {
     <motion.div
       initial="initial" 
       whileHover="animate"
-      className="flex flex-1 w-full h-96  bg-dot-black/[0.2] flex-col space-y-6"
+      className="flex flex-1 w-full  bg-dot-black/[0.2] flex-col space-y-6"
     > 
-      <Image src="/Slide-des-Catégories-512X300-Permis-A.jpg" alt="image" width={390} height={290} loading="lazy" className="rounded-t-lg"/>
+      <Image src="/permisa.png" alt="image" width={390} height={290} loading="lazy" className="rounded-t-lg mb-4"/>
   
     </motion.div>
   );
@@ -108,7 +108,7 @@ const SkeletonTwo = () => {
     whileHover="animate"
     className="flex flex-1 w-full h-full max-h-96 pb-4  bg-dot-black/[0.2] flex-col space-y-6"
   > 
-    <Image src="/Slide-des-Catégories-512X300-Permis-B.jpg" alt="image" width={390} height={390} loading="lazy" className="rounded-t-lg"/>
+    <Image src="/permisb.png" alt="image" width={390} height={390} loading="lazy" className="rounded-t-lg"/>
 
   </motion.div>
   );
@@ -128,125 +128,119 @@ const SkeletonThree = () => {
     whileHover="animate"
     className="flex flex-1 w-full pb-4  bg-dot-black/[0.2] flex-col space-y-6"
   > 
-    <Image src="/Slide-des-Catégories-512X300-Permis-C.jpg" alt="image" width={390} height={390} loading="lazy" className="rounded-t-lg"/>
+    <Image src="/permisc.png" alt="image" width={390} height={390} loading="lazy" className="rounded-t-lg"/>
 
   </motion.div>
   );
 };
+
+
 const SkeletonFour = () => {
-  const first = {
-    initial: {
-      x: 20,
-      rotate: -5,
-    },
-    hover: {
-      x: 0,
-      rotate: 0,
-    },
-  };
-  const second = {
-    initial: {
-      x: -20,
-      rotate: 5,
-    },
-    hover: {
-      x: 0,
-      rotate: 0,
-    },
-  };
-  return (
-    <motion.div
-      initial="initial"
-      animate="animate"
-      whileHover="hover"
-      className="flex flex-1 w-full h-full min-h-[6rem] bg-dot-black/[0.2] flex-row space-x-2"
-    >
-      <motion.div
-        variants={first}
-        className="h-full w-1/3 rounded-2xl bg-white p-4  border border-neutral-200 flex flex-col items-center justify-center"
-      >
-        <Image
-          src=""
-          alt="avatar"
-          height="100"
-          width="100"
-          className="rounded-full h-10 w-10"
-        />
-        <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-Permis D        </p>
-        <p className="border border-red-500 bg-red-100 dark:bg-red-900/20 text-red-600 text-xs rounded-full px-2 py-0.5 mt-4">
-        Bientot disponible  
-        </p>
-      </motion.div>
-      <motion.div className="h-full relative z-20 w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center">
-        <Image
-          src=""
-          alt="avatar"
-          height="100"
-          width="100"
-          className="rounded-full h-10 w-10"
-        />
-        <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-        Permis E        </p>
-        <p className="border border-green-500 bg-green-100 dark:bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">
-        Bientot disponible      </p>
-      </motion.div>
-      <motion.div
-        variants={second}
-        className="h-full w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
-      >
-        <Image
-          src=""
-          alt="avatar"
-          height="100"
-          width="100"
-          className="rounded-full h-10 w-10"
-        />
-        <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-        Permis T        </p>
-        <p className="border border-orange-500 bg-orange-100 dark:bg-orange-900/20 text-orange-600 text-xs rounded-full px-2 py-0.5 mt-4">
-Bientot disponible        </p>
-      </motion.div>
-    </motion.div>
-  );
-};
-const SkeletonFive = () => {
   const variants = {
     initial: {
-      x: 0,
+      backgroundPosition: "0 50%",
     },
     animate: {
-      x: 10,
-      rotate: 5,
-      transition: {
-        duration: 0.2,
-      },
+      backgroundPosition: ["0, 50%", "100% 50%", "0 50%"],
     },
   };
-  const variantsSecond = {
-    initial: {
-      x: 0,
-    },
-    animate: {
-      x: -10,
-      rotate: -5,
-      transition: {
-        duration: 0.2,
-      },
-    },
-  };
-
   return (
     <motion.div
     initial="initial"
     whileHover="animate"
-    className="flex flex-1 w-full h-full min-h-[6rem]  bg-dot-black/[0.2] flex-col space-y-6"
+    className="flex flex-1 w-full pb-4  bg-dot-black/[0.2] flex-col space-y-6"
   > 
-    <Image src="/Slide-des-Catégories-512X300-Recyclage.jpg" alt="image" width={390} height={390} loading="lazy" className="rounded-t-lg"/>
+    <Image src="/permisd.png" alt="image" width={390} height={390} loading="lazy" className="rounded-t-lg"/>
 
   </motion.div>
   );
 };
+
+const SkeletonFive = () => {
+  const variants = {
+    initial: {
+      backgroundPosition: "0 50%",
+    },
+    animate: {
+      backgroundPosition: ["0, 50%", "100% 50%", "0 50%"],
+    },
+  };
+  return (
+    <motion.div
+    initial="initial"
+    whileHover="animate"
+    className="flex flex-1 w-full pb-4  bg-dot-black/[0.2] flex-col space-y-6"
+  > 
+    <Image src="/permise.png" alt="image" width={390} height={390} loading="lazy" className="rounded-t-lg"/>
+
+  </motion.div>
+  );
+};
+
+
+const SkeletonSix = () => {
+  const variants = {
+    initial: {
+      backgroundPosition: "0 50%",
+    },
+    animate: {
+      backgroundPosition: ["0, 50%", "100% 50%", "0 50%"],
+    },
+  };
+  return (
+    <motion.div
+    initial="initial"
+    whileHover="animate"
+    className="flex flex-1 w-full pb-4  bg-dot-black/[0.2] flex-col space-y-6"
+  > 
+    <Image src="/permisf.png" alt="image" width={390} height={390} loading="lazy" className="rounded-t-lg"/>
+
+  </motion.div>
+  );
+};
+
+const SkeletonSeven = () => {
+  const variants = {
+    initial: {
+      backgroundPosition: "0 50%",
+    },
+    animate: {
+      backgroundPosition: ["0, 50%", "100% 50%", "0 50%"],
+    },
+  };
+  return (
+    <motion.div
+    initial="initial"
+    whileHover="animate"
+    className="flex flex-1 w-full pb-4  bg-dot-black/[0.2] flex-col space-y-6"
+  > 
+    <Image src="/permisg.png" alt="image" width={390} height={390} loading="lazy" className="rounded-t-lg"/>
+
+  </motion.div>
+  );
+};
+
+const Skeletonheit = () => {
+  const variants = {
+    initial: {
+      backgroundPosition: "0 50%",
+    },
+    animate: {
+      backgroundPosition: ["0, 50%", "100% 50%", "0 50%"],
+    },
+  };
+  return (
+    <motion.div
+    initial="initial"
+    whileHover="animate"
+    className="flex flex-1 w-full pb-4  bg-dot-black/[0.2] flex-col space-y-6"
+  > 
+    <Image src="/Recyclage.png" alt="image" width={390} height={390} loading="lazy" className="rounded-t-lg"/>
+
+  </motion.div>
+  );
+};
+
 const items = [
   {
     title: "Permis A",
@@ -285,15 +279,64 @@ Permis pour camions <br/>
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
   },
   {
-    title: "Permis plus",
+    title: "Permis D",
     description: (
       <span className="text-sm">
-        Understand the sentiment of your text with AI analysis.
-      </span>
+Permis pour camions <br/>
+
+</span>
     ),
     header: <SkeletonFour />,
-    className: "md:col-span-2",
-    icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+    className: "md:col-span-1",
+    icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "Permis E",
+    description: (
+      <span className="text-sm">
+Permis pour camions <br/>
+
+</span>
+    ),
+    header: <SkeletonFive />,
+    className: "md:col-span-1",
+    icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "Permis f",
+    description: (
+      <span className="text-sm">
+Permis pour camions <br/>
+
+</span>
+    ),
+    header: <SkeletonSix/>,
+    className: "md:col-span-1",
+    icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "Permis G",
+    description: (
+      <span className="text-sm">
+Permis pour camions <br/>
+
+</span>
+    ),
+    header: <SkeletonSeven/>,
+    className: "md:col-span-1",
+    icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "Permis T",
+    description: (
+      <span className="text-sm">
+Permis pour camions <br/>
+
+</span>
+    ),
+    header: <SkeletonThree />,
+    className: "md:col-span-1",
+    icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
   },
 
   {
@@ -303,7 +346,7 @@ Permis pour camions <br/>
         Réviser les bons reflex du code de la route
       </span>
     ),
-    header: <SkeletonFive />,
+    header: <Skeletonheit />,
     className: "md:col-span-1",
     icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
   },

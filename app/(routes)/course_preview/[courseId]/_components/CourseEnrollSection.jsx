@@ -89,4 +89,4 @@ function CourseEnrollSection({ courseInfo, isUserAlreadyEnrolled }) {
   );
 }
 
-export default CourseEnrollSection;
+export default CourseEnrollSection; 

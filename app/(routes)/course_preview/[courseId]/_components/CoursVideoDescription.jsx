@@ -14,7 +14,7 @@ function CoursVideoDescription({ courseInfo = {}, activeChapterIndex, watchMode 
   // Vérification si le chapitre actuel est complété
   const isCurrentChapterCompleted = Array.isArray(completedChapter) && completedChapter.some(
     chap => chap.chapterId === chapters[activeChapterIndex]?.id
-  );
+  );  
 
   // Vérification si le dernier chapitre est complété
   const isLastChapterCompleted = isLastChapter && isCurrentChapterCompleted;
@@ -35,7 +35,7 @@ function CoursVideoDescription({ courseInfo = {}, activeChapterIndex, watchMode 
         onClick={() => setChapterCompleted(chapters[activeChapterIndex]?.id)}
         disabled={isDisabled}
       >
-        {isCurrentChapterCompleted ? 'Chapitre complété' : 'Mark completed'}
+        {isCurrentChapterCompleted ? 'Chapitre complété' : 'Marquez comme terminé'}
       </Button>
     );
   };
@@ -63,7 +63,7 @@ function CoursVideoDescription({ courseInfo = {}, activeChapterIndex, watchMode 
             {renderCompletionButton()}
           </span>
         ) : (
-          <span>About this course</span>
+          <span>A propos de ce cours</span>
         )}
       </p>
 

@@ -7,7 +7,7 @@ function CourseContentSection({ courseInfo, isUserAlreadyEnrolled, watchMode = f
   const [activeIndex, setActiveIndex] = useState(0);
 
   /**
-   * Vérifie si le chapitre est complété
+   * Vérifie si le chapitre est complété 
    */
   const checkIsChapterCompleted = (chapterId) => {
     // Vérification que completedChapter est un tableau
@@ -28,11 +28,16 @@ function CourseContentSection({ courseInfo, isUserAlreadyEnrolled, watchMode = f
     return checkIsChapterCompleted(chapters[index - 1].id); // Accessible si le précédent est complété
   };
 
+  console.log('Chapters:', chapters); // Log de tous les chapitres
+console.log('Chapters count:', chapters.length); 
+console.log('Course Info:', courseInfo);
+
+
   return (
     <div className="p-3 bg-white rounded-[4px] mt-5">
       <h2>Contenu du cours</h2>
       {chapters.length > 0 ? (
-        chapters.map((item, index) => (
+        courseInfo.chapter.map((item, index) => (
           <div key={index}>
             <h2
               className={`p-2 text-[14px] text-gray-700 flex justify-between items-center m-2 border rounded-[4px] px-4 cursor-pointer 
