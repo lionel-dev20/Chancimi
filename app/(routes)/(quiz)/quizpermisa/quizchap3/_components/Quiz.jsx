@@ -3,7 +3,8 @@
 
 // components/Quiz.js
 import { useState, useEffect } from 'react';
-import dataquizchap3 from '../dataquizchap3';
+// import dataquizchap3 from '../dataquizchap3';
+import data
 export default function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
