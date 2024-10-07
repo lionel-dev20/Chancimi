@@ -10,4 +10,4 @@ function VideoPlayer({videoUrl, poster}) {
   )
 }
 
-export default VideoPlayer
+export default VideoPlayer 

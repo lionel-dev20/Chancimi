@@ -29,6 +29,9 @@ const getCourseInfoById = () =>{
     })
 }
 
+console.log('je veux la liste complete des cours',courseInfo);
+
+
 /*
 /***
  * To check user already enrolled to cour
@@ -48,7 +51,7 @@ const checkUserEnrolledToCourse=()=>{
         <div className='col-span-2 bg-white p-3 rounded-[8px]'>
             <CoursVideoDescription courseInfo={courseInfo}/>
         </div> 
-        {/* Course content  */}
+        {/* Course content  */} 
         <div>
          <CourseEnrollSection  courseInfo={courseInfo}
          isUserAlreadyEnrolled={isUserAlreadyEnrolled}/>

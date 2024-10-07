@@ -68,7 +68,7 @@ function CourseList() {
             </Link>
           ))
         ) : (
-         [1,2,3,4,5,5,7].map((item, index) =>(
+         [1,2,3,4,5,6,7].map((item, index) =>(
           <div key={index} className='w-full h-[240px] rounded-[8px] m-2 bg-slate-300 animate-pulse'>
 
           </div>

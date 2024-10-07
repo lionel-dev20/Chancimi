@@ -24,7 +24,7 @@ function Dashboard() {
       console.log(resp);
       setUserEnrolledCourses(resp.userEnrollCourses);
       
-    })
+    })  
   }
 
   return (
