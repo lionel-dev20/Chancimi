@@ -214,6 +214,26 @@ const SkeletonSeven = () => {
     whileHover="animate"
     className="flex flex-1 w-full pb-4  bg-dot-black/[0.2] flex-col space-y-6"
   > 
+    <Image src="/permisg.png" alt="image" width={390} height={390} loading="lazy" className="rounded-t-lg"/>
+
+  </motion.div>
+  );
+};
+const SkeletonNeight = () => {
+  const variants = {
+    initial: {
+      backgroundPosition: "0 50%",
+    },
+    animate: {
+      backgroundPosition: ["0, 50%", "100% 50%", "0 50%"],
+    },
+  };
+  return (
+    <motion.div
+    initial="initial"
+    whileHover="animate"
+    className="flex flex-1 w-full pb-4  bg-dot-black/[0.2] flex-col space-y-6"
+  > 
     <Image src="/T.png" alt="image" width={390} height={390} loading="lazy" className="rounded-t-lg"/>
 
   </motion.div>
@@ -334,7 +354,7 @@ Permis pour camions <br/>
 
 </span>
     ),
-    header: <SkeletonThree />,
+    header: <SkeletonNeight />,
     className: "md:col-span-1",
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
   },
