@@ -214,7 +214,7 @@ const SkeletonSeven = () => {
     whileHover="animate"
     className="flex flex-1 w-full pb-4  bg-dot-black/[0.2] flex-col space-y-6"
   > 
-    <Image src="/permisg.png" alt="image" width={390} height={390} loading="lazy" className="rounded-t-lg"/>
+    <Image src="/T.png" alt="image" width={390} height={390} loading="lazy" className="rounded-t-lg"/>
 
   </motion.div>
   );
