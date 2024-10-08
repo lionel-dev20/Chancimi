@@ -19,7 +19,7 @@ export function ScrollDashboard() {
           </>
         }>
         <Image
-          src={`/Google.jpg`}
+          src={`/Courschanci.png`}
           alt="hero"
           height={720}
           width={1400}
