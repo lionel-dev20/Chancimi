@@ -290,7 +290,7 @@ Permis pour les motocyclettes <br/>
     title: "Permis C",
     description: (
       <span className="text-sm">
-Permis pour camions <br/>
+Permis pour véhicules de transport de marchandises <br/>
 
 </span>
     ),
@@ -302,7 +302,7 @@ Permis pour camions <br/>
     title: "Permis D",
     description: (
       <span className="text-sm">
-Permis pour camions <br/>
+Permis pour Bus <br/>
 
 </span>
     ),
@@ -326,7 +326,7 @@ Permis pour camions <br/>
     title: "Permis f",
     description: (
       <span className="text-sm">
-Permis pour camions <br/>
+Permis pour engin lourd <br/>
 
 </span>
     ),
@@ -338,7 +338,7 @@ Permis pour camions <br/>
     title: "Permis G",
     description: (
       <span className="text-sm">
-Permis pour camions <br/>
+véhicules agricoles et forestiers <br/>
 
 </span>
     ),
@@ -350,7 +350,7 @@ Permis pour camions <br/>
     title: "Permis T",
     description: (
       <span className="text-sm">
-Permis pour camions <br/>
+Permis pour les Taxi <br/>
 
 </span>
     ),
