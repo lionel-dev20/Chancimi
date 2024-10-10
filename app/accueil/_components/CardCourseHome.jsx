@@ -20,7 +20,7 @@ function CardCourseHome() {
            <CardHeader>
               <Image src='/serv1.png' width={500} height={500} alt="cours autoecole"  className="rounded-t-[8px]"/>
               <CardDescription className="flex text-center items-center justify-center py-16 text-white text-[18px] font-semibold leading-8 px-4 sm:px-2 sm:w-96">
-              Apprenez comme vous le souhaitez, ou vous le voulez avec notre plateforme Chanicmi</CardDescription>
+              Apprenez comme vous le souhaitez, où vous le voulez avec notre plateforme Chanicmi</CardDescription>
            </CardHeader>
        </Card>
 
