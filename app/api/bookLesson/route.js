@@ -8,7 +8,7 @@ const createEvent = async (auth, eventDetails) => {
   try {
     const response = await calendar.events.insert({
       auth,
-      calendarId: 'primary',
+      calendarId: 'primary', // Vérifie que le calendrier existe encore
       resource: eventDetails,
     });
     return response.data;
@@ -21,38 +21,41 @@ const createEvent = async (auth, eventDetails) => {
 // Utilisation du nouveau système de configuration
 export const dynamic = 'force-dynamic';
 
-// API handler pour la création d'événements
-export default async function handler(req, res) {
-  if (req.method === 'POST') {
-    const { fullName, phoneNumber, neighborhood, date, time } = req.body;
+// API handler pour la création d'événements - Nouvelle manière d'exporter
+export async function POST(req) {
+  try {
+    const body = await req.json();
+    const { fullName, phoneNumber, neighborhood, date, time } = body;
 
     const eventDetails = {
       summary: `Cours pratique de conduite - ${fullName}`,
       description: `Rendez-vous pour un cours pratique avec ${fullName}, Téléphone: ${phoneNumber}, Quartier: ${neighborhood}`,
       start: {
         dateTime: `${date}T${time}:00`,
-        timeZone: 'Europe/Paris', // Ajustez la timezone si nécessaire
+        timeZone: 'Europe/Paris',
       },
       end: {
         dateTime: `${date}T${parseInt(time.split(':')[0]) + 1}:${time.split(':')[1]}:00`,
         timeZone: 'Europe/Paris',
       },
-      attendees: [{ email: 'agence.chancimmi@gmail.com' }], // Remplacez par votre email
+      attendees: [{ email: 'agence.chancimmi@gmail.com' }], // Remplace par ton email
     };
 
-    try {
-      const auth = new google.auth.GoogleAuth({
-        keyFile: 'googleCalendar.json', // Chemin vers la clé de votre compte de service
-        scopes: SCOPES,
-      });
-      const authClient = await auth.getClient();
-      const event = await createEvent(authClient, eventDetails);
-      res.status(200).json({ success: true, event });
-    } catch (error) {
-      console.error('Erreur avec Google Calendar API:', error);
-      res.status(500).json({ success: false, message: 'Erreur avec Google Calendar', error: error.message });
-    }
-  } else {
-    res.status(405).json({ message: 'Seules les requêtes POST sont autorisées' });
+    const auth = new google.auth.GoogleAuth({
+      keyFile: 'googleCalendar.json', // Vérifie que ce fichier est présent et valide
+      scopes: SCOPES,
+    });
+
+    const authClient = await auth.getClient();
+    const event = await createEvent(authClient, eventDetails);
+
+    return new Response(JSON.stringify({ success: true, event }), { status: 200 });
+  } catch (error) {
+    console.error('Erreur avec Google Calendar API:', error);
+    return new Response(JSON.stringify({ success: false, message: 'Erreur avec Google Calendar', error: error.message }), { status: 500 });
   }
+}
+
+export function GET() {
+  return new Response(JSON.stringify({ message: 'Seules les requêtes POST sont autorisées' }), { status: 405 });
 }
