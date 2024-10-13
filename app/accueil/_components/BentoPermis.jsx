@@ -2,8 +2,8 @@
 
 
 
-import { cn } from "@/lib/utils";
-import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import { cn } from "/lib/utils";
+import { BentoGrid, BentoGridItem } from "/components/ui/bento-grid";
 import {
   IconBoxAlignRightFilled,
   IconClipboardCopy,
