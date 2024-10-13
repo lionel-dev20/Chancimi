@@ -2,7 +2,7 @@ import {
     Card,
     CardDescription,
     CardHeader,
-  } from "@/components/ui/card"
+  } from "/components/ui/card"
 import Image from "next/image"
   
 
