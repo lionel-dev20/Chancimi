@@ -1,4 +1,5 @@
 import { google } from 'googleapis';
+import fs from 'fs';  // Assure-toi que fs est importé
 
 // Remplacer config obsolète par la nouvelle approche
 export const dynamic = 'force-dynamic';  // Force le rendu dynamique si nécessaire
@@ -30,10 +31,12 @@ const uploadFileToDrive = async (auth, filePath, fileName) => {
   }
 };
 
-export default async function handler(req, res) {
-  if (req.method === 'POST') {
-    // Récupérez et traitez les fichiers du corps de la requête ici
-    const { fullName, file } = req.body;
+// Fonction POST pour gérer l'upload de fichiers
+export async function POST(req) {
+  try {
+    // Récupère les données envoyées dans le corps de la requête
+    const body = await req.json(); // Utilise req.json() pour les nouvelles API routes
+    const { fullName, file } = body;
 
     // Créez une authentification OAuth2 avec la clé du compte de service
     const auth = new google.auth.GoogleAuth({
@@ -41,15 +44,18 @@ export default async function handler(req, res) {
       scopes: SCOPES,
     });
 
-    try {
-      const authClient = await auth.getClient();
-      const fileId = await uploadFileToDrive(authClient, file.path, file.name);
-      res.status(200).json({ success: true, fileId });
-    } catch (error) {
-      console.error('Erreur avec Google Drive API:', error);
-      res.status(500).json({ success: false, message: 'Erreur lors de l\'upload vers Google Drive', error: error.message });
-    }
-  } else {
-    res.status(405).json({ message: 'Seules les requêtes POST sont autorisées' });
+    const authClient = await auth.getClient();
+    const fileId = await uploadFileToDrive(authClient, file.path, file.name);
+
+    // Retourne la réponse avec le succès et l'identifiant du fichier
+    return new Response(JSON.stringify({ success: true, fileId }), { status: 200 });
+  } catch (error) {
+    console.error('Erreur avec Google Drive API:', error);
+    return new Response(JSON.stringify({ success: false, message: 'Erreur lors de l\'upload vers Google Drive', error: error.message }), { status: 500 });
   }
+}
+
+// Gère les autres méthodes HTTP comme GET avec une réponse 405 (Méthode non autorisée)
+export function GET() {
+  return new Response(JSON.stringify({ message: 'Seules les requêtes POST sont autorisées' }), { status: 405 });
 }
