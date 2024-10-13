@@ -33,6 +33,10 @@ console.log('Chapters count:', chapters.length);
 console.log('Course Info:', courseInfo);
 
 
+
+
+
+
   return (
     <div className="p-3 bg-white rounded-[4px] mt-5">
       <h2>Contenu du cours</h2>
@@ -68,5 +72,5 @@ console.log('Course Info:', courseInfo);
     </div>
   );
 }
-
+ 
 export default CourseContentSection;

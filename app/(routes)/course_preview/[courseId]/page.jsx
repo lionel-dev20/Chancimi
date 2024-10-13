@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import CoursVideoDescription from './_components/CoursVideoDescription';
-import GlobalApi from '@/app/_utils/GlobalApi';
+import GlobalApi from '/app/_utils/GlobalApi';
 import CourseEnrollSection from './_components/CourseEnrollSection';
 import CourseContentSection from './_components/CourseContentSection';
 import { useUser } from '@clerk/nextjs';
@@ -22,11 +22,11 @@ useEffect(()=>{
 }, [courseInfo, user])
 
 // used to get Course Info By Slug/Id Name
-const getCourseInfoById = () =>{
-    GlobalApi.getCourseById(params?.courseId).then(resp =>{
-        setCourseInfo(resp?.courseList);
-        
-    })
+const getCourseInfoById = () => {
+  GlobalApi.getCourseById(params?.courseId).then(resp => {
+    console.log('Réponse complète:', resp);
+    setCourseInfo(resp?.courseList);
+  });
 }
 
 console.log('je veux la liste complete des cours',courseInfo);
@@ -53,7 +53,7 @@ const checkUserEnrolledToCourse=()=>{
         </div> 
         {/* Course content  */} 
         <div>
-         <CourseEnrollSection  courseInfo={courseInfo}
+         <CourseEnrollSection  courseInfo={courseInfo} 
          isUserAlreadyEnrolled={isUserAlreadyEnrolled}/>
 
          <CourseContentSection courseInfo={courseInfo}

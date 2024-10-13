@@ -63,7 +63,7 @@ const getCourseById = async (courseId) =>{
     banner {
       url
     }
-    chapter {
+    chapter(first: 1000){
       ... on Chapter {
         id
         name
@@ -148,7 +148,7 @@ query MyQuery {
       banner {
         url
       }
-      chapter {
+      chapter(first: 200) {
         ... on Chapter {
           id
           name

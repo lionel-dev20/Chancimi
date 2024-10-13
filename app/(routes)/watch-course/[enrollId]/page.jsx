@@ -1,6 +1,6 @@
 "use client"
 
-import GlobalApi from '@/app/_utils/GlobalApi'
+import GlobalApi from '/app/_utils/GlobalApi'
 import { useUser } from '@clerk/nextjs'
 import React, { useEffect, useState } from 'react'
 import CoursVideoDescription from '../../course_preview/[courseId]/_components/CoursVideoDescription'

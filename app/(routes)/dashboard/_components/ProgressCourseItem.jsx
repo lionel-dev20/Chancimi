@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { Progress } from "@/components/ui/progress"
+import { Progress } from "/components/ui/progress"
 import Link from 'next/link'
 
 

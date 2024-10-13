@@ -1,6 +1,5 @@
 "use client"
 
-import { Button } from '@/components/ui/button'
 import { UserButton, useUser } from '@clerk/nextjs'
 import { BellDot, Menu, Search } from 'lucide-react'
 import Link from 'next/link'
@@ -24,7 +23,7 @@ const Header = () => {
             isLoaded&&user ?<UserButton afterSignOutUrl='/courses' /> :
          
           <Link href={'/sign-in'}>
-          <Button className="rounded-[4px]">Acceder aux cours</Button>
+          <button className="rounded-[4px]">Acceder aux cours</button>
           </Link> }
 
         </div>
