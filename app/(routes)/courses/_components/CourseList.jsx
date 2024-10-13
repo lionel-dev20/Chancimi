@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import GlobalApi from '@/app/_utils/GlobalApi';
+import GlobalApi from '/app/_utils/GlobalApi';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Skeleton } from "@/components/ui/skeleton"
+} from "/components/ui/select";
+import { Skeleton } from "/components/ui/skeleton"
 
 import CourseItem from './CourseItem'; // Assurez-vous que ce composant existe et fonctionne correctement
 import Link from 'next/link';
