@@ -1,7 +1,7 @@
 "use client"
 
-import GlobalApi from '@/app/_utils/GlobalApi';
-import { Button } from '@/components/ui/button';
+import GlobalApi from '/app/_utils/GlobalApi';
+import { Button } from '/components/ui/button';
 import { useUser } from '@clerk/nextjs';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';

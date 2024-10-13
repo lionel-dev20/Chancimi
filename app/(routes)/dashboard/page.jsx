@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react'
 import SideBanners from '../courses/_components/SideBanners';
 import WelcomeBannerDashboard from './_components/WelcomeBannerDashboard';
 import InProgressCourseList from './_components/InProgressCourseList';
-import GlobalApi from '@/app/_utils/GlobalApi';
+import GlobalApi from '/app/_utils/GlobalApi';
 
 function Dashboard() {
   const {user} =  useUser();
