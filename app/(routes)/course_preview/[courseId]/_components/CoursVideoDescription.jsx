@@ -29,15 +29,15 @@ function CoursVideoDescription({ courseInfo = {}, activeChapterIndex, watchMode 
     // Désactiver le bouton pour le dernier chapitre si déjà complété
     const isDisabled = isCurrentChapterCompleted || (isLastChapter && isCurrentChapterCompleted);
 
-    // return (
-    //   <Button
-    //     className="rounded-[4px]"
-    //     onClick={() => setChapterCompleted(chapters[activeChapterIndex]?.id)}
-    //     disabled={isDisabled}
-    //   >
-    //     {isCurrentChapterCompleted ? 'Chapitre complété' : 'Marquez comme terminé'}
-    //   </Button>
-    // );
+    return (
+      <Button
+        className="rounded-[4px]"
+        onClick={() => setChapterCompleted(chapters[activeChapterIndex]?.id)}
+        disabled={isDisabled}
+      >
+        {isCurrentChapterCompleted ? 'Chapitre complété' : 'Marquez comme terminé'}
+      </Button>
+    );
   };
 
   return (

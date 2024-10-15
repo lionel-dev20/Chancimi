@@ -99,9 +99,9 @@ export default function MenuNav() {
           <Link href="/tcfregister" className="font-normal text-md leading-8 ">
           Cours de langue TCF Canada
           </Link>
-          <Link href="/booking-car" className="font-normal text-md leading-8 ">
+          {/* <Link href="/booking-car" className="font-normal text-md leading-8 ">
             Reservez un cours pratique
-          </Link>
+          </Link> */}
         </PopoverGroup>
       </nav>
       <Dialog open={mobileMenuOpen} onClose={closeMenu} className="lg:hidden">
@@ -177,14 +177,14 @@ export default function MenuNav() {
                 >
                   Cours de langue TCF Canada
                 </Link>
-                <Link
+                {/* <Link
                   href="/booking-car"
                   onClick={closeMenu} // Fermer le menu au clic
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                               Reservez un cours pratique
 
-                </Link>
+                </Link> */}
               </div>
               <div className="py-6">
                 <Link
