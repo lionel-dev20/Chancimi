@@ -61,7 +61,7 @@ export default function Quiz() {
 
   // Redirect to next course
   const handleContinue = () => {
-    router.push('/watch-course/cm14sgue105ri07stuehyxcuu'); // Redirige vers le prochain cours, changer '/next-course' par la bonne route
+    router.push('/watch-course'); // Redirige vers le prochain cours, changer '/next-course' par la bonne route
   };
 
   // Messages based on score

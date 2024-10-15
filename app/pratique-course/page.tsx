@@ -7,18 +7,17 @@ function Page() {
       <iframe 
         src="https://docs.google.com/forms/d/e/1FAIpQLSd8XXW0I3N1o8IpkM4nYrgml-XHJqC0Q3i6W11m948d-l0rHw/viewform?embedded=true"  
         width={1024} 
-        height={920} 
-        frameBorder="0"  // Corrigé ici
+        height={720}  // Corrigé ici
         style={{ margin: 0 }}  // Utilisation de `style` pour les marges
       >
         Chargement…
       </iframe>
     
-      <button type="submit" className="sm:w-[40%] sm:text-[1rem] sm:mt-6">
-        <Link href='/' className="flex items-center">
+      <Link href='/' className="flex items-center">
+      <button type="submit" className="sm:w-[60%] sm:text-[1rem] bg-primary sm:mt-6">
           Retour à l&apos;accueil <Home className="ml-4"/>
-        </Link>
       </button>
+      </Link>
     </div>
   );
 }
