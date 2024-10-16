@@ -15,7 +15,7 @@ query MyQuery {
     banner {
       url
     }
-    chapter {
+    chapter(first: 100) {
       ... on Chapter {
         id
         name
@@ -63,7 +63,7 @@ const getCourseById = async (courseId) =>{
     banner {
       url
     }
-    chapter(first: 1000){
+    chapter(first: 100){
       ... on Chapter {
         id
         name
@@ -137,7 +137,7 @@ query MyQuery {
     courseId
     id
     userEmail
-    completedChapter {
+    completedChapter(first: 100) {
       ... on CompletedChapter {
         id
         chapterId
@@ -215,7 +215,7 @@ const getUserAllEnrolledCourseList = async(email) =>{
       freeCourse
       description
       demoUrl
-      chapter(first: 50) {
+      chapter(first: 100) {
         ... on Chapter {
           id
           name

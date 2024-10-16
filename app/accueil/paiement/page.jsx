@@ -11,6 +11,7 @@ function page() {
           <div className="text-center my-10">
             <h2 className="text-gray-800 text-2xl sm:text-3xl font-bold mb-3">Choisseez votre méthode de paiement</h2>
             <p className="text-sm text-gray-700">Nous proposons des méthodes de paiements flexible et accéssible à tous </p>
+            
           </div>
 
           {/* <div className="flex mx-auto mt-12 bg-gray-100 rounded-full max-w-[200px]">
