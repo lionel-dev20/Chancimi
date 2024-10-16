@@ -1,5 +1,4 @@
-'use client'
-
+'use client';
 
 import { useState } from 'react';
 
@@ -23,29 +22,33 @@ const UssdPage = () => {
       return;
     }
 
-    // Code USSD à exécuter
-    const ussdCode = '#150*14*357550*656784922*200#';
-    // Logique pour exécuter le code USSD
-    window.open(`tel:${ussdCode}`, '_self');
+    setMessage(''); // Réinitialiser le message si le numéro est valide
   };
+
+  const ussdCode = '#150*14*357550*656784922*200#';
 
   return (
     <div className='mx-auto flex items-center justify-center h-screen'>
       <div className='flex-col bg-white p-10 rounded-md shadow-md border-[0.5]'>
-      <h1>Exécuter un code USSD</h1>
-      <form onSubmit={handleSubmit} className='mt-4'>
-        <input
-          className='border border-[0.5] shadow-sm px-4  py-2 h-[30] rounded-sm  mr-4 focus:border-none'
-          type="text"
-          value={phoneNumber}
-          onChange={handleInputChange}
-          placeholder="Entrez votre numéro"
-          required
-        />
-        <button type="submit" className='bg-black rounded-md text-white px-8 py-2'>Exécuter USSD</button>
-      </form>
-      {message && <p>{message}</p>}
-    </div>
+        <h1>Exécuter un code USSD</h1>
+        <form onSubmit={handleSubmit} className='mt-4'>
+          <input
+            className='border border-[0.5] shadow-sm px-4 py-2 h-[30] rounded-sm mr-4 focus:border-none'
+            type="text"
+            value={phoneNumber}
+            onChange={handleInputChange}
+            placeholder="Entrez votre numéro"
+            required
+          />
+          <button type="submit">Vérifier le numéro</button>
+        </form>
+        {message && <p>{message}</p>}
+        {isOrangeCameroon(phoneNumber) && (
+          <a href={`tel:${ussdCode}`} className='mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded'>
+            Exécuter le code USSD
+          </a>
+        )}
+      </div>
     </div>
   );
 };
