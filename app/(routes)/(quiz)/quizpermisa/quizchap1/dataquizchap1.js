@@ -4,7 +4,7 @@ const dataquizchap1 = [
       question: "1- La signalisation routière permet de rendre la route muette",
       options: ["a) vrai", "b) Faux"],
       image: "/quiz/00.webp",
-      correctAnswer: "a) vrai",
+      correctAnswer: "b) Faux",
 
     },
     {
