@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import dataquizchap1 from '../dataquizchap1';
+import dataquizchap4 from '../dataquizchap4';
 import { useRouter } from 'next/navigation'; // Utilisé pour la redirection
 import Image from 'next/image';
 
@@ -39,15 +39,15 @@ export default function Quiz() {
   const handleAnswer = (answer) => {
     if (quizFinished) return;
 
-    const correct = dataquizchap1[currentQuestion].correctAnswer === answer;
+    const correct = dataquizchap4[currentQuestion].correctAnswer === answer;
     if (correct) {
       setScore(score + 1);
     }
 
-    setUserAnswers([...userAnswers, { question: dataquizchap1[currentQuestion].question, selected: answer, correct }]);
+    setUserAnswers([...userAnswers, { question: dataquizchap4[currentQuestion].question, selected: answer, correct }]);
 
     // Move to next question
-    if (currentQuestion + 1 < dataquizchap1.length) {
+    if (currentQuestion + 1 < dataquizchap4.length) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       setQuizFinished(true);
@@ -55,7 +55,7 @@ export default function Quiz() {
   };
 
   // Calculate final score
-  const finalScore = (score / dataquizchap1.length) * 100;
+  const finalScore = (score / dataquizchap4.length) * 100;
 
   // Reload page function
   const handleRetry = () => {
@@ -108,12 +108,12 @@ export default function Quiz() {
             Il vous reste : {formatTime(timeLeft)}
           </h2>
           <h3 className='border-b-2 border-gray-100 text-xl font-bold text-gray-700 my-6'>
-            Question {currentQuestion + 1} sur {dataquizchap1.length}
+            Question {currentQuestion + 1} sur {dataquizchap4.length}
           </h3>
           
-          {dataquizchap1[currentQuestion].image && (
+          {dataquizchap4[currentQuestion].image && (
             <Image
-              src={dataquizchap1[currentQuestion].image}
+              src={dataquizchap4[currentQuestion].image}
               alt="Illustration"
               width={600}
               height={350}
@@ -121,10 +121,10 @@ export default function Quiz() {
             />
           )}
           <p className='sm:text-[20px] text-md font-semibold text-gray-700 py-4'>
-            {dataquizchap1[currentQuestion].question}
+            {dataquizchap4[currentQuestion].question}
           </p>
           <div className='w-full'>
-            {dataquizchap1[currentQuestion].options.map((option, index) => (
+            {dataquizchap4[currentQuestion].options.map((option, index) => (
               <button
                 key={index}
                 onClick={() => handleAnswer(option)}
