@@ -81,7 +81,7 @@ function CourseEnrollSection({ courseInfo, isUserAlreadyEnrolled }) {
 
       { isUserAlreadyEnrolled&& <div className='flex flex-col gap-3 mt-3'>
           <p className='text-[16px] text-white font-light'>Continuer votre apprentissage</p>
-          <Link href={'/watch-course/'+isUserAlreadyEnrolled}><Button className="bg-white text-[18px] py-3 text-primary hover:bg-white hover:text-primary rounded-[4px]">
+          <Link href={'/watch-course/'+isUserAlreadyEnrolled}><Button className="bg-white text-[18px] py-6 px-8 text-red-600 text-xl hover:bg-white hover:text-primary rounded-[4px]">
            Continuer <ArrowBigLeft className='w-8 h-8 ml-3'/>
           </Button></Link>
         </div>}
