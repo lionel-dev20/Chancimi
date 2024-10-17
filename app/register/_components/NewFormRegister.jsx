@@ -147,7 +147,7 @@ function NewFormRegister() {
           Bienvenue sur{" "}
           <span className="px-3 py-1 rounded-sm bg-red-100 text-gray-800">
             Chancimi
-          </span>{" "}
+          </span>
           votre aut ecole en ligne; Pour valider votre inscription veillez
           remplir correctement le formulaire suivant. Afin de valider votre
           inscription ces informations seront vérifiées et validées si tout est
