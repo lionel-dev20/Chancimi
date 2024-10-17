@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState, useEffect } from 'react';
 import dataquizchap1 from '../dataquizchap1';
@@ -12,6 +12,9 @@ export default function Quiz() {
   const [userAnswers, setUserAnswers] = useState([]);
   const [quizFinished, setQuizFinished] = useState(false);
   const router = useRouter(); // Utilisé pour la redirection
+
+  // Simule l'état d'inscription de l'utilisateur (remplacez par votre logique)
+  const isUserAlreadyEnrolled = true; // Remplacez par la logique appropriée
 
   // Timer logic
   useEffect(() => {
@@ -59,10 +62,12 @@ export default function Quiz() {
     window.location.reload();
   };
 
-  // Redirect to next course
   const handleContinue = () => {
-    router.push('/watch-course/'+isUserAlreadyEnrolled); // Redirige vers le prochain cours, changer '/next-course' par la bonne route
+    // Utilisez l'ID du cours passé en prop
+   router.push('/course_preview/preparation-examen-permis-b-french');   
   };
+
+  
 
   // Messages based on score
   const renderScoreMessage = () => {

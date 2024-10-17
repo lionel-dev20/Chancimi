@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import GlobalApi from '/app/_utils/GlobalApi';
 import { Button } from '/components/ui/button';
@@ -9,7 +9,7 @@ import { toast } from 'sonner';
 import React, { useEffect } from 'react';
 import { ArrowBigLeft } from 'lucide-react';
 
-function CourseEnrollSection({ courseInfo, isUserAlreadyEnrolled }) {
+function CourseEnrollSection({ courseInfo, isUserAlreadyEnrolled, onCourseEnrolled }) {
   const membership = false;
   const { user } = useUser();
   const router = useRouter();
@@ -17,7 +17,7 @@ function CourseEnrollSection({ courseInfo, isUserAlreadyEnrolled }) {
   // Effect to log when component mounts
   useEffect(() => {
     console.log("isUserAlreadyEnrolled:", isUserAlreadyEnrolled);
-  }, [isUserAlreadyEnrolled]); // Depend on `isUserAlreadyEnrolled` to make sure it logs correctly
+  }, [isUserAlreadyEnrolled]);
 
   // Function to handle course enrollment
   const onEnrollCourse = () => {
@@ -30,12 +30,12 @@ function CourseEnrollSection({ courseInfo, isUserAlreadyEnrolled }) {
       .then(resp => {
         console.log("Enrollment Response:", resp);
         if (resp) {
-          // Show success toast
           toast.success("User Enrolled Successfully", {
             description: "User Enrolled to this Course",
           });
-
-          // Redirect to the watch course page
+          
+          // Call the callback function to pass the course ID
+          onCourseEnrolled(resp.createUserEnrollCourse.id);
           router.push('/watch-course/' + resp.createUserEnrollCourse.id);
         }
       })
@@ -49,44 +49,45 @@ function CourseEnrollSection({ courseInfo, isUserAlreadyEnrolled }) {
     <div className='p-5 text-center rounded-[4px] bg-primary'>
       <h2 className='text-[24px] font-bold text-white'>Inscription au cours</h2>
 
-      {user && (membership || courseInfo?.freeCourse)&&!isUserAlreadyEnrolled ? (
+      {user && (membership || courseInfo?.freeCourse) && !isUserAlreadyEnrolled ? (
         <div className='flex flex-col gap-3 mt-3'>
           <p className='text-[16px] text-white font-light'>Inscrivez-vous maintenant pour démarrer votre apprentissage</p>
-          <Button onClick={onEnrollCourse} className="bg-white text-[18px] py-3 text-primary hover:bg-white hover:text-primary rounded-[4px]">
+          <Button onClick={onEnrollCourse} className="bg-white text-[18px] text-2xl  text-red-500 px-6 py-4 hover:bg-white hover:text-primary rounded-[4px]">
             S&apos;inscrire maintenant
           </Button>
         </div>
       ) : !user ? (
         <div className='flex flex-col gap-3 mt-3'>
-          <p className='text-[16px] text-white text-left font-light'>Pour vous s&apos;inscre à ce cours vous devez etre connecté à votre compte sur le site web</p>
+          <p className='text-[16px] text-white text-left font-light'>Pour vous inscrire à ce cours, vous devez être connecté à votre compte sur le site web</p>
           <Link href={'/sign-in'}>
             <Button className="bg-white text-[18px] py-3 mt-3 text-primary hover:bg-white hover:text-primary rounded-[4px]">
               Se connecter pour s&apos;inscrire
             </Button>
           </Link>
         </div>
-      ) : 
-        !isUserAlreadyEnrolled&& <div className='flex flex-col gap-3 mt-3'>
-          <p className='text-[16px] text-white font-light'>ILes inscriptions sont vérifié et valider pour l&apos;activation de ce cours</p>
-          {/* <p>Frais d&apoq;inscription + Frais complet du dossier : <span>154,000 FCFA</span></p> */}
+      ) : !isUserAlreadyEnrolled && (
+        <div className='flex flex-col gap-3 mt-3'>
+          <p className='text-[16px] text-white font-light'>Les inscriptions sont vérifiées et validées pour l&apos;activation de ce cours</p>
           <Link href='/register'>
-          <Button className="bg-white text-[18px] py-3 text-primary hover:bg-white hover:text-primary rounded-[4px]">
-            S&apos;inscrire maintenant
-          </Button>
+            <Button className="bg-white text-[18px] py-3 text-primary hover:bg-white hover:text-primary rounded-[4px]">
+              S&apos;inscrire maintenant
+            </Button>
           </Link>
         </div>
-      }
+      )}
 
-      {/* Above Section User Does not Have membership or Not  */}
-
-      { isUserAlreadyEnrolled&& <div className='flex flex-col gap-3 mt-3'>
+      {isUserAlreadyEnrolled && (
+        <div className='flex flex-col gap-3 mt-3'>
           <p className='text-[16px] text-white font-light'>Continuer votre apprentissage</p>
-          <Link href={'/watch-course/'+isUserAlreadyEnrolled}><Button className="bg-white text-[18px] py-6 px-8 text-red-600 text-xl hover:bg-white hover:text-primary rounded-[4px]">
-           Continuer <ArrowBigLeft className='w-8 h-8 ml-3'/>
-          </Button></Link>
-        </div>}
+          <Link href={'/watch-course/' + isUserAlreadyEnrolled}>
+            <Button className="bg-white text-[18px] py-6 px-8 text-red-600 text-xl hover:bg-white hover:text-primary rounded-[4px]">
+              Continuer <ArrowBigLeft className='w-8 h-8 ml-3' />
+            </Button>
+          </Link>
+        </div>
+      )}
     </div>
   );
 }
 
-export default CourseEnrollSection; 
+export default CourseEnrollSection;

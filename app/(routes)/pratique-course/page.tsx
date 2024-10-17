@@ -13,7 +13,7 @@ function Page() {
         Chargement…
       </iframe>
     
-      <Link href='/watch-course/cm14sgue105ri07stuehyxcuu' className="flex items-center">
+      <Link href='/' className="flex items-center">
       <button type="submit" className="sm:w-full sm:text-[1rem] bg-primary sm:mt-6">
           Retour à l&apos;accueil <Home className="ml-4"/>
       </button>
