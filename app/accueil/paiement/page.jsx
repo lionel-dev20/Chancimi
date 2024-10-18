@@ -91,7 +91,7 @@ function page() {
                     </li>
                 </ul>
 
-                <Link href='https://me.lygosapp.com/aQwjyu2B'>
+                <Link href='/link-paiement/paiementtrancheunesurtrois'> 
                   <button type="button" className="w-full mt-8 px-5 py-2.5 text-sm text-white bg-gray-700 hover:bg-gray-800 rounded-full">S&lsquo;inscrire maintenant</button>
                 </Link>
               </div>
@@ -160,7 +160,7 @@ function page() {
                     Présentation à l&apos;examen officiel. 
                   </li>
                 </ul>
-                <Link href='https://me.lygosapp.com/eFRHEn6j'>
+                <Link href='/link-paiement/paiementtrancheunsurdeux'>
                 <button type="button" className="w-full mt-8 px-5 py-2.5 text-sm text-white bg-blue-600 hover:bg-blue-700 rounded-full">Souscrire maintenant</button>
                 </Link>
               </div>
@@ -217,7 +217,7 @@ function page() {
                   </li>
                 </ul>
                 
-                <Link href='https://me.lygosapp.com/ZXPSeuqK'>
+                <Link href='/link-paiement/paiementtrancheune'>
                 <button type="button" className="w-full mt-8 px-5 py-2.5 text-sm text-white bg-primary hover:bg-red-500 rounded-full">Souscrire maintenant</button>
                 </Link>
               </div>

@@ -21,7 +21,7 @@ const dataquizchap1 = [
         "b) Le panneau de danger et le panneau d’obligation", 
         "c) Le panneau de sortie d’agglomération et les panneaux de direction "],
         image: "/quiz/2.webp",
-      correctAnswer: "c) Le panneau de sortie d’agglomération et les panneaux de direction",
+      correctAnswer: "c)le panneau de sortie d’agglomération et les panneaux de direction",
     },
     {
       question: "4-Deux signalisations qui interdisent l’arrêt",
