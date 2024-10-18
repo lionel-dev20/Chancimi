@@ -2,7 +2,6 @@
 
 import { X } from 'lucide-react';
 import { useState } from 'react';
-import { FaTimes } from 'react-icons/fa'; // Assurez-vous d'avoir installé react-icons
 
 const UssdPage = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
