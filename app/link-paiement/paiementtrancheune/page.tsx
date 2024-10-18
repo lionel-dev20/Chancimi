@@ -1,5 +1,6 @@
 'use client';
 
+import { DoorClosed, X } from 'lucide-react';
 import { useState } from 'react';
 import { FaTimes } from 'react-icons/fa'; // Assurez-vous d'avoir installé react-icons
 
@@ -57,7 +58,8 @@ const UssdPage = () => {
               onClick={closeModal}
               className="absolute top-4 right-4 bg-red-500 text-white rounded-full p-2 flex items-center justify-center shadow-lg"
             >
-              <FaTimes className="text-black" />
+              {/* <FaTimes className="text-black" /> */}
+              <X  className="text-black"/>
             </button>
 
             <h1 className='text-lg font-bold mb-2'>Montant du paiement 84,900 <sup className='mx-2'>FCFA</sup></h1>
