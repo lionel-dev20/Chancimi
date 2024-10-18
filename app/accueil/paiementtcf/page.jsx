@@ -143,7 +143,7 @@ function page() {
         </div>
         <div>
           <Link
-            href="https://me.lygosapp.com/Uwdgz2bP"
+            href="/paiementtcf"
             className="inline-flex items-center justify-center w-full h-12 px-6 mb-4 font-medium tracking-wide text-white transition duration-200 bg-gray-800 rounded shadow-md hover:bg-gray-900 focus:shadow-outline focus:outline-none"
           >
             Proceder au paiement 

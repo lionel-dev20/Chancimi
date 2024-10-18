@@ -6,7 +6,7 @@ function page() {
   return (
     <div>
         {/* <FormRegister /> */}
-        <NewFormRegister />
+        <FormRegister />
     </div>
   )
 }

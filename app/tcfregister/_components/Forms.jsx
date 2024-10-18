@@ -122,7 +122,7 @@ function NewFormRegister() {
     return (
       <div className="flex flex-col items-center justify-center h-screen">
         <Card className="w-[510px] p-10">
-          <CardHeader>
+          <CardHeader> 
             <CardTitle>Redirection en cours...</CardTitle>
           </CardHeader>
           <CardContent>
