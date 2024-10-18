@@ -48,7 +48,8 @@ const SideNav = () => {
   const closeSidebar = () => setOpenMenu(false);
 
   return (
-    <div className="bg-white h-screen z-50 border border-t-0 border-r-[1px] border-opacity-25 shadow-sm">
+    <div className="relative">
+    <div className="absolute bg-white h-screen z-50 border border-t-0 border-r-[1px] border-opacity-25 shadow-sm">
       {/* Bouton pour ouvrir le menu sur mobile */}
       <button
         onClick={toggleSidebar}
@@ -104,6 +105,7 @@ const SideNav = () => {
           onClick={toggleSidebar}
         ></div>
       )}
+    </div>
     </div>
   );
 };
