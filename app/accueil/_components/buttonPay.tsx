@@ -5,16 +5,16 @@ const UssdPage = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPhoneNumber(e.target.value);
   };
 
-  const isOrangeCameroon = (number) => {
+  const isOrangeCameroon = (number: string) => {
     // Vérifie si le numéro commence par 6 (pour Orange au Cameroun)
     return number.startsWith('6') && number.length === 9;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!isOrangeCameroon(phoneNumber)) {
       setMessage('Le numéro doit être un numéro Orange Cameroun.');
