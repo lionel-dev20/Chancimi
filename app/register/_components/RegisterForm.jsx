@@ -294,20 +294,12 @@ function UIFormRegister() {
             <RadioGroup name="language" value={language} // Valeur du groupe de radio
               onValueChange={(value) => setLanguage(value)}>
               <div className="flex items-center space-x-2">
-                <RadioGroupItem value="Cours de préparation TCF CANADA" id="tcfCanada" />
-                <label htmlFor="French">Cours de préparation TCF CANADA</label>
+                <RadioGroupItem value="Cours en français" id="Coursenfrançais" />
+                <label htmlFor="Cours en français">Cours en français</label>
               </div>
               <div className="flex items-center space-x-2">
-                <RadioGroupItem value="Cours de préparation TCF QUEBEC" id="tcfquebec" />
-                <label>Cours de préparation TEF QUEBEC</label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="Cours de préparation CANADA" id="tefCanada" />
-                <label>Cours de préparation TEF CANADA</label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="Cours de préparation TCF TOUT PUBLIC" id="tcftoutpublic" />
-                <label>Cours de préparation TCF TOUT PUBLIC</label>
+                <RadioGroupItem value="Cours en anglais" id="Coursenanglais" />
+                <label>Cours en anglais</label>
               </div>
             </RadioGroup>
           </div>

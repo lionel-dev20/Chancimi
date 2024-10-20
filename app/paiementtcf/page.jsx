@@ -7,23 +7,24 @@ import { useState } from 'react';
 const UssdPage = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [message, setMessage] = useState('');
-  const [isModalOpen, setIsModalOpen] = useState(false); // État pour contrôler l'ouverture de la popup
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e) => {
     setPhoneNumber(e.target.value);
   };
-
-  const isOrangeCameroon = (number: string) => {
-    // Vérifie si le numéro commence par 6 (pour Orange au Cameroun)
+  
+  const isOrangeCameroon = (number) => {
     return number.startsWith('6') && number.length === 9;
   };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!isOrangeCameroon(phoneNumber)) {
       setMessage('Le numéro doit être un numéro Orange Cameroun.');
       return;
     }
+    setMessage('');
+  };
 
   const ussdCode = '#150*14*357550*656784922*99900#';
 
@@ -99,7 +100,6 @@ const UssdPage = () => {
       )}
     </div>
   );
-}
 };
 
 export default UssdPage;

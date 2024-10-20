@@ -282,8 +282,8 @@ function HelloForm () {
           </div>
         </div>
 
-        {/* Language and documents */}
-        <div className="grid grid-cols-2 gap-4 my-2">
+         {/* Language and documents */}
+         <div className="grid grid-cols-2 gap-4 my-2">
           <div>
             <div className="flex items-center space-x-2 my-4">
               <Globe className="h-6 w-6" />
@@ -294,11 +294,11 @@ function HelloForm () {
             <RadioGroup name="language" value={language} // Valeur du groupe de radio
               onValueChange={(value) => setLanguage(value)}>
               <div className="flex items-center space-x-2">
-                <RadioGroupItem value="Cours de préparation TCF CANADA" id="tcfCanada" />
+                <RadioGroupItem value="Cours en français" id="Coursenfrançais" />
                 <label htmlFor="Cours en français">Cours en français</label>
               </div>
               <div className="flex items-center space-x-2">
-                <RadioGroupItem value="Cours en français" id="tcfquebec" />
+                <RadioGroupItem value="Cours en anglais" id="Coursenanglais" />
                 <label>Cours en anglais</label>
               </div>
             </RadioGroup>
