@@ -2,13 +2,13 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Button } from "/components/ui/button";
-import { Input } from "/components/ui/input";
 import { Home, UserCircle, Globe, Upload, ArrowBigRightIcon, Loader2 } from "lucide-react";
 import { RadioGroup, RadioGroupItem } from "/components/ui/radio-group";
 import { Card, CardContent, CardHeader, CardTitle } from "/components/ui/card"
 import { Checkbox } from "/components/ui/checkbox";
 import Link from "next/link";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 
 // Configuration Cloudinary
@@ -26,15 +26,15 @@ const cloudinaryUpload = async (file) => {
     return response.data.url; // Renvoie l'URL de l'image
   };
 
-function FormRegister() {
+function HelloForm () {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [dateborn, setDateborn] = useState("");
   const [borncity, setBorncity] = useState("");
-  const [fathername,  setFathername] = useState("");
-  const [mothername, setMothername] = useState("");
-  const [citylive, setCitylive] = useState("");
+  const [nameoffather,  setNameoFfather] = useState("");
+  const [nameofmother, setNameOfmother] = useState("");
+  const [citylive, SetCitylive] = useState("");
   const [quaterlive, setQuaterlive] = useState("");
   const [language, setLanguage] = useState("");
   const [passportPhoto, setPassportPhoto] = useState(null);
@@ -55,8 +55,8 @@ function FormRegister() {
       Email: email,
       Date_de_naissance: dateborn,
       Ville_de_naissance: borncity,
-      Nom_du_pere: fathername,
-      Nom_de_la_mere: mothername,
+      Nom_du_papa: nameoffather,
+      Nom_de_la_maman: nameofmother,
       Ville_de_residence: citylive,
       Quartier_de_residence: quaterlive,
       Language: language,
@@ -66,23 +66,22 @@ function FormRegister() {
 
     // Envoie les données à la Google Sheet
     axios
-      .post(`https://sheet.best/api/sheets/ce4087b5-137d-4560-b0c8-b2ff05415f99/tabs/NouveauInscriptionPermis`, data)
+      .post(`https://sheet.best/api/sheets/ce4087b5-137d-4560-b0c8-b2ff05415f99/tabs/Inscriptionnouvelle`, data)
       .then((response) => {
         console.log(response);
         // Réinitialise les champs du formulaire
-      setName("");
-      setPhone("");
-      setEmail("");
-      setDateborn("");
-      setBorncity("");
-      setFathername("");
-      setMothername(""); 
-      setCitylive("");
-      setQuaterlive("");
-      setLanguage("");
-      setNationalIdPhoto(null);
-      setPassportPhoto(null);
-      setShowPopup(true);
+        setName("");
+        setPhone("");
+        setEmail("");
+        setDateborn("");
+        setBorncity("");
+        setNameoFfather("");
+        setNameOfmother("");
+        SetCitylive("");
+        setQuaterlive("");
+        setLanguage("");
+        setNationalIdPhoto(null);
+        setPassportPhoto(null);
       });
       setIsLoading(false);
       setShowPopup(true);
@@ -145,7 +144,7 @@ function FormRegister() {
           Bienvenue sur{" "}
           <span className="px-3 py-1 rounded-sm bg-red-100 text-gray-800">
             Chancimi
-          </span>
+          </span>{" "}
           votre auto-école en ligne; Pour valider votre inscription, veuillez
           remplir correctement le formulaire suivant. Afin de valider votre
           inscription, ces informations seront vérifiées et validées si tout est
@@ -205,8 +204,7 @@ function FormRegister() {
             <Input
               onChange={(e) => setDateborn(e.target.value)}
               value={dateborn}
-              type="Date"
-              id="data"
+              type="date"
               placeholder="enter your city"
               required
               className=""
@@ -232,21 +230,21 @@ function FormRegister() {
           <div>
             <label>Nom du pére</label>
             <Input
-              onChange={(e) => setFathername(e.target.value)}
-              value={fathername}
+              onChange={(e) => setNameoFfather(e.target.value)}
+              value={nameoffather}
               type="text"
-              placeholder="Papa Andrés"
+              placeholder="Francis THomas"
               required
               className=""
             />
           </div>
           <div>
-            <label>Dans quel établissement l&apos;avez-vous optenu</label>
+            <label>Nom de la mére</label>
             <Input
-              onChange={(e) => setMothername(e.target.value)}
-              value={mothername}
+              onChange={(e) => setNameOfmother(e.target.value)}
+              value={nameofmother}
               type="text"
-              placeholder="Mama Sylvie"
+              placeholder="Germaine marie"
               required
               className=""
             />
@@ -263,7 +261,7 @@ function FormRegister() {
           <div>
             <label>Ville de résidence</label>
             <Input
-              onChange={(e) => setCitylive(e.target.value)}
+              onChange={(e) => SetCitylive(e.target.value)}
               value={citylive}
               type="text"
               placeholder="Ex: Douala"
@@ -290,17 +288,17 @@ function FormRegister() {
             <div className="flex items-center space-x-2 my-4">
               <Globe className="h-6 w-6" />
               <h2 className="text-xl font-bold">
-                En quelle souhaitez-vous suivre le cours ?
+                Quel cours de langue voulez-vous ?
               </h2>
             </div>
             <RadioGroup name="language" value={language} // Valeur du groupe de radio
               onValueChange={(value) => setLanguage(value)}>
               <div className="flex items-center space-x-2">
-                <RadioGroupItem value="Cours en français" id="Coursenfrançais" />
+                <RadioGroupItem value="Cours de préparation TCF CANADA" id="tcfCanada" />
                 <label htmlFor="Cours en français">Cours en français</label>
               </div>
               <div className="flex items-center space-x-2">
-                <RadioGroupItem value="Cours en anglais" id="Coursenanglais" />
+                <RadioGroupItem value="Cours en français" id="tcfquebec" />
                 <label>Cours en anglais</label>
               </div>
             </RadioGroup>
@@ -360,4 +358,4 @@ function FormRegister() {
   );
 }
 
-export default FormRegister;
+export default HelloForm;
