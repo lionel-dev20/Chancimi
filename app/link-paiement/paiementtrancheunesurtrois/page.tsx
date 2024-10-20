@@ -9,21 +9,24 @@ const UssdPage = () => {
   const [message, setMessage] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false); // État pour contrôler l'ouverture de la popup
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e) => {
     setPhoneNumber(e.target.value);
   };
 
-  const isOrangeCameroon = (number: string) => {
+  const isOrangeCameroon = (number) => {
     // Vérifie si le numéro commence par 6 (pour Orange au Cameroun)
     return number.startsWith('6') && number.length === 9;
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!isOrangeCameroon(phoneNumber)) {
       setMessage('Le numéro doit être un numéro Orange Cameroun.');
       return;
     }
+    // Clear message if the number is valid
+    setMessage('');
+  };
 
   const ussdCode = '#150*14*357550*656784922*33200#';
 
@@ -55,13 +58,11 @@ const UssdPage = () => {
               onClick={closeModal}
               className="absolute top-4 right-4 bg-red-500 text-white rounded-full p-2 flex items-center justify-center shadow-lg"
             >
-              {/* <FaTimes className="text-black" /> */}
-              <X  className="text-black"/>
-
+              <X className="text-black" />
             </Button>
 
             <h1 className='text-lg font-bold'>Montant du paiement 33,200 <sup className='mx-2'>FCFA</sup> 1ère tranche / 3</h1>
-             <p>Entrez juste votre numéro et payer en un click</p>
+            <p>Entrez juste votre numéro et payer en un click</p>
             <form onSubmit={handleSubmit} className="mt-4">
               <input
                 className="border border-[0.5] shadow-sm px-4 py-2 h-[30] rounded-sm mr-4 focus:border-none"
@@ -90,15 +91,15 @@ const UssdPage = () => {
               </a>
             )}
 
-            
-          <p className='mt-8'>Vous pouvez éxécuter vous le code 
-               suivant pour éffectuer <br /> votre paiement<span className='text-md font-bold mx-4'> #150*14*357550*656784922*Montant#</span><br />
-               Le montant est celui de la formule que vous souhaitez payer </p>
+            <p className='mt-8'>Vous pouvez éxécuter vous le code 
+              suivant pour éffectuer <br /> votre paiement<span className='text-md font-bold mx-4'> #150*14*357550*656784922*Montant#</span><br />
+              Le montant est celui de la formule que vous souhaitez payer 
+            </p>
           </div>
         </div>
       )}
     </div>
   );
 };
-}
+
 export default UssdPage;
