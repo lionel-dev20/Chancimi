@@ -12,11 +12,12 @@ import { Checkbox } from "@/components/ui/checkbox";
 
 
 // Configuration Cloudinary
-const cloudinaryUpload = async (file: File) => {
+const cloudinaryUpload = async (file) => {
   const formData = new FormData();
   formData.append("file", file);
   formData.append("upload_preset", "i90ztenm"); // Ton preset Cloudinary
 
+  // Utilise ton vrai nom de cloud dans l'URL
   const response = await axios.post(
     `https://api.cloudinary.com/v1_1/dvatpjm6e/image/upload`, 
     formData
