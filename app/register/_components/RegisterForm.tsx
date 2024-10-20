@@ -12,19 +12,18 @@ import { Checkbox } from "@/components/ui/checkbox";
 
 
 // Configuration Cloudinary
-const cloudinaryUpload = async (file) => {
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", "i90ztenm"); // Ton preset Cloudinary
+const cloudinaryUpload = async (file: File) => {
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("upload_preset", "i90ztenm"); // Ton preset Cloudinary
+
+  const response = await axios.post(
+    `https://api.cloudinary.com/v1_1/dvatpjm6e/image/upload`, 
+    formData
+  );
   
-    // Utilise ton vrai nom de cloud dans l'URL
-    const response = await axios.post(
-      `https://api.cloudinary.com/v1_1/dvatpjm6e/image/upload`, 
-      formData
-    );
-    
-    return response.data.url; // Renvoie l'URL de l'image
-  };
+  return response.data.url; // Renvoie l'URL de l'image
+};
 
 function UIFormRegister() {
   const [name, setName] = useState("");
