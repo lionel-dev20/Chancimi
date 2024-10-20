@@ -1,5 +1,6 @@
 'use client';
 
+import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
 import { useState } from 'react';
 
@@ -8,24 +9,21 @@ const UssdPage = () => {
   const [message, setMessage] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false); // État pour contrôler l'ouverture de la popup
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPhoneNumber(e.target.value);
   };
 
-  const isOrangeCameroon = (number) => {
+  const isOrangeCameroon = (number: string) => {
     // Vérifie si le numéro commence par 6 (pour Orange au Cameroun)
     return number.startsWith('6') && number.length === 9;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!isOrangeCameroon(phoneNumber)) {
       setMessage('Le numéro doit être un numéro Orange Cameroun.');
       return;
     }
-
-    setMessage(''); // Réinitialiser le message si le numéro est valide
-  };
 
   const ussdCode = '#150*14*357550*656784922*99900#';
 
@@ -41,26 +39,26 @@ const UssdPage = () => {
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       {/* Le bouton qui ouvre la popup */}
-      <button
+      <Button
         onClick={openModal}
         className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
       >
         Lancez le paiement
-      </button>
+      </Button>
 
       {/* La modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-10 rounded-md shadow-md border-[0.5] relative">
             {/* Bouton pour fermer la popup */}
-            <button
+            <Button
               onClick={closeModal}
               className="absolute top-4 right-4 bg-red-500 text-white rounded-full p-2 flex items-center justify-center shadow-lg"
             >
               {/* <FaTimes className="text-black" /> */}
               <X  className="text-black"/>
 
-            </button>
+            </Button>
 
             <h1 className='text-lg font-bold mb-2'>Montant du paiement 99,900 <sup className='mx-2'>FCFA</sup></h1>
              <p>Entrez juste votre numéro et payer en un click</p>
@@ -73,12 +71,12 @@ const UssdPage = () => {
                 placeholder="Entrez votre numéro"
                 required
               />
-              <button
+              <Button
                 type="submit"
                 className="bg-green-500 text-white py-2 px-4 rounded ml-2 mt-4 sm:mt-4 w-full sm:w-auto"
               >
                 Vérifier le numéro
-              </button>
+              </Button>
             </form>
 
             {message && <p className="text-red-500 mt-4">{message}</p>}
@@ -101,6 +99,7 @@ const UssdPage = () => {
       )}
     </div>
   );
+}
 };
 
 export default UssdPage;
