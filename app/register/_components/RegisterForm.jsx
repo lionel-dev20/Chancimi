@@ -39,14 +39,15 @@ function UIFormRegister() {
   const [passportPhoto, setPassportPhoto] = useState(null);
   const [nationalIdPhoto, setNationalIdPhoto] = useState(null);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-  
+
+
     // Upload des fichiers sur Cloudinary
     const uploadedPassportPhoto = passportPhoto ? await cloudinaryUpload(passportPhoto) : "";
     const uploadedNationalIdPhoto = nationalIdPhoto ? await cloudinaryUpload(nationalIdPhoto) : "";
-  
+
     const data = {
       Nom: name,
       Telephone: phone,
@@ -61,7 +62,7 @@ function UIFormRegister() {
       Photo_Cni_ou_Passport: uploadedNationalIdPhoto,
       Photo_4x4: uploadedPassportPhoto,
     };
-  
+
     // Envoie les données à la Google Sheet
     axios
       .post(`https://sheet.best/api/sheets/ce4087b5-137d-4560-b0c8-b2ff05415f99/tabs`, data)
@@ -81,9 +82,10 @@ function UIFormRegister() {
         setNationalIdPhoto(null);
         setPassportPhoto(null);
       });
-    setIsLoading(false);
-    setShowPopup(true);
+      setIsLoading(false);
+      setShowPopup(true);
   };
+
 
 
 
