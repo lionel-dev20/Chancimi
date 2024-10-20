@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 
 const UssdPage = () => {
@@ -37,7 +38,7 @@ const UssdPage = () => {
           placeholder="Entrez votre numéro"
           required
         />
-        <button type="submit">Exécuter USSD</button>
+        <Button type="submit">Exécuter USSD</Button>
       </form>
       {message && <p>{message}</p>}
     </div>
