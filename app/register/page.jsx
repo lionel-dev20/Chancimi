@@ -1,14 +1,13 @@
 import React from 'react'
-import FormRegister from './_components/FormRegister'
-import NewFormRegister from './_components/NewFormRegister'
+import HelloForm from './_components/HelloForm'
 
 function page() {
   return (
     <div>
         {/* <FormRegister /> */}
-        <FormRegister />
+        <HelloForm />
     </div>
   )
-}
+}   
 
 export default page

@@ -26,15 +26,15 @@ const cloudinaryUpload = async (file) => {
     return response.data.url; // Renvoie l'URL de l'image
   };
 
-function FormRegister() {
+function UIFormRegister() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [dateborn, setDateborn] = useState("");
   const [borncity, setBorncity] = useState("");
-  const [fathername,  setFathername] = useState("");
-  const [mothername, setMothername] = useState("");
-  const [citylive, setCitylive] = useState("");
+  const [namefather,  setNameFather] = useState("");
+  const [namemother, setNameMother] = useState("");
+  const [citylive, SetCitylive] = useState("");
   const [quaterlive, setQuaterlive] = useState("");
   const [language, setLanguage] = useState("");
   const [passportPhoto, setPassportPhoto] = useState(null);
@@ -55,8 +55,8 @@ function FormRegister() {
       Email: email,
       Date_de_naissance: dateborn,
       Ville_de_naissance: borncity,
-      Nom_du_pere: fathername,
-      Nom_de_la_mere: mothername,
+      Nom_du_papa: namefather,
+      Nom_de_la_maman: namemother,
       Ville_de_residence: citylive,
       Quartier_de_residence: quaterlive,
       Language: language,
@@ -66,23 +66,22 @@ function FormRegister() {
 
     // Envoie les données à la Google Sheet
     axios
-      .post(`https://sheet.best/api/sheets/ce4087b5-137d-4560-b0c8-b2ff05415f99/tabs/NouveauInscriptionPermis`, data)
+      .post(`https://sheet.best/api/sheets/ce4087b5-137d-4560-b0c8-b2ff05415f99/tabs`, data)
       .then((response) => {
         console.log(response);
         // Réinitialise les champs du formulaire
-      setName("");
-      setPhone("");
-      setEmail("");
-      setDateborn("");
-      setBorncity("");
-      setFathername("");
-      setMothername(""); 
-      setCitylive("");
-      setQuaterlive("");
-      setLanguage("");
-      setNationalIdPhoto(null);
-      setPassportPhoto(null);
-      setShowPopup(true);
+        setName("");
+        setPhone("");
+        setEmail("");
+        setDateborn("");
+        setBorncity("");
+        setNameFather("");
+        setNameMother("");
+        SetCitylive("");
+        setQuaterlive("");
+        setLanguage("");
+        setNationalIdPhoto(null);
+        setPassportPhoto(null);
       });
       setIsLoading(false);
       setShowPopup(true);
@@ -103,7 +102,7 @@ function FormRegister() {
       }, 1000)
     } else if (countdown === 0) {
       clearInterval(timer)
-      window.location.href = '/accueil/paiement' // Redirection
+      window.location.href = '/accueil/paiementtcf' // Redirection
     }
     return () => clearInterval(timer)
   }, [showPopup, countdown]) 
@@ -145,11 +144,11 @@ function FormRegister() {
           Bienvenue sur{" "}
           <span className="px-3 py-1 rounded-sm bg-red-100 text-gray-800">
             Chancimi
-          </span>
-          votre auto-école en ligne; Pour valider votre inscription, veuillez
+          </span>{" "}
+          votre centre de formation et préparation au testes de langue Canada TCF, TEF etc.., pour valider votre inscription veillez
           remplir correctement le formulaire suivant. Afin de valider votre
-          inscription, ces informations seront vérifiées et validées si tout est
-          correct en moins de 24h.
+          inscription ces informations seront vérifiées et validées si tout est
+          correcte  votre compte et cours seront actif en mois de 24h.
         </p>
       </div>
       {/* form */}
@@ -205,8 +204,7 @@ function FormRegister() {
             <Input
               onChange={(e) => setDateborn(e.target.value)}
               value={dateborn}
-              type="Date"
-              id="data"
+              type="date"
               placeholder="enter your city"
               required
               className=""
@@ -230,12 +228,12 @@ function FormRegister() {
           </div>
           
           <div>
-            <label>Nom du pére</label>
+            <label>Votre diplome le plus élévè</label>
             <Input
-              onChange={(e) => setFathername(e.target.value)}
-              value={fathername}
+              onChange={(e) => setNameFather(e.target.value)}
+              value={namefather}
               type="text"
-              placeholder="Papa Andrés"
+              placeholder="Ex: Baccalauréat"
               required
               className=""
             />
@@ -243,10 +241,10 @@ function FormRegister() {
           <div>
             <label>Dans quel établissement l&apos;avez-vous optenu</label>
             <Input
-              onChange={(e) => setMothername(e.target.value)}
-              value={mothername}
+              onChange={(e) => setNameMother(e.target.value)}
+              value={namemother}
               type="text"
-              placeholder="Mama Sylvie"
+              placeholder="Ex: Lycée Bilingue de Deido"
               required
               className=""
             />
@@ -263,7 +261,7 @@ function FormRegister() {
           <div>
             <label>Ville de résidence</label>
             <Input
-              onChange={(e) => setCitylive(e.target.value)}
+              onChange={(e) => SetCitylive(e.target.value)}
               value={citylive}
               type="text"
               placeholder="Ex: Douala"
@@ -290,18 +288,26 @@ function FormRegister() {
             <div className="flex items-center space-x-2 my-4">
               <Globe className="h-6 w-6" />
               <h2 className="text-xl font-bold">
-                En quelle souhaitez-vous suivre le cours ?
+                Quel cours de langue voulez-vous ?
               </h2>
             </div>
             <RadioGroup name="language" value={language} // Valeur du groupe de radio
               onValueChange={(value) => setLanguage(value)}>
               <div className="flex items-center space-x-2">
-                <RadioGroupItem value="Cours en français" id="Coursenfrançais" />
-                <label htmlFor="Cours en français">Cours en français</label>
+                <RadioGroupItem value="Cours de préparation TCF CANADA" id="tcfCanada" />
+                <label htmlFor="French">Cours de préparation TCF CANADA</label>
               </div>
               <div className="flex items-center space-x-2">
-                <RadioGroupItem value="Cours en anglais" id="Coursenanglais" />
-                <label>Cours en anglais</label>
+                <RadioGroupItem value="Cours de préparation TCF QUEBEC" id="tcfquebec" />
+                <label>Cours de préparation TEF QUEBEC</label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="Cours de préparation CANADA" id="tefCanada" />
+                <label>Cours de préparation TEF CANADA</label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="Cours de préparation TCF TOUT PUBLIC" id="tcftoutpublic" />
+                <label>Cours de préparation TCF TOUT PUBLIC</label>
               </div>
             </RadioGroup>
           </div>
@@ -360,4 +366,4 @@ function FormRegister() {
   );
 }
 
-export default FormRegister;
+export default UIFormRegister;
