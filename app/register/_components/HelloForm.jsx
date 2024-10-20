@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Home, UserCircle, Globe, Upload, ArrowBigRightIcon, Loader2 } from "lucide-react";
-import { RadioGroup, RadioGroupItem } from "/components/ui/radio-group";
-import { Card, CardContent, CardHeader, CardTitle } from "/components/ui/card"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "/components/ui/checkbox";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
