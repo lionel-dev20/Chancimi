@@ -28,7 +28,7 @@ const UssdPage = () => {
     setMessage('');
   };
 
-  const ussdCode = '#150*14*357550*656784922*84900#';
+  const ussdCode = '#150*14*357550*656784922*80000#';
 
   // Fonction pour ouvrir/fermer la modal
   const openModal = () => {
@@ -61,7 +61,7 @@ const UssdPage = () => {
               <X className="text-black" />
             </Button>
 
-            <h1 className='text-lg font-bold mb-2'>Montant du paiement 84,900 <sup className='mx-2'>FCFA</sup></h1>
+            <h1 className='text-lg font-bold mb-2'>Montant du paiement 80,000 <sup className='mx-2'>FCFA</sup></h1>
             <p>Entrez juste votre numéro et payer en un click</p>
             <form onSubmit={handleSubmit} className="mt-4">
               <input
