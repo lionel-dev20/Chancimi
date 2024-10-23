@@ -13,6 +13,7 @@ import {
 } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 export function BentoPermis() {
   return (
@@ -32,6 +33,7 @@ export function BentoPermis() {
 
       <BentoGrid className="max-w-7xl mx-auto md:auto-rows-[20rem]">
         {items.map((item, i) => (
+          <Link href={`${item.linkcard}`} key={i}>
           <BentoGridItem
             key={i}
             title={item.title}
@@ -40,6 +42,7 @@ export function BentoPermis() {
             className={cn("[&>p:text-lg]", item.className)}
             icon={item.icon}
           />
+          </Link>
         ))}
       </BentoGrid>
     </div>
@@ -264,6 +267,7 @@ const Skeletonheit = () => {
 const items = [
   {
     title: "Permis A",
+    linkcard: "/permisa",
     description: (
       <span className="text-sm">
 Permis pour les motocyclettes <br/>
@@ -274,7 +278,7 @@ Permis pour les motocyclettes <br/>
     className: "md:col-span-1",
     icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
   },
-  {
+  { linkcard: "/permisb",
     title: "Permis B",
     description: (
       <span className="text-sm">
