@@ -290,7 +290,7 @@ Permis pour les motocyclettes <br/>
     className: "md:col-span-1",
     icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
   },
-  {
+  { linkcard: "/permisc",
     title: "Permis C",
     description: (
       <span className="text-sm">
@@ -314,7 +314,7 @@ Permis pour Bus <br/>
     className: "md:col-span-1",
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
   },
-  {
+  { linkcard: "/permise",
     title: "Permis E",
     description: (
       <span className="text-sm">
@@ -326,7 +326,7 @@ Permis pour camions <br/>
     className: "md:col-span-1",
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
   },
-  {
+  { linkcard: "/permisf",
     title: "Permis f",
     description: (
       <span className="text-sm">
@@ -338,7 +338,7 @@ Permis pour engin lourd <br/>
     className: "md:col-span-1",
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
   },
-  {
+  { linkcard: "/permisg",
     title: "Permis G",
     description: (
       <span className="text-sm">

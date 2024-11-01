@@ -10,10 +10,10 @@ import Link from 'next/link';
 const products = [
   { name: 'Permis A', description: 'Destinée à tout le monde et catégorisé', href: '/permisa', icon: ChartPieIcon },
   { name: 'Permis B', description: 'Ce cours disponible actuellement accéssible', href: '/permisb', icon: CursorArrowRaysIcon },
-  { name: 'Permis C', description: 'Ce cours est en préparation trés bientot', href: '#', icon: FingerPrintIcon },
-  { name: 'Permis D', description: 'Ce cours est en préparation trés bientot', href: '#', icon: SquaresPlusIcon },
-  { name: 'Permis T', description: 'Ce cours est en préparation trés bientot', href: '#', icon: ArrowPathIcon },
-  { name: 'Recyclage', description: 'Destinée à tout le monde et catégorisé pour', href: '#', icon: ArrowPathIcon },
+  { name: 'Permis C', description: 'Ce cours est en préparation trés bientot', href: '/permisc', icon: FingerPrintIcon },
+  { name: 'Permis E', description: 'Ce cours est en préparation trés bientot', href: '/permise', icon: SquaresPlusIcon },
+  { name: 'Permis F', description: 'Ce cours est en préparation trés bientot', href: '/permisf', icon: ArrowPathIcon },
+  { name: 'Permis G', description: 'Destinée à tout le monde et catégorisé pour', href: '/permisg', icon: ArrowPathIcon },
 ]
 const callsToAction = [
   { name: 'Voir la video', href: '#', icon: PlayCircleIcon },

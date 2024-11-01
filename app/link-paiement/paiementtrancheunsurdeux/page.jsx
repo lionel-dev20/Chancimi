@@ -14,20 +14,24 @@ const UssdPage = () => {
   };
   
   const isOrangeCameroon = (number) => {
-    return number.startsWith('6') && number.length === 9;
+    return number.startsWith('6') && number.length === 9; // Vérifie si le numéro commence par 6
   };
-  
+
+  const isMTNCameroun = (number) => {
+    return number.startsWith('7') && number.length === 9; // Vérifie si le numéro commence par 7
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!isOrangeCameroon(phoneNumber)) {
-      setMessage('Le numéro doit être un numéro Orange Cameroun.');
+    if (!isOrangeCameroon(phoneNumber) && !isMTNCameroun(phoneNumber)) {
+      setMessage('Le numéro doit être un numéro valide (Orange ou MTN Cameroun).');
       return;
     }
     setMessage('');
   };
-  
 
-  const ussdCode = '#150*14*357550*656784922*45000#';
+  const ussdOrangeCode = '#150*14*357550*656784922*45000#';
+  const ussdMTNCode = '*126*14*679192659*45000#'; // Code USSD pour MTN
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -57,7 +61,7 @@ const UssdPage = () => {
             </Button>
 
             <h1 className='text-lg font-bold mb-2'>Montant du paiement 45,000 <sup className='mx-2'>FCFA</sup></h1>
-            <p>Entrez juste votre numéro et payer en un click</p>
+            <p>Entrez juste votre numéro et payer en un clic</p>
             <form onSubmit={handleSubmit} className="mt-4">
               <input
                 className="border border-[0.5] shadow-sm px-4 py-2 h-[30] rounded-sm mr-4 focus:border-none"
@@ -79,16 +83,34 @@ const UssdPage = () => {
 
             {isOrangeCameroon(phoneNumber) && (
               <a
-                href={`tel:${ussdCode}`}
+                href={`tel:${ussdOrangeCode}`}
                 className="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded"
               >
-                Valider le paiement ici
+                Valider le paiement ici (Orange)
               </a>
             )}
 
-            <p className='mt-8'>Vous pouvez éxécuter vous le code 
-              suivant pour éffectuer <br /> votre paiement<span className='text-md font-bold mx-4'> #150*14*357550*656784922*Montant#</span><br />
-              nom du recepteur <span className='font-bold'>Hecheket fete</span>  le montant est celui de <br />la formule que vous souhaitez payer 
+            {isMTNCameroun(phoneNumber) && (
+              <a
+                href={`tel:${ussdMTNCode}`}
+                className="mt-4 inline-block bg-yellow-500 text-white py-2 px-4 rounded"
+              >
+                Valider le paiement ici (MTN)
+              </a>
+            )}
+
+<p className="mt-8">
+              Paiement par Orange money
+              <span className="text-md font-bold mx-4">
+                <br />
+                #150*14*357550*656784922*Montant#
+              </span>
+              <br />
+              paiement MTN Momo <br />
+              <span className="text-md font-bold mx-4">
+                *126*14*679192659*Montant#
+              </span>
+              <br />
             </p>
           </div>
         </div>

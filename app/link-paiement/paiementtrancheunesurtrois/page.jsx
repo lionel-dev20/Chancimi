@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { Button } from '@/components/ui/button';
-import { X } from 'lucide-react';
-import { useState } from 'react';
+import { Button } from "@/components/ui/button";
+import { X } from "lucide-react";
+import { useState } from "react";
 
 const UssdPage = () => {
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [message, setMessage] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [message, setMessage] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false); // État pour contrôler l'ouverture de la popup
 
   const handleInputChange = (e) => {
@@ -14,21 +14,27 @@ const UssdPage = () => {
   };
 
   const isOrangeCameroon = (number) => {
-    // Vérifie si le numéro commence par 6 (pour Orange au Cameroun)
-    return number.startsWith('6') && number.length === 9;
+    return number.startsWith("6") && number.length === 9; // Vérifie si le numéro commence par 6
+  };
+
+  const isMTNCameroun = (number) => {
+    return number.startsWith("7") && number.length === 9; // Vérifie si le numéro commence par 7
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!isOrangeCameroon(phoneNumber)) {
-      setMessage('Le numéro doit être un numéro Orange Cameroun.');
+    if (!isOrangeCameroon(phoneNumber) && !isMTNCameroun(phoneNumber)) {
+      setMessage(
+        "Le numéro doit être un numéro valide (Orange ou MTN Cameroun)."
+      );
       return;
     }
     // Clear message if the number is valid
-    setMessage('');
+    setMessage("");
   };
 
-  const ussdCode = '#150*14*357550*656784922*33000#';
+  const ussdOrangeCode = "#150*14*357550*656784922*33000#";
+  const ussdMTNCode = "*126*14*679192659*33000#"; // Code USSD pour MTN
 
   // Fonction pour ouvrir/fermer la modal
   const openModal = () => {
@@ -61,8 +67,11 @@ const UssdPage = () => {
               <X className="text-black" />
             </Button>
 
-            <h1 className='text-lg font-bold'>Montant du paiement 33,000 <sup className='mx-2'>FCFA</sup> 1ère tranche / 3</h1>
-            <p>Entrez juste votre numéro et payer en un click</p>
+            <h1 className="text-lg font-bold">
+              Montant du paiement 33,000 <sup className="mx-2">FCFA</sup> 1ère
+              tranche / 3
+            </h1>
+            <p>Entrez juste votre numéro et payer en un clic</p>
             <form onSubmit={handleSubmit} className="mt-4">
               <input
                 className="border border-[0.5] shadow-sm px-4 py-2 h-[30] rounded-sm mr-4 focus:border-none"
@@ -84,16 +93,34 @@ const UssdPage = () => {
 
             {isOrangeCameroon(phoneNumber) && (
               <a
-                href={`tel:${ussdCode}`}
+                href={`tel:${ussdOrangeCode}`}
                 className="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded"
               >
-                Exécuter le code USSD
+                Exécuter le code USSD (Orange)
               </a>
             )}
 
-            <p className='mt-8'>Vous pouvez éxécuter vous le code 
-              suivant pour éffectuer <br /> votre paiement<span className='text-md font-bold mx-4'> #150*14*357550*656784922*Montant#</span><br />
-              Le montant est celui de la formule que vous souhaitez payer 
+            {isMTNCameroun(phoneNumber) && (
+              <a
+                href={`tel:${ussdMTNCode}`}
+                className="mt-4 inline-block bg-yellow-500 text-white py-2 px-4 rounded"
+              >
+                Exécuter le code USSD (MTN)
+              </a>
+            )}
+
+            <p className="mt-8">
+              Paiement par Orange money
+              <span className="text-md font-bold mx-4">
+                <br />
+                #150*14*357550*656784922*Montant#
+              </span>
+              <br />
+              paiement MTN Momo <br />
+              <span className="text-md font-bold mx-4">
+                *126*14*679192659*Montant#
+              </span>
+              <br />
             </p>
           </div>
         </div>

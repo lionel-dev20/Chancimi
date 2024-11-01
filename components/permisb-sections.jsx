@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-
+ 
 export function PermisSectionsb() {
   return (
     <div className="flex flex-col min-h-screen">
