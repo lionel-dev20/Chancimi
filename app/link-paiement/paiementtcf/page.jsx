@@ -95,7 +95,7 @@ const UssdPage = () => {
                 href={`tel:${ussdOrangeCode}`}
                 className="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded"
               >
-                Valider le numéro (Orange)
+                Valider le numéro
               </a>
             )}
 
@@ -104,7 +104,7 @@ const UssdPage = () => {
                 href={`tel:${ussdMTNCode}`}
                 className="mt-4 inline-block bg-yellow-500 text-white py-2 px-4 rounded"
               >
-                Exécuter le code USSD (MTN)
+                Exécuter le code USSD 
               </a>
             )}
 
