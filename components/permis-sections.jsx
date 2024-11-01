@@ -1,6 +1,7 @@
 
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export function PermisSections() {
   return (
@@ -90,8 +91,12 @@ Formulaire d&apos;inscription dûment rempli
 <br/><br/>
 
 En résumé, le permis de catégorie A au Cameroun permet de conduire des motos et des véhicules motorisés à deux ou trois roues de différentes puissances. Il nécessite une formation à la fois théorique et pratique pour garantir la sécurité du conducteur et des autres usagers de la route.</p>
-                <Button className="text-md px-6 py-6 mb-20">Inscription en ligne bientôt disponible</Button>
-              </div>
+<Link href='/course_preview/preparation-examen-permis-b-french'>
+                <Button className="text-md px-6 py-6 mb-4 w-full sm:w-1/4 mr-8">Inscrivez-vous au cours en français</Button>
+                </Link>
+                 <Link href='/course_preview/preparation-for-b-license-exam-english'>
+                <Button className="text-md px-6 py-6 mb-20 w-full sm:w-1/4 bg-blue-500">Inscrivez-vous au cours en anglais</Button>
+                </Link>              </div>
             </div>
           </div>
         </section>
